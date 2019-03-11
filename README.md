@@ -1,5 +1,5 @@
 # Project ICRAF
-An Data pipeline for the ICRAF project.
+A Data pipeline for the ICRAF project.
 
 This pipeline fetches all project data from a Rapid Pro instance, and processes it to produce CSV files suitable
 for downstream analysis.
