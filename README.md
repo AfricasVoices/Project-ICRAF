@@ -39,18 +39,21 @@ The UUID table will be saved to a file in the directory `<data-root>/UUIDs`.
 Next, fetch all the raw data required by the pipeline from Rapid Pro by running the following command in 
 the `run_scripts` directory:
 
-`$ ./2_fetch_raw_data.sh <user> <rapid-pro-root> <rapid-pro-server> <rapid-pro-token> <data-root>`.
+`pipenv run python 2_fetch_raw_data.py <user> <avf-credentials-service-account-file-path> <pipeline-config-file-path> <rapid-pro-root> <data-root>`.
 
 where:
  - `user` is the identifier of the person running the script, for use in the TracedData Metadata 
-   e.g. `user@africasvoices.org`
- - `rapid-pro-root` is an absolute path to the directory to store a local clone of 
+   e.g. `user@africasvoices.org` 
+- `avf-credentials-service-account-file-path` is an absolute path to a json credentials file 
+    that grants one access download to textit token and other project files.
+- `pipeline-config-file-path ` is an absolute path to a json file containing textit url and
+   a google cloud link to a texit api key file.
+- `rapid-pro-root` is an absolute path to the directory to store a local clone of 
    [RapidProTools](https://github.com/AfricasVoices/RapidProTools) in.
    The RapidProTools project hosts the re-usable RapidPro data fetchers.
    The exact version required by this project is checked out automatically.
- - `rapid-pro-server` is the root address of the RapidPro server to retrieve data from e.g. `http://textit.in/`.
- - `rapid-pro-token` is the access token for this instance of RapidPro. The access token may be found by logging into 
-   RapidPro's web interface, then navigating to your organisation page (via the button in the top-right), then copying
-   the hexadecimal string given after "Your API Token is ..."
  - `data-root` is an absolute path to the directory in which all pipeline data should be stored.
-   Raw data will be saved to TracedData JSON files in `<data-root>/Raw Data`. 
+   Raw data will be saved to TracedData JSON files in `<data-root>/Raw Data`.
+
+
+ 
