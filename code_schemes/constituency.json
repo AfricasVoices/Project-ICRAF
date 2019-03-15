@@ -6,7 +6,7 @@
       {
         "CodeID": "code-bd610414",
         "CodeType": "Normal",
-        "DisplayText": "Mwea Constituency",
+        "DisplayText": "Mwea",
         "StringValue": "mwea",
         "NumericValue": 1,
         "VisibleInCoda": true,
@@ -17,7 +17,7 @@
       {
         "CodeID": "code-4e32405d",
         "CodeType": "Normal",
-        "DisplayText": "Gichugu Constituency",
+        "DisplayText": "Gichugu",
         "StringValue": "gichugu",
         "NumericValue": 2,
         "VisibleInCoda": true,
@@ -28,7 +28,7 @@
       {
         "CodeID": "code-963ec546",
         "CodeType": "Normal",
-        "DisplayText": "Ndia Constituency",
+        "DisplayText": "Ndia",
         "StringValue": "ndia",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -39,7 +39,7 @@
       {
         "CodeID": "code-c7ec0beb",
         "CodeType": "Normal",
-        "DisplayText": "Tetu Constituency",
+        "DisplayText": "Tetu",
         "StringValue": "tetu",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -50,7 +50,7 @@
       {
         "CodeID": "code-3d99a19d",
         "CodeType": "Normal",
-        "DisplayText": "Kieni Constituency",
+        "DisplayText": "Kieni",
         "StringValue": "kieni",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -61,7 +61,7 @@
       {
         "CodeID": "code-a54d1b36",
         "CodeType": "Normal",
-        "DisplayText": "Mathira Constituency",
+        "DisplayText": "Mathira",
         "StringValue": "mathira",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -72,7 +72,7 @@
       {
         "CodeID": "code-5935a561",
         "CodeType": "Normal",
-        "DisplayText": "Othaya Constituency",
+        "DisplayText": "Othaya",
         "StringValue": "othaya",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -83,7 +83,7 @@
       {
         "CodeID": "code-2ee84b27",
         "CodeType": "Normal",
-        "DisplayText": "Mukurweini Constituency",
+        "DisplayText": "Mukurweini",
         "StringValue": "mukurweini",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -94,7 +94,7 @@
       {
         "CodeID": "code-211b8756",
         "CodeType": "Normal",
-        "DisplayText": "Nyeri Town Constituency",
+        "DisplayText": "Nyeri Town",
         "StringValue": "nyeri",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -105,7 +105,7 @@
       {
         "CodeID": "code-2cdc1368",
         "CodeType": "Normal",
-        "DisplayText": "Kandara Constituency",
+        "DisplayText": "Kandara",
         "StringValue": "kandara",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -116,7 +116,7 @@
       {
         "CodeID": "code-287afcf3",
         "CodeType": "Normal",
-        "DisplayText": "Kangema Constituency",
+        "DisplayText": "Kangema",
         "StringValue": "kangema",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -127,7 +127,7 @@
       {
         "CodeID": "code-6dc55c8c",
         "CodeType": "Normal",
-        "DisplayText": "Kigumo Constituency",
+        "DisplayText": "Kigumo",
         "StringValue": "kigumo",
         "NumericValue": 3,
         "VisibleInCoda": true,
@@ -138,7 +138,7 @@
       {
         "CodeID": "code-44ca0731",
         "CodeType": "Normal",
-        "DisplayText": "Kiharu Constituency",
+        "DisplayText": "Kiharu",
         "StringValue": "kiharu",
         "NumericValue": 3,
         "VisibleInCoda": true,
