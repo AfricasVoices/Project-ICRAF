@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     SURVEYS = [
         "icraf_s01_demogs",
-        "icraf_s01_fus" # Follow up survey
+        "icraf_s01_follow_up_survey"
     ]
 
     TEST_CONTACTS_PATH = os.path.abspath("../configurations/test_contact_rapid_pro_ids.json")
