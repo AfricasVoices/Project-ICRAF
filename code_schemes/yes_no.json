@@ -1,8 +1,29 @@
 {
-    "SchemeID": "Scheme-9c7b500b",
-    "Name": "Upper Tana practises",
     "Version": "0.0.0.1",
-    "Codes": [
+    "Name": "Yes_No",
+    "SchemeID": "Scheme-3a84ce77",
+    "Codes": [{
+        "DisplayText": "Yes",
+        "VisibleInCoda": true,
+        "NumericValue": 0,
+        "CodeID": "code-c2e5bbe1",
+        "CodeType": "Normal",
+        "MatchValues": [
+          "yes"
+        ],
+        "StringValue": "yes"
+      },
+      {
+        "NumericValue": 1,
+        "CodeID": "code-0846e3c3",
+        "CodeType": "Normal",
+        "MatchValues": [
+          "no"
+        ],
+        "StringValue": "no",
+        "DisplayText": "No",
+        "VisibleInCoda": true
+      },
       {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
@@ -68,4 +89,3 @@
       }
     ]
   }
-  
