@@ -4,7 +4,6 @@ import os
 import subprocess
 from urllib.parse import urlparse
 from google.cloud import storage
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetches all the raw data for this project from Rapid Pro. "
                                                  "This script must be run from its parent directory.")
@@ -46,11 +45,11 @@ if __name__ == "__main__":
 
     TEST_CONTACTS_PATH = os.path.abspath("../configurations/test_contact_rapid_pro_ids.json")
 
-    # Read the settings from the configuration  file
+    # Read the settings from the configuration file
     with open(pipeline_configuration_file_path) as f:
         pipeline_config = json.load(f)
 
-        rapid_pro_base_url = pipeline_config["RapidProBaseURL"]
+        rapid_pro_domain = pipeline_config["RapidProDomain"]
         rapid_pro_token_file_url = pipeline_config["RapidProTokenFileURL"]
 
     # Download/checkout the appropriate version of RapidProTools
@@ -67,8 +66,8 @@ if __name__ == "__main__":
     print(f"Downloading Rapid Pro token from file '{blob_name}' in bucket '{bucket_name}'...")
     storage_client = storage.Client.from_service_account_json(google_cloud_credentials_file_path)
     credentials_bucket = storage_client.bucket(bucket_name)
-    credentials_file = credentials_bucket.blob(blob_name)
-    rapid_pro_token = credentials_file.download_as_string().strip()
+    credentials_blob = credentials_bucket.blob(blob_name)
+    rapid_pro_token = credentials_blob.download_as_string().strip()
     print("Downloaded Rapid Pro token.")
 
     # Download all the runs for each of the radio shows
@@ -80,7 +79,7 @@ if __name__ == "__main__":
             "./docker-run.sh",
             "--flow-name", show,
             "--test-contacts-path", TEST_CONTACTS_PATH,
-            rapid_pro_base_url,
+            rapid_pro_domain,
             rapid_pro_token,
             user,
             "all",
@@ -99,7 +98,7 @@ if __name__ == "__main__":
             "./docker-run.sh",
             "--flow-name", survey,
             "--test-contacts-path", TEST_CONTACTS_PATH,
-            rapid_pro_base_url,
+            rapid_pro_domain,
             rapid_pro_token,
             user,
             "latest-only",
