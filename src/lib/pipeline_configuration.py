@@ -1,4 +1,5 @@
 import json
+from urllib.parse import urlparse
 
 from core_data_modules.cleaners import swahili, Codes 
 from core_data_modules.data_models import Scheme, validators
@@ -22,10 +23,10 @@ class CodeSchemes(object):
     GENDER = _open_scheme("gender.json")
     CONSTITUENCY = _open_scheme("constituency.json")
     ORGANIZATIONS = _open_scheme("organizations.json")
-    CURRENT_PRACTICES = _open_scheme("current_practises.json")
-    NEW_PRACTICES = _open_scheme("new_practises.json")
+    CURRENT_PRACTICES = _open_scheme("current_practices.json")
+    NEW_PRACTICES = _open_scheme("new_practices.json")
     REASONS_FOR_NEW_PRACTICES = _open_scheme("reasons_for_new_practices.json")
-    UPPER_TANA_PRACTISES = _open_scheme("upper_tana_practises.json")
+    UPPER_TANA_PRACTISES = _open_scheme("upper_tana_practices.json")
     YES_NO = _open_scheme("yes_no.json")
 
     WS_CORRECT_DATASET = _open_scheme("ws_correct_dataset.json")
@@ -54,8 +55,8 @@ class CodingPlan(object):
 class PipelineConfiguration(object):  
     DEV_MODE = True
 
-    PROJECT_START_DATE = isoparse("")
-    PROJECT_END_DATE = isoparse("")
+    PROJECT_START_DATE = isoparse("2019-04-04T00:00:00+0300")
+    PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
     RQA_FA_CODING_PLANS = [
@@ -220,17 +221,20 @@ class PipelineConfiguration(object):
                     code_scheme=CodeSchemes.LIVELIHOOD),
     ]
     
-    def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_key_remappings):
+    def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_key_remappings,
+                drive_credentials_file_url):
         """
         Arguments:
             rapid_pro_domain {str} -- URL of the Rapid Pro server to download data from.
             rapid_pro_token_file_url {str} -- GS URL of a text file containing the authorisation token for the Rapid Pro
                                          server.
             rapid_pro_key_remappings {list} -- List of rapid_pro_key -> pipeline_key remappings.
+            drive_credentials_file_url {str} -- an absolute path to a json credentials file that grants one access to a google drive.
         """
         self.rapid_pro_domain = rapid_pro_domain
         self.rapid_pro_token_file_url = rapid_pro_token_file_url
         self.rapid_pro_key_remappings = rapid_pro_key_remappings
+        self.drive_credentials_file_url = drive_credentials_file_url
         
         self.validate()
 
@@ -243,8 +247,9 @@ class PipelineConfiguration(object):
         for remapping_dict in configuration_dict["RapidProKeyRemappings"]:
             rapid_pro_key_remappings.append(RapidProKeyRemapping.from_configuration_dict(remapping_dict))
 
-        return cls(rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_key_remappings)
+            drive_credentials_file_url = configuration_dict["DriveCredentialsFileURL"]
 
+        return cls(rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_key_remappings, drive_credentials_file_url)
     @classmethod
     def from_configuration_file(cls, f):
         return cls.from_configuration_dict(json.load(f))
@@ -257,8 +262,11 @@ class PipelineConfiguration(object):
         for i, remapping in enumerate(self.rapid_pro_key_remappings):
             assert isinstance(remapping, RapidProKeyRemapping), \
                 f"self.rapid_pro_key_mappings[{i}] is not of type RapidProKeyRemapping"
-                remapping.validate()
+            remapping.validate()
 
+        validators.validate_string(self.drive_credentials_file_url, "drive_credentials_file_url")
+        assert urlparse(self.drive_credentials_file_url).scheme == "gs", "DriveCredentialsFileURL needs to be a gs " \
+                                                                         "URL (i.e. of the form gs://bucket-name/file)"
 class RapidProKeyRemapping(object):
     def __init__(self, rapid_pro_key, pipeline_key):
         """
