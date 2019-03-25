@@ -31,14 +31,14 @@
     {"RapidProKey": "Current_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "current_practices_run_id"},
     {"RapidProKey": "New_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_run_id"},
     {"RapidProKey": "Organizations (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_run_id"},
-    {"RapidProKey": "Reasons_For_New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practice_reasons_run_id"},
-    {"RapidProKey": "Upper_Tana_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_run_id"},
+    {"RapidProKey": "Reasons_For_New_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "new_practice_reasons_run_id"},
+    {"RapidProKey": "Upper_Tana_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_run_id"},
     
     {"RapidProKey": "Current_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "current_practices_raw"},
     {"RapidProKey": "New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_raw"},
     {"RapidProKey": "Organizations (Value) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_raw"},
-    {"RapidProKey": "Reasons_For_New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practice_reasons_raw"},
-    {"RapidProKey": "Upper_Tana_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_reasons_raw"},
+    {"RapidProKey": "Reasons_For_New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_reasons_raw"},
+    {"RapidProKey": "Upper_Tana_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_raw"},
 
     {"RapidProKey": "Current_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "current_practices_time"},
     {"RapidProKey": "New_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_time"},
