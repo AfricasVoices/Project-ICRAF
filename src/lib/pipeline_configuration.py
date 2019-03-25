@@ -55,11 +55,11 @@ class CodingPlan(object):
 class PipelineConfiguration(object):  
     DEV_MODE = True
 
-    PROJECT_START_DATE = isoparse("2019-04-04T00:00:00+0300")
+    PROJECT_START_DATE = isoparse("2019-02-04T00:00:00+0300")
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
-    RQA_FA_CODING_PLANS = [
+    RQA_FOLLOW_UP_CODING_PLANS = [
         CodingPlan(raw_field="rqa_s01e01_raw",
                     coded_field="rqa_so1e01_coded",
                     time_field="sent_on",
@@ -136,6 +136,8 @@ class PipelineConfiguration(object):
                     coded_field="current_practices_coded",
                     time_field="current_practices_time",
                     coda_filename="current_practices.json",
+                    icr_filename="current_practices_icr.csv",
+                    run_id_field="current_practices_run_id",
                     analysis_file_key="current_practices_",
                     cleaner=None,
                     code_scheme=CodeSchemes.CURRENT_PRACTICES),
@@ -144,6 +146,8 @@ class PipelineConfiguration(object):
                     coded_field="upper_tana_practices_coded",
                     time_field="upper_tana_practices_time",
                     coda_filename="upper_tana_practices.json",
+                    icr_filename="upper_tana_practices_icr.csv",
+                    run_id_field="upper_tana_practices_run_id",
                     analysis_file_key="upper_tana_practices_",
                     cleaner=None,
                     code_scheme=CodeSchemes.UPPER_TANA_PRACTISES),
@@ -152,6 +156,8 @@ class PipelineConfiguration(object):
                     coded_field="new_practices_coded",
                     time_field="new_practices_time",
                     coda_filename="new_practices.json",
+                    icr_filename="new_practices_icr.csv",
+                    run_id_field="new_practices_run_id",
                     analysis_file_key="new_practices_",
                     cleaner=None,
                     code_scheme=CodeSchemes.NEW_PRACTICES),
@@ -160,6 +166,8 @@ class PipelineConfiguration(object):
                     coded_field="new_practices_reasons_coded",
                     time_field="new_practices_reasons_time",
                     coda_filename="new_practices_reasons.json",
+                    icr_filename="new_practice_reasons_icr.csv",
+                    run_id_field="new_practice_reasons_run_id",
                     analysis_file_key="new_practices_reasons_",
                     cleaner=None,
                     code_scheme=CodeSchemes.REASONS_FOR_NEW_PRACTICES),
@@ -168,6 +176,8 @@ class PipelineConfiguration(object):
                     coded_field="organizations_coded",
                     time_field="organizations_time",
                     coda_filename="organizations.json",
+                    icr_filename="organizations_icr.csv",
+                    run_id_field="organizations_run_id",
                     analysis_file_key="organizations_reasons_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ORGANIZATIONS),
