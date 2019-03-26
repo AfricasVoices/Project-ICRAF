@@ -1,0 +1,214 @@
+{
+    "SchemeID": "Scheme-4c5b955d",
+    "Name": "Constituency",
+    "Version": "0.0.0.1",
+    "Codes": [
+      {
+        "CodeID": "code-bd610414",
+        "CodeType": "Normal",
+        "DisplayText": "Mwea",
+        "StringValue": "mwea",
+        "NumericValue": 1,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "mwea"
+        ]
+      },
+      {
+        "CodeID": "code-4e32405d",
+        "CodeType": "Normal",
+        "DisplayText": "Gichugu",
+        "StringValue": "gichugu",
+        "NumericValue": 2,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "gichugu"
+        ]
+      },
+      {
+        "CodeID": "code-963ec546",
+        "CodeType": "Normal",
+        "DisplayText": "Ndia",
+        "StringValue": "ndia",
+        "NumericValue": 3,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "ndia"
+        ]
+      },
+      {
+        "CodeID": "code-c7ec0beb",
+        "CodeType": "Normal",
+        "DisplayText": "Tetu",
+        "StringValue": "tetu",
+        "NumericValue": 4,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "tetu"
+        ]
+      },
+      {
+        "CodeID": "code-3d99a19d",
+        "CodeType": "Normal",
+        "DisplayText": "Kieni",
+        "StringValue": "kieni",
+        "NumericValue": 5,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "kieni"
+        ]
+      },
+      {
+        "CodeID": "code-a54d1b36",
+        "CodeType": "Normal",
+        "DisplayText": "Mathira",
+        "StringValue": "mathira",
+        "NumericValue": 6,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "mathira"
+        ]
+      },
+      {
+        "CodeID": "code-5935a561",
+        "CodeType": "Normal",
+        "DisplayText": "Othaya",
+        "StringValue": "othaya",
+        "NumericValue": 7,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "othaya"
+        ]
+      },
+      {
+        "CodeID": "code-2ee84b27",
+        "CodeType": "Normal",
+        "DisplayText": "Mukurweini",
+        "StringValue": "mukurweini",
+        "NumericValue": 8,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "mukurweini"
+        ]
+      },
+      {
+        "CodeID": "code-211b8756",
+        "CodeType": "Normal",
+        "DisplayText": "Nyeri Town",
+        "StringValue": "nyeri",
+        "NumericValue": 9,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "nyeri"
+        ]
+      },
+      {
+        "CodeID": "code-2cdc1368",
+        "CodeType": "Normal",
+        "DisplayText": "Kandara",
+        "StringValue": "kandara",
+        "NumericValue": 10,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "kandara"
+        ]
+      },
+      {
+        "CodeID": "code-287afcf3",
+        "CodeType": "Normal",
+        "DisplayText": "Kangema",
+        "StringValue": "kangema",
+        "NumericValue": 11,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "kangema"
+        ]
+      },
+      {
+        "CodeID": "code-6dc55c8c",
+        "CodeType": "Normal",
+        "DisplayText": "Kigumo",
+        "StringValue": "kigumo",
+        "NumericValue": 12,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "kigumo"
+        ]
+      },
+      {
+        "CodeID": "code-44ca0731",
+        "CodeType": "Normal",
+        "DisplayText": "Kiharu",
+        "StringValue": "kiharu",
+        "NumericValue": 13,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "kiharu"
+        ]
+      },
+      {
+        "CodeID": "code-NA-f93d3eb7",
+        "CodeType": "Control",
+        "ControlCode": "NA",
+        "DisplayText": "NA (missing)",
+        "NumericValue": -10,
+        "StringValue": "NA",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-NS-2c11b7c9",
+        "CodeType": "Control",
+        "ControlCode": "NS",
+        "DisplayText": "NS (skip)",
+        "NumericValue": -20,
+        "StringValue": "NS",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-NC-42f1d983",
+        "CodeType": "Control",
+        "ControlCode": "NC",
+        "DisplayText": "NC (not coded)",
+        "NumericValue": -30,
+        "StringValue": "NC",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-NR-5e3eee23",
+        "CodeType": "Control",
+        "ControlCode": "NR",
+        "DisplayText": "NR (not reviewed)",
+        "NumericValue": -40,
+        "StringValue": "NR",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-NIC-99631cb8",
+        "CodeType": "Control",
+        "ControlCode": "NIC",
+        "DisplayText": "NIC (not internally consistent)",
+        "NumericValue": -50,
+        "StringValue": "NIC",
+        "VisibleInCoda": false
+      },
+      {
+        "CodeID": "code-STOP-08b832a8",
+        "CodeType": "Control",
+        "ControlCode": "STOP",
+        "DisplayText": "STOP",
+        "NumericValue": -90,
+        "StringValue": "STOP",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-WS-adb25603b7af",
+        "CodeType": "Control",
+        "ControlCode": "WS",
+        "DisplayText": "WS (wrong scheme)",
+        "NumericValue": -100,
+        "StringValue": "WS",
+        "VisibleInCoda": true
+      }   
+    ]
+  }
+  
