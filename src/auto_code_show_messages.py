@@ -5,7 +5,7 @@ from os import path
 from core_data_modules.cleaners import Codes 
 from core_data_modules.traced_data import Metadata
 from core_data_modules.traced_data.io import TracedDataCSVIO, TracedDataCodaV2IO
-from  core_data_modules.util import IOUtils
+from core_data_modules.util import IOUtils
 
 from src.lib import PipelineConfiguration, MessageFilters, ICRTools
 from src.lib.channels import Channels
