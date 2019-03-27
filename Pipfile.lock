@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a3a672345737106dcccd022603a0441600d646d388fa5312d5c861b94df14f53"
+            "sha256": "de3f9432e7874142bedd35502d4cad0ce1827c31321b20a13c2348b88b568acb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,7 +46,7 @@
         "coredatamodules": {
             "editable": true,
             "git": "https://www.github.com/AfricasVoices/CoreDataModules",
-            "ref": "a17f4c9f2ab8e2621085536157122db03abbf5e6"
+            "ref": "2986e313892544855802c16d929db5f376dff3a1"
         },
         "deprecation": {
             "hashes": [
@@ -66,11 +66,11 @@
                 "grpc"
             ],
             "hashes": [
-                "sha256:25e20c24395439dffcdb6e364cc6adb9b28a9e28d516ef5a51b9266ae0894a44",
-                "sha256:b1fce5000657dfa4d2ed3a7c94addf9c74fc3e632c7b0e8611b0e8519d1e610a"
+                "sha256:16b14c0492154110d869a08be22d27440010057fd826205303c7edaa1c3cd71e",
+                "sha256:9f8ef10c924d8a9f50d9156eea7cd779929f27aa23b855ad0abe05424553b66f"
             ],
             "markers": "platform_python_implementation != 'PyPy'",
-            "version": "==1.8.1"
+            "version": "==1.8.2"
         },
         "google-api-python-client": {
             "hashes": [
@@ -125,9 +125,9 @@
         },
         "googleapis-common-protos": {
             "hashes": [
-                "sha256:d56ca712f67fff216d3be9eeeb8360ca59066d0365ba70b137b9e1801813747e"
+                "sha256:627ec53fab43d06c1b5c950e217fa9819e169daf753111a7f244e94bf8fb3384"
             ],
-            "version": "==1.5.8"
+            "version": "==1.5.9"
         },
         "grpcio": {
             "hashes": [
