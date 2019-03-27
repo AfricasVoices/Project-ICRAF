@@ -48,7 +48,7 @@
         "CodeType": "Normal",
         "DisplayText": "icraf_s01e02",
         "StringValue": "icraf_s01e02",
-        "NumericValue": 5,
+        "NumericValue": 6,
         "VisibleInCoda": true
       },
       {
@@ -56,7 +56,7 @@
         "CodeType": "Normal",
         "DisplayText": "icraf_s01e03",
         "StringValue": "icraf_s01e03",
-        "NumericValue": 5,
+        "NumericValue": 7,
         "VisibleInCoda": true
       },
       {
@@ -64,7 +64,7 @@
         "CodeType": "Normal",
         "DisplayText": "icraf_s01e04",
         "StringValue": "icraf_s01e04",
-        "NumericValue": 5,
+        "NumericValue": 8,
         "VisibleInCoda": true
       },
       {
@@ -72,7 +72,7 @@
         "CodeType": "Normal",
         "DisplayText": "icraf_s01e05",
         "StringValue": "icraf_s01e05",
-        "NumericValue": 5,
+        "NumericValue": 9,
         "VisibleInCoda": true
       },
       {
@@ -80,18 +80,49 @@
         "CodeType": "Normal",
         "DisplayText": "icraf_s01e06",
         "StringValue": "icraf_s01e06",
-        "NumericValue": 5,
+        "NumericValue": 10,
         "VisibleInCoda": true
       },
       {
         "CodeID": "code-bf39d58c",
         "CodeType": "Normal",
-        "DisplayText": "icraf_s01_fus", 
-        "StringValue": "icraf_s01_fus",
-        "NumericValue": 5,
+        "DisplayText": "current_practices", 
+        "StringValue": "current_practices",
+        "NumericValue": 11,
         "VisibleInCoda": true
       },
-
+      {
+        "CodeID": "code-bf39d58c",
+        "CodeType": "Normal",
+        "DisplayText": "new_practices", 
+        "StringValue": "new_practices",
+        "NumericValue": 12,
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-bf39d58c",
+        "CodeType": "Normal",
+        "DisplayText": "new practices reasons", 
+        "StringValue": "new_practices_reasons",
+        "NumericValue": 13,
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-bf39d58c",
+        "CodeType": "Normal",
+        "DisplayText": "upper tana practices", 
+        "StringValue": "upper_tana_practices",
+        "NumericValue": 14,
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-bf39d58c",
+        "CodeType": "Normal",
+        "DisplayText": "organizations", 
+        "StringValue": "organizations",
+        "NumericValue": 15,
+        "VisibleInCoda": true
+      },
       {
         "CodeID": "code-NR-5e3eee23",
         "CodeType": "Control",

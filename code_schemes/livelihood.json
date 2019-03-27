@@ -29,7 +29,7 @@
         "CodeID": "code-7e1dd056",
         "CodeType": "Normal",
         "DisplayText": "nurse",
-        "NumericValue": 2,
+        "NumericValue": 3,
         "StringValue" : "nurse",
         "VisibleInCoda": true,
         "MatchValues" : [
@@ -40,7 +40,7 @@
         "CodeID": "code-89d770f8",
         "CodeType": "Normal",
         "DisplayText": "teacher",
-        "NumericValue": 2,
+        "NumericValue": 4,
         "StringValue" : "teacher",
         "VisibleInCoda": true,
         "MatchValues" : [
@@ -51,7 +51,7 @@
         "CodeID": "code-89d770f8",
         "CodeType": "Normal",
         "DisplayText": "pastor",
-        "NumericValue": 2,
+        "NumericValue": 5,
         "StringValue" : "pastor",
         "VisibleInCoda": true,
         "MatchValues" : [
@@ -62,7 +62,7 @@
         "CodeID": "code-89d770f8",
         "CodeType": "Normal",
         "DisplayText": "employment",
-        "NumericValue": 2,
+        "NumericValue": 6,
         "StringValue" : "employment",
         "VisibleInCoda": true,
         "MatchValues" : [
