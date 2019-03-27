@@ -49,19 +49,19 @@ class AutoCodeShowMessages(object):
             # Output messages for ICR
             IOUtils.ensure_dirs_exist(icr_output_dir)
             for plan in PipelineConfiguration.RQA_FOLLOW_UP_CODING_PLANS:
-                rqa_messages = []
+                rqa_follow_up_messages = []
                 # This test works because the only codes which have been applied at this point are TRUE_MISSING.
                 # If any other coding is done above, this test will need to change
                 for td in data:
                     if plan.coded_field not in td:
-                        rqa_messages.append(td)
+                        rqa_follow_up_messages.append(td)
                     else:
                         assert len(td[plan.coded_field]) == 1
                         assert td[plan.coded_field][0]["CodeID"] == \
                             plan.code_scheme.get_code_with_control_code(Codes.TRUE_MISSING).code_id
 
                     icr_messages = ICRTools.generate_sample_for_icr(
-                        rqa_messages, cls.ICR_MESSAGES_COUNT, random.Random(cls.ICR_SEED))
+                        rqa_follow_up_messages, cls.ICR_MESSAGES_COUNT, random.Random(cls.ICR_SEED))
                     
                     icr_output_path = path.join(icr_output_dir, plan.icr_filename)
                     with open(icr_output_path, "w") as f:
