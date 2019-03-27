@@ -1,5 +1,6 @@
 import time
 from os import path
+import sys
 
 from core_data_modules.cleaners import Codes
 from core_data_modules.cleaners.cleaning_utils import CleaningUtils
@@ -32,27 +33,27 @@ class ApplyManualCodes(object):
             finally:
                 if f is not None:
                     f.close()
-            
-            # Label the weeks for which there is no response yet as TRUE MISSING
-            for td in data:
-                missing_dict = dict()
-                for plan in PipelineConfiguration.RQA_FOLLOW_UP_CODING_PLANS:
-                    if plan.raw_field not in td:
+        
+        # Label the weeks for which there is no response yet as TRUE MISSING
+        for td in data:
+            missing_dict = dict()
+            for plan in PipelineConfiguration.RQA_FOLLOW_UP_CODING_PLANS:
+                if plan.raw_field not in td:
+                    na_label = CleaningUtils.make_label_from_cleaner_code(
+                        plan.code_scheme, plan.code_scheme.get_code_with_control_code(Codes.TRUE_MISSING),
+                        Metadata.get_call_location()
+                    )
+                    missing_dict[plan.coded_field] = [na_label.to_dict()]
+
+                    if plan.binary_code_scheme is not None:
                         na_label = CleaningUtils.make_label_from_cleaner_code(
-                            plan.code_scheme, plan.code_scheme.get_code_with_control_code(Codes.TRUE_MISSING),
+                            plan.binary_code_scheme, plan.binary_code_scheme.get_code_with_control_code(Codes.TRUE_MISSING),
                             Metadata.get_call_location()
                         )
-                        missing_dict[plan.coded_field] = [na_label.to_dict()]
+                        missing_dict[plan.binary_coded_field] = na_label.to_dict()
 
-                        if plan.binary_code_scheme is not None:
-                            na_label = CleaningUtils.make_label_from_cleaner_code(
-                                plan.binary_code_scheme, plan.binary_code_scheme.get_code_with_control_code(Codes.TRUE_MISSING),
-                                Metadata.get_call_location()
-                            )
-                            missing_dict[plan.binary_coded_field] = na_label.to_dict()
-
-                td.append_data(missing_dict, Metadata(user, Metadata.get_call_location(), time.time()))
-        
+            td.append_data(missing_dict, Metadata(user, Metadata.get_call_location(), time.time()))
+            
         # Synchronise the control codes between the binary and reasons schemes:
         # Some RQA datasets have a binary scheme, which is always labelled, and a reasons scheme, which is only labelled
         # if there is an additional reason given. Importing those two schemes separately above caused the labels in
@@ -101,6 +102,9 @@ class ApplyManualCodes(object):
                             )
         
         # Merge manually coded demog files into the cleaned dataset
+        # Recursion depth currently overflowing
+        # TODO: Investigate/address the cause of this.
+        sys.setrecursionlimit(10000)
         for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
             f = None
             try:
@@ -112,7 +116,7 @@ class ApplyManualCodes(object):
             finally:
                 if f is not None:
                     f.close()
-
+    
         # Not everyone will have answered all of the demographic flows.
         # Label demographic questions which had no responses as TRUE_MISSING.
         # Label data which is just the empty string as NOT_CODED.
@@ -132,5 +136,5 @@ class ApplyManualCodes(object):
                     )
                     missing_dict[plan.coded_field] = nc_label.to_dict()
             td.append_data(missing_dict, Metadata(user, Metadata.get_call_location(), time.time()))
-
+        
         return data
