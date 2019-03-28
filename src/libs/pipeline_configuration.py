@@ -24,9 +24,12 @@ class CodeSchemes(object):
     ORGANIZATIONS = _open_scheme("organizations.json")
     CURRENT_PRACTICES = _open_scheme("current_practises.json")
     NEW_PRACTICES = _open_scheme("new_practises.json")
-    REASONS_FOR_NEW_PRACTICES = _open_scheme("reasons_for_new_practices.json")
+    NEW_PRACTICES_CHALLENGES = _open_scheme("new_practices_challenges.json")
     UPPER_TANA_PRACTISES = _open_scheme("upper_tana_practises.json")
-    YES_NO = _open_scheme("yes_no.json")
+    SO1EO1_YES_NO = _open_scheme("sO1eO1_yes_no.json")
+    SO1EO2_YES_NO = _open_scheme("sO1eO2_yes_no.json")
+    SO1EO3_YES_NO = _open_scheme("sO1eO3_yes_no.json")
+    SO1EO5_YES_NO = _open_scheme("sO1eO5_yes_no.json")
 
     WS_CORRECT_DATASET = _open_scheme("ws_correct_dataset.json")
 
@@ -68,7 +71,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e01_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E01,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO1_YES_NO,
                     binary_coded_field="rqa_s01e01_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e01_yes_no"),
         
@@ -81,7 +84,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e02_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E02,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO2_YES_NO,
                     binary_coded_field="rqa_s01e02_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e02_yes_no"),
 
@@ -94,7 +97,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e03_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E03,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO3_YES_NO,
                     binary_coded_field="rqa_s01e03_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e03_yes_no"),
 
@@ -117,7 +120,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e05_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E05,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO5_YES_NO,
                     binary_coded_field="rqa_s01e05_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e05_yes_no"),
         
@@ -155,13 +158,13 @@ class PipelineConfiguration(object):
                     cleaner=None,
                     code_scheme=CodeSchemes.NEW_PRACTICES),
         
-        CodingPlan(raw_field="new_practices_reasons_raw",
-                    coded_field="new_practices_reasons_coded",
-                    time_field="new_practices_reasons_time",
-                    coda_filename="new_practices_reasons.json",
-                    analysis_file_key="new_practices_reasons_",
+        CodingPlan(raw_field="new_practices_challenge_raw",
+                    coded_field="new_practices_challenge_coded",
+                    time_field="new_practices_challenge_time",
+                    coda_filename="new_practices_challenges.json",
+                    analysis_file_key="new_practices_challenge_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.REASONS_FOR_NEW_PRACTICES),
+                    code_scheme=CodeSchemes.NEW_PRACTICES_CHALLENGES),
 
         CodingPlan(raw_field="organizations_raw",
                     coded_field="organizations_coded",
