@@ -23,6 +23,7 @@ class CodeSchemes(object):
     GENDER = _open_scheme("gender.json")
     CONSTITUENCY = _open_scheme("constituency.json")
     ORGANIZATIONS = _open_scheme("organizations.json")
+
     CURRENT_PRACTICES = _open_scheme("current_practices.json")
     NEW_PRACTICES = _open_scheme("new_practices.json")
     NEW_PRACTICES_CHALLENGES = _open_scheme("new_practices_challenges.json")
@@ -265,7 +266,6 @@ class PipelineConfiguration(object):
         rapid_pro_domain = configuration_dict["RapidProDomain"]
         rapid_pro_token_file_url = configuration_dict["RapidProTokenFileURL"]
         rapid_pro_test_contact_uuids = configuration_dict["RapidProTestContactUUIDs"]
-
         rapid_pro_key_remappings = []
         for remapping_dict in configuration_dict["RapidProKeyRemappings"]:
             rapid_pro_key_remappings.append(RapidProKeyRemapping.from_configuration_dict(remapping_dict))
@@ -311,7 +311,6 @@ class RapidProKeyRemapping(object):
         """
         self.rapid_pro_key = rapid_pro_key
         self.pipeline_key = pipeline_key
-        
         self.validate()
 
     @classmethod

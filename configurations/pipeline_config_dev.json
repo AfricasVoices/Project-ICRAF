@@ -1,0 +1,55 @@
+{
+  "RapidProDomain": "textit.in",
+  "RapidProTokenFileURL": "gs://avf-credentials/icraf-text-it-token.txt",
+  "RapidProTestContactUUIDs":[
+    "2393744c-eb4f-465f-b65c-9c495f6c2b32",
+    "934e5865-4a7a-41b5-a76f-6ebb54d6810e",
+    "2fec9395-c81a-4e64-b468-a6c6ac8b111f"
+    ],
+  "RapidProKeyRemappings": [
+    {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
+
+    {"RapidProKey": "Rqa_S01_E01 (Run ID) - icraf_s01_e01_activation", "PipelineKey": "rqa_s01e01_run_id"},
+    {"RapidProKey": "Rqa_S01_E02 (Run ID) - icraf_s01_e02_activation", "PipelineKey": "rqa_s01e02_run_id"},
+    {"RapidProKey": "Rqa_S01_E03 (Run ID) - icraf_s01_e03_activation", "PipelineKey": "rqa_s01e03_run_id"},
+    {"RapidProKey": "Rqa_S01_E04 (Run ID) - icraf_s01_e04_activation", "PipelineKey": "rqa_s01e04_run_id"},
+    {"RapidProKey": "Rqa_S01_E05 (Run ID) - icraf_s01_e05_activation", "PipelineKey": "rqa_s01e05_run_id"},
+    {"RapidProKey": "Rqa_S01_E06 (Run ID) - icraf_s01_e06_activation", "PipelineKey": "rqa_s01e06_run_id"},
+
+    {"RapidProKey": "Rqa_S01_E01 (Time) - icraf_s01_e01_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01_E02 (Time) - icraf_s01_e02_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01_E03 (Time) - icraf_s01_e03_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01_E04 (Time) - icraf_s01_e04_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01_E05 (Time) - icraf_s01_e05_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01_E06 (Time) - icraf_s01_e06_activation", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Gender (Value) - icraf_s01_demogs", "PipelineKey": "gender_raw"},
+    {"RapidProKey": "Age (Value) - icraf_s01_demogs", "PipelineKey": "age_raw"},
+    {"RapidProKey": "Constituency (Value) - icraf_s01_demogs", "PipelineKey": "constituency_raw"},
+    {"RapidProKey": "Livelihood (Value) - icraf_s01_demogs", "PipelineKey": "livelihood_raw"},
+
+    {"RapidProKey": "Gender (Time) - icraf_s01_demogs", "PipelineKey": "gender_time"},
+    {"RapidProKey": "Age (Time) - icraf_s01_demogs", "PipelineKey": "age_time"},
+    {"RapidProKey": "Constituency (Time) - icraf_s01_demogs", "PipelineKey": "constituency_time"},
+    {"RapidProKey": "Livelihood (Time) - icraf_s01_demogs", "PipelineKey": "livelihood_time"},
+    
+    {"RapidProKey": "Current_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "current_practices_raw"},
+    {"RapidProKey": "New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_raw"},
+    {"RapidProKey": "Organizations (Value) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_raw"},
+    {"RapidProKey": "Reasons_For_New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_challenge_raw"},
+    {"RapidProKey": "Upper_Tana_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_raw"},
+
+    {"RapidProKey": "Current_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "current_practices_time"},
+    {"RapidProKey": "New_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_time"},
+    {"RapidProKey": "Organizations (Time) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_time"},
+    {"RapidProKey": "Reasons_For_New_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "new_practice_challenge_time"},
+    {"RapidProKey": "Upper_Tana_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_time"}
+  ],
+  "DriveUpload": {
+  "DriveCredentialsFileURL": "gs://avf-credentials/pipeline-runner-service-acct-avf-data-core-64cc71459fe7.json",
+  "ProductionUploadPath": "icraf_test_upload/icraf_s01_production.csv",
+  "MessagesUploadPath": "icraf_test_upload/icraf_s01_messages.csv",
+  "IndividualsUploadPath": "icraf_test_upload/icraf_s01_individual.csv",
+  "TracedDataUploadPath": "icraf_test_upload/icraf_s01_traced_data.json"
+  }  
+}  

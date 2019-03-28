@@ -26,7 +26,6 @@ class TranslateRapidProKeys(object):
 
     @classmethod
     def set_show_ids(cls, user, data, show_id_map):
-
         """
         Sets a show_id for each message, using the presence of Rapid Pro value keys to determine which show each message
         belongs to.
