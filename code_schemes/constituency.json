@@ -41,7 +41,7 @@
         "CodeType": "Normal",
         "DisplayText": "Tetu",
         "StringValue": "tetu",
-        "NumericValue": 3,
+        "NumericValue": 4,
         "VisibleInCoda": true,
         "MatchValues": [
           "tetu"
@@ -52,7 +52,7 @@
         "CodeType": "Normal",
         "DisplayText": "Kieni",
         "StringValue": "kieni",
-        "NumericValue": 3,
+        "NumericValue": 5,
         "VisibleInCoda": true,
         "MatchValues": [
           "kieni"
@@ -63,7 +63,7 @@
         "CodeType": "Normal",
         "DisplayText": "Mathira",
         "StringValue": "mathira",
-        "NumericValue": 3,
+        "NumericValue": 6,
         "VisibleInCoda": true,
         "MatchValues": [
           "mathira"
@@ -74,7 +74,7 @@
         "CodeType": "Normal",
         "DisplayText": "Othaya",
         "StringValue": "othaya",
-        "NumericValue": 3,
+        "NumericValue": 7,
         "VisibleInCoda": true,
         "MatchValues": [
           "othaya"
@@ -85,7 +85,7 @@
         "CodeType": "Normal",
         "DisplayText": "Mukurweini",
         "StringValue": "mukurweini",
-        "NumericValue": 3,
+        "NumericValue": 8,
         "VisibleInCoda": true,
         "MatchValues": [
           "mukurweini"
@@ -96,7 +96,7 @@
         "CodeType": "Normal",
         "DisplayText": "Nyeri Town",
         "StringValue": "nyeri",
-        "NumericValue": 3,
+        "NumericValue": 9,
         "VisibleInCoda": true,
         "MatchValues": [
           "nyeri"
@@ -107,7 +107,7 @@
         "CodeType": "Normal",
         "DisplayText": "Kandara",
         "StringValue": "kandara",
-        "NumericValue": 3,
+        "NumericValue": 10,
         "VisibleInCoda": true,
         "MatchValues": [
           "kandara"
@@ -118,7 +118,7 @@
         "CodeType": "Normal",
         "DisplayText": "Kangema",
         "StringValue": "kangema",
-        "NumericValue": 3,
+        "NumericValue": 11,
         "VisibleInCoda": true,
         "MatchValues": [
           "kangema"
@@ -129,7 +129,7 @@
         "CodeType": "Normal",
         "DisplayText": "Kigumo",
         "StringValue": "kigumo",
-        "NumericValue": 3,
+        "NumericValue": 12,
         "VisibleInCoda": true,
         "MatchValues": [
           "kigumo"
@@ -140,7 +140,7 @@
         "CodeType": "Normal",
         "DisplayText": "Kiharu",
         "StringValue": "kiharu",
-        "NumericValue": 3,
+        "NumericValue": 13,
         "VisibleInCoda": true,
         "MatchValues": [
           "kiharu"
