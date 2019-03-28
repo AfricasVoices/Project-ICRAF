@@ -8,7 +8,7 @@ from core_data_modules.util import PhoneNumberUuidTable, IOUtils
 from google.cloud import storage
 from storage.google_drive import drive_client_wrapper
 
-from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, ProductionFile, AutoCodeSurveys
+from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, ProductionFile, AutoCodeSurveys, ApplyManualCodes
 from src.lib import PipelineConfiguration
 
 if __name__ == "__main__":
@@ -175,6 +175,9 @@ if __name__ == "__main__":
 
      print("Auto Coding Surveys...")
      data = AutoCodeSurveys.auto_code_surveys(user, data, phone_number_uuid_table, coded_dir_path)
+
+     print("Applying manual codes...")
+     data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
      
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)

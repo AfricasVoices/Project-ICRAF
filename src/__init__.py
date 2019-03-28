@@ -3,5 +3,5 @@ from .translate_rapid_pro_keys import TranslateRapidProKeys
 from .auto_code_show_messages import AutoCodeShowMessages
 from .auto_code_surveys import AutoCodeSurveys
 from .production_file import ProductionFile
-
+from .apply_manual_codes import ApplyManualCodes
 
