@@ -1,7 +1,6 @@
 import argparse
 import json
 import os
-import random
 from urllib.parse import urlparse
 
 from core_data_modules.traced_data.io import TracedDataJsonIO
@@ -125,12 +124,27 @@ if __name__ == "__main__":
      with open(pipeline_configuration_file_path) as f:
           pipeline_configuration = PipelineConfiguration.from_configuration_file(f)
 
+     if pipeline_configuration.drive_upload is not None:
+          # Fetch the Rapid Pro Token from the Google Cloud Storage URL
+          parsed_rapid_pro_token_file_url = urlparse(pipeline_configuration.drive_upload.drive_credentials_file_url)
+          bucket_name = parsed_rapid_pro_token_file_url.netloc
+          blob_name = parsed_rapid_pro_token_file_url.path.lstrip("/")
+
+          print(f"Downloading Drive service account credentials from file '{blob_name}' in bucket '{bucket_name}'...")
+          storage_client = storage.Client.from_service_account_json(google_cloud_credentials_file_path)
+          credentials_bucket = storage_client.bucket(bucket_name)
+          credentials_blob = credentials_bucket.blob(blob_name)
+          credentials_info = json.loads(credentials_blob.download_as_string())
+          print("Downloaded Drive service account credentials")
+
+          drive_client_wrapper.init_client_from_info(credentials_info)
+
      # Load phone number <-> UUID table
      print("Loading Phone Number <-> UUID Table...")
      with open(phone_number_uuid_table_path, "r") as f:
           phone_number_uuid_table = PhoneNumberUuidTable.load(f)
      
-          # Load messages
+     # Load messages
      messages_datasets = []
      for i, path in enumerate(message_paths):
           print("Loading Episode {}/{}...".format(i + 1, len(message_paths)))
@@ -171,41 +185,34 @@ if __name__ == "__main__":
      # Note: This should happen as late as possible in order to reduce the risk of the remainder of the pipeline failing
      # after a Drive upload has occurred. Failures could result in inconsistent outputs or outputs with no
      # traced data log.
-     if drive_upload:
+     if pipeline_configuration.drive_upload is not None:
           print("Uploading CSVs to Google Drive...")
 
-          # Fetch the Rapid Pro Token from the Google Cloud Storage URL
-          parsed_rapid_pro_token_file_url = urlparse(pipeline_configuration.drive_credentials_file_url)
-          bucket_name = parsed_rapid_pro_token_file_url.netloc
-          blob_name = parsed_rapid_pro_token_file_url.path.lstrip("/")
-
-          print(f"Downloading Drive service account credentials from file '{blob_name}' in bucket '{bucket_name}'...")
-          storage_client = storage.Client.from_service_account_json(google_cloud_credentials_file_path)
-          credentials_bucket = storage_client.bucket(bucket_name)
-          credentials_blob = credentials_bucket.blob(blob_name)
-          credentials_info = json.loads(credentials_blob.download_as_string())
-          print("Downloaded Drive service account credentials")
-
-          drive_client_wrapper.init_client_from_info(credentials_info)
-          
-          csv_by_message_drive_dir = os.path.dirname(csv_by_message_drive_path)
-          csv_by_message_drive_file_name = os.path.basename(csv_by_message_drive_path)
-          drive_client_wrapper.update_or_create(csv_by_message_output_path, csv_by_message_drive_dir,
-                                                  target_file_name=csv_by_message_drive_file_name,
-                                                  target_folder_is_shared_with_me=True)
-
-          csv_by_individual_drive_dir = os.path.dirname(csv_by_individual_drive_path)
-          csv_by_individual_drive_file_name = os.path.basename(csv_by_individual_drive_path)
-          drive_client_wrapper.update_or_create(csv_by_individual_output_path, csv_by_individual_drive_dir,
-                                                  target_file_name=csv_by_individual_drive_file_name,
-                                                  target_folder_is_shared_with_me=True)
-
-          production_csv_drive_dir = os.path.dirname(production_csv_drive_path)
-          production_csv_drive_file_name = os.path.basename(production_csv_drive_path)
+          production_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.production_upload_path)
+          production_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.production_upload_path)
           drive_client_wrapper.update_or_create(production_csv_output_path, production_csv_drive_dir,
                                                   target_file_name=production_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
+          '''
+          messages_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.messages_upload_path)
+          messages_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.messages_upload_path)
+          drive_client_wrapper.update_or_create(csv_by_message_output_path, messages_csv_drive_dir,
+                                                  target_file_name=messages_csv_drive_file_name,
+                                                  target_folder_is_shared_with_me=True)
+
+          individuals_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.individuals_upload_path)
+          individuals_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.individuals_upload_path)
+          drive_client_wrapper.update_or_create(csv_by_individual_output_path, individuals_csv_drive_dir,
+                                                  target_file_name=individuals_csv_drive_file_name,
+                                                  target_folder_is_shared_with_me=True)
+          '''
+          traced_data_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.traced_data_upload_path)
+          traced_data_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.traced_data_upload_path)
+          drive_client_wrapper.update_or_create(json_output_path, traced_data_drive_dir,
+                                                  target_file_name=traced_data_drive_file_name,
+                                                  target_folder_is_shared_with_me=True)
      else:
-          print("Skipping uploading to Google Drive (because --drive-upload flag was not set)")
+          print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
+                    "'DriveUploadPaths')")
 
      print("Python script complete")

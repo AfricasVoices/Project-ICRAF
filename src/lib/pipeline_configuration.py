@@ -25,9 +25,12 @@ class CodeSchemes(object):
     ORGANIZATIONS = _open_scheme("organizations.json")
     CURRENT_PRACTICES = _open_scheme("current_practices.json")
     NEW_PRACTICES = _open_scheme("new_practices.json")
-    REASONS_FOR_NEW_PRACTICES = _open_scheme("reasons_for_new_practices.json")
+    NEW_PRACTICES_CHALLENGES = _open_scheme("new_practices_challenges.json")
     UPPER_TANA_PRACTISES = _open_scheme("upper_tana_practices.json")
-    YES_NO = _open_scheme("yes_no.json")
+    SO1EO1_YES_NO = _open_scheme("s01e01_yes_no.json")
+    SO1EO2_YES_NO = _open_scheme("s01e02_yes_no.json")
+    SO1EO3_YES_NO = _open_scheme("s01e03_yes_no.json")
+    SO1EO5_YES_NO = _open_scheme("s01e05_yes_no.json")
 
     WS_CORRECT_DATASET = _open_scheme("ws_correct_dataset.json")
 
@@ -55,7 +58,7 @@ class CodingPlan(object):
 class PipelineConfiguration(object):  
     DEV_MODE = True
 
-    PROJECT_START_DATE = isoparse("2019-02-04T00:00:00+0300")
+    PROJECT_START_DATE = isoparse("2019-02-04T00:00:00+0300") #To change before production time
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
@@ -69,7 +72,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e01_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E01,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO1_YES_NO,
                     binary_coded_field="rqa_s01e01_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e01_yes_no"),
         
@@ -82,7 +85,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e02_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E02,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO2_YES_NO,
                     binary_coded_field="rqa_s01e02_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e02_yes_no"),
 
@@ -95,7 +98,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e03_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E03,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO3_YES_NO,
                     binary_coded_field="rqa_s01e03_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e03_yes_no"),
 
@@ -118,7 +121,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e05_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E05,
-                    binary_code_scheme=CodeSchemes.YES_NO,
+                    binary_code_scheme=CodeSchemes.SO1EO5_YES_NO,
                     binary_coded_field="rqa_s01e05_yes_no_coded",
                     binary_analysis_file_key="rqa_s01e05_yes_no"),
         
@@ -170,7 +173,7 @@ class PipelineConfiguration(object):
                     run_id_field="new_practice_reasons_run_id",
                     analysis_file_key="new_practices_reasons_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.REASONS_FOR_NEW_PRACTICES),
+                    code_scheme=CodeSchemes.NEW_PRACTICES_CHALLENGES),
 
         CodingPlan(raw_field="organizations_raw",
                     coded_field="organizations_coded",
@@ -231,71 +234,143 @@ class PipelineConfiguration(object):
                     code_scheme=CodeSchemes.LIVELIHOOD),
     ]
     
-    def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_key_remappings,
-                drive_credentials_file_url):
-        """
-        Arguments:
-            rapid_pro_domain {str} -- URL of the Rapid Pro server to download data from.
-            rapid_pro_token_file_url {str} -- GS URL of a text file containing the authorisation token for the Rapid Pro
-                                         server.
-            rapid_pro_key_remappings {list} -- List of rapid_pro_key -> pipeline_key remappings.
-            drive_credentials_file_url {str} -- an absolute path to a json credentials file that grants one access to a google drive.
-        """
-        self.rapid_pro_domain = rapid_pro_domain
-        self.rapid_pro_token_file_url = rapid_pro_token_file_url
-        self.rapid_pro_key_remappings = rapid_pro_key_remappings
-        self.drive_credentials_file_url = drive_credentials_file_url
-        
-        self.validate()
+    def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_test_contact_uuids,
+                    rapid_pro_key_remappings, drive_upload=None):
+            """
+            :param rapid_pro_domain: URL of the Rapid Pro server to download data from.
+            :type rapid_pro_domain: str
+            :param rapid_pro_token_file_url: GS URL of a text file containing the authorisation token for the Rapid Pro
+                                            server.
+            :type rapid_pro_token_file_url: str
+            :param rapid_pro_test_contact_uuids: Rapid Pro contact UUIDs of test contacts.
+                                                Runs for any of those test contacts will be tagged with {'test_run': True},
+                                                and dropped when the pipeline is in production mode.
+            :type rapid_pro_test_contact_uuids: list of str
+            :param rapid_pro_key_remappings: List of rapid_pro_key -> pipeline_key remappings.
+            :type rapid_pro_key_remappings: list of RapidProKeyRemapping
+            :param drive_upload: Configuration for uploading to Google Drive, or None.
+                                If None, does not upload to Google Drive.
+            :type drive_upload: DriveUploadPaths | None
+            """
+            self.rapid_pro_domain = rapid_pro_domain
+            self.rapid_pro_token_file_url = rapid_pro_token_file_url
+            self.rapid_pro_test_contact_uuids = rapid_pro_test_contact_uuids
+            self.rapid_pro_key_remappings = rapid_pro_key_remappings
+            self.drive_upload = drive_upload
+
+            self.validate()
 
     @classmethod
     def from_configuration_dict(cls, configuration_dict):
         rapid_pro_domain = configuration_dict["RapidProDomain"]
         rapid_pro_token_file_url = configuration_dict["RapidProTokenFileURL"]
+        rapid_pro_test_contact_uuids = configuration_dict["RapidProTestContactUUIDs"]
 
         rapid_pro_key_remappings = []
         for remapping_dict in configuration_dict["RapidProKeyRemappings"]:
             rapid_pro_key_remappings.append(RapidProKeyRemapping.from_configuration_dict(remapping_dict))
 
-            drive_credentials_file_url = configuration_dict["DriveCredentialsFileURL"]
+        drive_upload_paths = None
+        if "DriveUpload" in configuration_dict:
+            drive_upload_paths = DriveUpload.from_configuration_dict(configuration_dict["DriveUpload"])
 
-        return cls(rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_key_remappings, drive_credentials_file_url)
+        return cls(rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_test_contact_uuids,
+                   rapid_pro_key_remappings, drive_upload_paths)
+
     @classmethod
     def from_configuration_file(cls, f):
         return cls.from_configuration_dict(json.load(f))
-
+    
     def validate(self):
         validators.validate_string(self.rapid_pro_domain, "rapid_pro_domain")
         validators.validate_string(self.rapid_pro_token_file_url, "rapid_pro_token_file_url")
 
+        validators.validate_list(self.rapid_pro_test_contact_uuids, "rapid_pro_test_contact_uuids")
+        for i, contact_uuid in enumerate(self.rapid_pro_test_contact_uuids):
+            validators.validate_string(contact_uuid, f"rapid_pro_test_contact_uuids[{i}]")
+
         validators.validate_list(self.rapid_pro_key_remappings, "rapid_pro_key_remappings")
         for i, remapping in enumerate(self.rapid_pro_key_remappings):
             assert isinstance(remapping, RapidProKeyRemapping), \
-                f"self.rapid_pro_key_mappings[{i}] is not of type RapidProKeyRemapping"
+                f"rapid_pro_key_mappings[{i}] is not of type RapidProKeyRemapping"
             remapping.validate()
 
-        validators.validate_string(self.drive_credentials_file_url, "drive_credentials_file_url")
-        assert urlparse(self.drive_credentials_file_url).scheme == "gs", "DriveCredentialsFileURL needs to be a gs " \
-                                                                         "URL (i.e. of the form gs://bucket-name/file)"
+        if self.drive_upload is not None:
+            assert isinstance(self.drive_upload, DriveUpload), \
+                "drive_upload is not of type DriveUpload"
+            self.drive_upload.validate()
+
+
 class RapidProKeyRemapping(object):
     def __init__(self, rapid_pro_key, pipeline_key):
         """
-        Arguments:
-            rapid_pro_key {str} -- Name of key in the dataset exported via RapidProTools.
-            pipeline_key {str} -- Name to use for that key in the rest of the pipeline.
+        :param rapid_pro_key: Name of key in the dataset exported via RapidProTools.
+        :type rapid_pro_key: str
+        :param pipeline_key: Name to use for that key in the rest of the pipeline.
+        :type pipeline_key: str
         """
         self.rapid_pro_key = rapid_pro_key
         self.pipeline_key = pipeline_key
-
+        
         self.validate()
 
     @classmethod
     def from_configuration_dict(cls, configuration_dict):
         rapid_pro_key = configuration_dict["RapidProKey"]
         pipeline_key = configuration_dict["PipelineKey"]
-
+        
         return cls(rapid_pro_key, pipeline_key)
-
+    
     def validate(self):
         validators.validate_string(self.rapid_pro_key, "rapid_pro_key")
         validators.validate_string(self.pipeline_key, "pipeline_key")
+
+
+class DriveUpload(object):
+    def __init__(self, drive_credentials_file_url, production_upload_path, messages_upload_path,
+                 individuals_upload_path, traced_data_upload_path):
+        """
+        :param drive_credentials_file_url: GS URL to the private credentials file for the Drive service account to use
+                                           to upload the output files.
+        :type drive_credentials_file_url: str
+        :param production_upload_path: Path in the Drive service account's "Shared with Me" directory to upload the
+                                       production CSV to.
+        :type production_upload_path: str
+        :param messages_upload_path: Path in the Drive service account's "Shared with Me" directory to upload the
+                                     messages analysis CSV to.
+        :type messages_upload_path: str
+        :param individuals_upload_path: Path in the Drive service account's "Shared with Me" directory to upload the
+                                        individuals analysis CSV to.
+        :type individuals_upload_path: str
+        :param traced_data_upload_path: Path in the Drive service account's "Shared with Me" directory to upload the
+                                        serialized TracedData from this pipeline run to.
+        :type traced_data_upload_path: str
+        """
+        self.drive_credentials_file_url = drive_credentials_file_url
+        self.production_upload_path = production_upload_path
+        self.messages_upload_path = messages_upload_path
+        self.individuals_upload_path = individuals_upload_path
+        self.traced_data_upload_path = traced_data_upload_path
+
+        self.validate()
+
+    @classmethod
+    def from_configuration_dict(cls, configuration_dict):
+        drive_credentials_file_url = configuration_dict["DriveCredentialsFileURL"]
+        production_upload_path = configuration_dict["ProductionUploadPath"]
+        messages_upload_path = configuration_dict["MessagesUploadPath"]
+        individuals_upload_path = configuration_dict["IndividualsUploadPath"]
+        traced_data_upload_path = configuration_dict["TracedDataUploadPath"]
+
+        return cls(drive_credentials_file_url, production_upload_path, messages_upload_path,
+                   individuals_upload_path, traced_data_upload_path)
+
+    def validate(self):
+        validators.validate_string(self.drive_credentials_file_url, "drive_credentials_file_url")
+        assert urlparse(self.drive_credentials_file_url).scheme == "gs", "DriveCredentialsFileURL needs to be a gs " \
+                                                                         "URL (i.e. of the form gs://bucket-name/file)"
+
+        validators.validate_string(self.production_upload_path, "production_upload_path")
+        validators.validate_string(self.messages_upload_path, "messages_upload_path")
+        validators.validate_string(self.individuals_upload_path, "individuals_upload_path")
+        validators.validate_string(self.traced_data_upload_path, "traced_data_upload_path")
