@@ -6,7 +6,7 @@ class ProductionFile(object):
     @staticmethod
     def generate(data, production_csv_output_path):
         production_keys = ["uid"]
-        for plan in PipelineConfiguration.RQA_FOLLOW_UP_CODING_PLANS:
+        for plan in PipelineConfiguration.RQA_AND_FOLLOW_UP_CODING_PLANS:
             if plan.raw_field not in production_keys:
                 production_keys.append(plan.raw_field)
         for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
