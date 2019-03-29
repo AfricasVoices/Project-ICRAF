@@ -182,7 +182,7 @@ class PipelineConfiguration(object):
                     coda_filename="organizations.json",
                     icr_filename="organizations_icr.csv",
                     run_id_field="organizations_run_id",
-                    analysis_file_key="organizations_reasons_",
+                    analysis_file_key="organizations_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ORGANIZATIONS),
     ]

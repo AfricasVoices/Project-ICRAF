@@ -8,7 +8,7 @@ from core_data_modules.util import PhoneNumberUuidTable, IOUtils
 from google.cloud import storage
 from storage.google_drive import drive_client_wrapper
 
-from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, ProductionFile, AutoCodeSurveys, ApplyManualCodes
+from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile
 from src.lib import PipelineConfiguration
 
 if __name__ == "__main__":
@@ -179,6 +179,9 @@ if __name__ == "__main__":
      print("Applying manual codes...")
      data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
      
+     print("Generating Analysis CSVs...")
+     data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
+
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
      with open(json_output_path, "w") as f:
@@ -197,8 +200,6 @@ if __name__ == "__main__":
                                                   target_file_name=production_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
           
-          #TODO:remove comments below on the generate analysis file branch
-          '''
           messages_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.messages_upload_path)
           messages_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.messages_upload_path)
           drive_client_wrapper.update_or_create(csv_by_message_output_path, messages_csv_drive_dir,
@@ -210,7 +211,7 @@ if __name__ == "__main__":
           drive_client_wrapper.update_or_create(csv_by_individual_output_path, individuals_csv_drive_dir,
                                                   target_file_name=individuals_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
-          '''
+          
           traced_data_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.traced_data_upload_path)
           traced_data_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.traced_data_upload_path)
           drive_client_wrapper.update_or_create(json_output_path, traced_data_drive_dir,
