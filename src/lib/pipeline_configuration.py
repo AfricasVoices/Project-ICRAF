@@ -1,3 +1,4 @@
+    
 import json
 from urllib.parse import urlparse
 
@@ -58,12 +59,12 @@ class CodingPlan(object):
 
 class PipelineConfiguration(object):  
     DEV_MODE = True
-
-    PROJECT_START_DATE = isoparse("2019-02-04T00:00:00+0300") #To change before production time
+    #TODO:To change start date to (2019-04-02T00:00:00+0300) before production time
+    PROJECT_START_DATE = isoparse("2019-02-02T00:00:00+0300") 
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
-    RQA_FOLLOW_UP_CODING_PLANS = [
+    RQA_AND_FOLLOW_UP_CODING_PLANS = [
         CodingPlan(raw_field="rqa_s01e01_raw",
                     coded_field="rqa_s01e01_coded",
                     time_field="sent_on",
@@ -166,13 +167,13 @@ class PipelineConfiguration(object):
                     cleaner=None,
                     code_scheme=CodeSchemes.NEW_PRACTICES),
         
-        CodingPlan(raw_field="new_practices_reasons_raw",
-                    coded_field="new_practices_reasons_coded",
-                    time_field="new_practices_reasons_time",
-                    coda_filename="new_practices_reasons.json",
-                    icr_filename="new_practice_reasons_icr.csv",
-                    run_id_field="new_practice_reasons_run_id",
-                    analysis_file_key="new_practices_reasons_",
+        CodingPlan(raw_field="new_practices_challenges_raw",
+                    coded_field="new_practices_challenges_coded",
+                    time_field="new_practices_challenges_time",
+                    coda_filename="new_practices_challenges.json",
+                    icr_filename="new_practices_challenges_icr.csv",
+                    run_id_field="new_practices_challenges_run_id",
+                    analysis_file_key="new_practices_challenges_",
                     cleaner=None,
                     code_scheme=CodeSchemes.NEW_PRACTICES_CHALLENGES),
 
@@ -323,7 +324,6 @@ class RapidProKeyRemapping(object):
     def validate(self):
         validators.validate_string(self.rapid_pro_key, "rapid_pro_key")
         validators.validate_string(self.pipeline_key, "pipeline_key")
-
 
 class DriveUpload(object):
     def __init__(self, drive_credentials_file_url, production_upload_path, messages_upload_path,
