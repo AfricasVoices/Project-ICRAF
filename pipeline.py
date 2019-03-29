@@ -196,6 +196,8 @@ if __name__ == "__main__":
           drive_client_wrapper.update_or_create(production_csv_output_path, production_csv_drive_dir,
                                                   target_file_name=production_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
+          
+          #TODO:remove comments below on the generate analysis file branch
           '''
           messages_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.messages_upload_path)
           messages_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.messages_upload_path)
@@ -216,6 +218,6 @@ if __name__ == "__main__":
                                                   target_folder_is_shared_with_me=True)
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
-                    "'DriveUploadPaths')")
+               "'DriveUploadPaths')")
 
      print("Python script complete")
