@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-CoreDataModules = {editable = true, ref = "v0.9.0", git = "https://www.github.com/AfricasVoices/CoreDataModules"}
-PipelineInfrastructure = {editable = true, ref = "2390ad8af87edca38d71ea5666a8758a0c4c124f", git = "https://www.github.com/AfricasVoices/PipelineInfrastructure"}
+CoreDataModules = {editable = true,ref = "v0.9.0",git = "https://www.github.com/AfricasVoices/CoreDataModules"}
+PipelineInfrastructure = {editable = true,ref = "08cfb07be4c80656924bceaeeaef15a21ddb7a72", git = "https://www.github.com/AfricasVoices/PipelineInfrastructure"}
 pytz = "*"
 python-dateutil = ">=2.8.0"  # Need this minimum so that isoparse handles T24:00:00 correctly.
 google-cloud-storage = "*"

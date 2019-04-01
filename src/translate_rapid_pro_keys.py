@@ -26,15 +26,15 @@ class TranslateRapidProKeys(object):
 
     @classmethod
     def set_show_ids(cls, user, data, show_id_map):
-       """
-       Sets a show_id for each message, using the presence of Rapid Pro value keys to determine which show each message
-       belongs to.
-       
-       Arguments:
-           user {str} -- Identifier of the user running this program, for TracedData Metadata.
-           data {iterable of TracedData} -- TracedData objects to set the show ids of.
-           show_id_map {dict of str -> int} -- Dictionary of Rapid Pro value key to show id.
-       """        
+        """
+        Sets a show_id for each message, using the presence of Rapid Pro value keys to determine which show each message
+        belongs to.
+        
+        Arguments:
+            user {str} -- Identifier of the user running this program, for TracedData Metadata.
+            data {iterable of TracedData} -- TracedData objects to set the show ids of.
+            show_id_map {dict of str -> int} -- Dictionary of Rapid Pro value key to show id.
+        """
         for td in data:
             show_dict = dict()
 
@@ -87,15 +87,15 @@ class TranslateRapidProKeys(object):
 
     @classmethod
     def remap_radio_shows(cls, user, data, coda_input_dir):
-       """
-       Remaps radio shows which were in the wrong flow, and therefore have the wrong key/values set, to have the
-       key/values they would have had if they had been received by the correct flow.
+        """
+        Remaps radio shows which were in the wrong flow, and therefore have the wrong key/values set, to have the
+        key/values they would have had if they had been received by the correct flow.
 
-       Arguments:
-           user {str} -- Identifier of the user running this program, for TracedData Metadata.
-           data {iterable of TracedData} -- TracedData objects to move the radio show messages in.
-           coda_input_dir {str} -- Directory to read coded coda files from.
-       """
+        Arguments:
+            user {str} -- Identifier of the user running this program, for TracedData Metadata.
+            data {iterable of TracedData} -- TracedData objects to move the radio show messages in.
+            coda_input_dir {str} -- Directory to read coded coda files from.
+        """
         # No implementation needed yet, because no flow is yet to go wrong in production.
         pass
 
