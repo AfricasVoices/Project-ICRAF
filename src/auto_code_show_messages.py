@@ -14,7 +14,6 @@ class AutoCodeShowMessages(object):
     RQA_KEYS = []
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
         RQA_KEYS.append(plan.raw_field)
-        print(RQA_KEYS)
     
     SENT_ON_KEY = "sent_on"
     ICR_MESSAGES_COUNT = 200
