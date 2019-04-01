@@ -117,7 +117,7 @@ if __name__ == "__main__":
      production_csv_output_path = args.production_csv_output_path
 
      message_paths = [s01e01_input_path, s01e02_input_path, s01e03_input_path, s01e04_input_path, 
-                         s01e05_input_path, s01e06_input_path]
+                    s01e05_input_path, s01e06_input_path]
      
      # Load the pipeline configuration file
      print("Loading Pipeline Configuration File...")
