@@ -165,4 +165,4 @@ class ApplyManualCodes(object):
             td.append_data(missing_dict, Metadata(user, Metadata.get_call_location(), time.time()))
         
         return data
-        
+    
