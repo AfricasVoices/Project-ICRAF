@@ -234,7 +234,7 @@ class PipelineConfiguration(object):
                     coda_filename="livelihood.json",
                     analysis_file_key="livelihood",
                     cleaner=None,
-                    code_scheme=CodeSchemes.LIVELIHOOD),
+                    code_scheme=CodeSchemes.LIVELIHOOD)
     ]
     
     def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_test_contact_uuids,
