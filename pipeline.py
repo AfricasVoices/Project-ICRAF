@@ -117,7 +117,7 @@ if __name__ == "__main__":
      production_csv_output_path = args.production_csv_output_path
 
      message_paths = [s01e01_input_path, s01e02_input_path, s01e03_input_path, s01e04_input_path, 
-                         s01e05_input_path, s01e06_input_path]
+                    s01e05_input_path, s01e06_input_path]
      
      # Load the pipeline configuration file
      print("Loading Pipeline Configuration File...")
@@ -175,9 +175,6 @@ if __name__ == "__main__":
 
      print("Auto Coding Surveys...")
      data = AutoCodeSurveys.auto_code_surveys(user, data, phone_number_uuid_table, coded_dir_path)
-
-     print("Applying manual codes...")
-     data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
      
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
@@ -204,13 +201,13 @@ if __name__ == "__main__":
           drive_client_wrapper.update_or_create(csv_by_message_output_path, messages_csv_drive_dir,
                                                   target_file_name=messages_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
-
           individuals_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.individuals_upload_path)
           individuals_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.individuals_upload_path)
           drive_client_wrapper.update_or_create(csv_by_individual_output_path, individuals_csv_drive_dir,
                                                   target_file_name=individuals_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
           '''
+          
           traced_data_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.traced_data_upload_path)
           traced_data_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.traced_data_upload_path)
           drive_client_wrapper.update_or_create(json_output_path, traced_data_drive_dir,

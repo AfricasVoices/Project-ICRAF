@@ -63,7 +63,7 @@ class PipelineConfiguration(object):
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
-    RQA_AND_FOLLOW_UP_CODING_PLANS = [
+    RQA_CODING_PLANS = [
         CodingPlan(raw_field="rqa_s01e01_raw",
                     coded_field="rqa_s01e01_coded",
                     time_field="sent_on",
@@ -134,8 +134,10 @@ class PipelineConfiguration(object):
                     run_id_field="rqa_s01e06_run_id",
                     analysis_file_key="rqa_s01e06_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.ICRAF_S01E06),
+                    code_scheme=CodeSchemes.ICRAF_S01E06)
+    ]
 
+    FOLLOW_UP_CODING_PLANS = [
         CodingPlan(raw_field="current_practices_raw",
                     coded_field="current_practices_coded",
                     time_field="current_practices_time",
@@ -182,9 +184,9 @@ class PipelineConfiguration(object):
                     coda_filename="organizations.json",
                     icr_filename="organizations_icr.csv",
                     run_id_field="organizations_run_id",
-                    analysis_file_key="organizations_reasons_",
+                    analysis_file_key="organizations_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.ORGANIZATIONS),
+                    code_scheme=CodeSchemes.ORGANIZATIONS)
     ]
     
     @staticmethod
@@ -232,7 +234,7 @@ class PipelineConfiguration(object):
                     coda_filename="livelihood.json",
                     analysis_file_key="livelihood",
                     cleaner=None,
-                    code_scheme=CodeSchemes.LIVELIHOOD),
+                    code_scheme=CodeSchemes.LIVELIHOOD)
     ]
     
     def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_test_contact_uuids,
