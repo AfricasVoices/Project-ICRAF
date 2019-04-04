@@ -67,7 +67,12 @@ class ApplyManualCodes(object):
                             Metadata.get_call_location()
                         )
                         missing_dict[plan.binary_coded_field] = na_label.to_dict()
-
+                elif td[plan.raw_field] == "":
+                    nc_label = CleaningUtils.make_label_from_cleaner_code(
+                        plan.code_scheme, plan.code_scheme.get_code_with_control_code(Codes.NOT_CODED),
+                        Metadata.get_call_location()
+                    )
+                    missing_dict[plan.coded_field] = [nc_label.to_dict()]
             td.append_data(missing_dict, Metadata(user, Metadata.get_call_location(), time.time()))
             
         # Synchronise the control codes between the binary and reasons schemes:
