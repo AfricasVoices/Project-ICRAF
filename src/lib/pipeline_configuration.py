@@ -27,7 +27,7 @@ class CodeSchemes(object):
     CURRENT_PRACTICES = _open_scheme("current_practices.json")
     NEW_PRACTICES = _open_scheme("new_practices.json")
     NEW_PRACTICES_CHALLENGES = _open_scheme("new_practices_challenges.json")
-    UPPER_TANA_PRACTISES = _open_scheme("upper_tana_practices.json")
+    UPPER_TANA_PRACTICES = _open_scheme("upper_tana_practices.json")
     SO1EO1_YES_NO = _open_scheme("s01e01_yes_no.json")
     SO1EO2_YES_NO = _open_scheme("s01e02_yes_no.json")
     SO1EO3_YES_NO = _open_scheme("s01e03_yes_no.json")
@@ -138,6 +138,7 @@ class PipelineConfiguration(object):
     ]
 
     FOLLOW_UP_CODING_PLANS = [
+
         CodingPlan(raw_field="current_practices_raw",
                     coded_field="current_practices_coded",
                     time_field="current_practices_time",
@@ -156,7 +157,7 @@ class PipelineConfiguration(object):
                     run_id_field="upper_tana_practices_run_id",
                     analysis_file_key="upper_tana_practices_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.UPPER_TANA_PRACTISES),
+                    code_scheme=CodeSchemes.UPPER_TANA_PRACTICES),
         
         CodingPlan(raw_field="new_practices_raw",
                     coded_field="new_practices_coded",
@@ -216,7 +217,7 @@ class PipelineConfiguration(object):
                     coded_field="constituency_coded",
                     time_field="constituency_time",
                     coda_filename="constituency.json",
-                    analysis_file_key=None,
+                    analysis_file_key="constituency",
                     cleaner=None,
                     code_scheme=CodeSchemes.CONSTITUENCY),
 
