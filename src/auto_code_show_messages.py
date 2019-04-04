@@ -34,7 +34,7 @@ class AutoCodeShowMessages(object):
     
         # Label each message with channel keys
         Channels.set_channel_keys(user, data, cls.SENT_ON_KEY)
-
+        
         # Output RQA messages to Coda
         IOUtils.ensure_dirs_exist(coda_output_dir)
         for plan in PipelineConfiguration.RQA_CODING_PLANS:
@@ -64,22 +64,19 @@ class AutoCodeShowMessages(object):
             # This test works because the only codes which have been applied at this point are TRUE_MISSING.
             # If any other coding is done above, this test will need to change
             for td in data:
-                if plan.coded_field not in td:
+                if plan.raw_field in td:
+                    print(plan.raw_field)
                     rqa_messages.append(td)
-                else:
-                    assert len(td[plan.coded_field]) == 1
-                    assert td[plan.coded_field][0]["CodeID"] == \
-                        plan.code_scheme.get_code_with_control_code(Codes.TRUE_MISSING).code_id
-
-                icr_messages = ICRTools.generate_sample_for_icr(
-                    rqa_messages, cls.ICR_MESSAGES_COUNT, random.Random(cls.ICR_SEED))
                 
-                icr_output_path = path.join(icr_output_dir, plan.icr_filename)
-                with open(icr_output_path, "w") as f:
-                    TracedDataCSVIO.export_traced_data_iterable_to_csv(
-                        icr_messages, f, headers=[plan.run_id_field, plan.raw_field]
-                    )
-        
+            icr_messages = ICRTools.generate_sample_for_icr(
+                rqa_messages, cls.ICR_MESSAGES_COUNT, random.Random(cls.ICR_SEED))
+                
+            icr_output_path = path.join(icr_output_dir, plan.icr_filename)
+            with open(icr_output_path, "w") as f:
+                TracedDataCSVIO.export_traced_data_iterable_to_csv(
+                    icr_messages, f, headers=[plan.run_id_field, plan.raw_field]
+                )
+    
         # Output  Follow up Survey messages for ICR
         IOUtils.ensure_dirs_exist(icr_output_dir)
         for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
@@ -87,20 +84,17 @@ class AutoCodeShowMessages(object):
             # This test works because the only codes which have been applied at this point are TRUE_MISSING.
             # If any other coding is done above, this test will need to change
             for td in data:
-                if plan.coded_field not in td:
+                if plan.raw_field in td:
+                    print(plan.raw_field)
                     follow_up_messages.append(td)
-                else:
-                    assert len(td[plan.coded_field]) == 1
-                    assert td[plan.coded_field][0]["CodeID"] == \
-                        plan.code_scheme.get_code_with_control_code(Codes.TRUE_MISSING).code_id
-
-                icr_messages = ICRTools.generate_sample_for_icr(
-                    follow_up_messages, cls.ICR_MESSAGES_COUNT, random.Random(cls.ICR_SEED))
                 
-                icr_output_path = path.join(icr_output_dir, plan.icr_filename)
-                with open(icr_output_path, "w") as f:
-                    TracedDataCSVIO.export_traced_data_iterable_to_csv(
-                        icr_messages, f, headers=[plan.run_id_field, plan.raw_field]
-                    )
-
+            icr_messages = ICRTools.generate_sample_for_icr(
+                follow_up_messages, cls.ICR_MESSAGES_COUNT, random.Random(cls.ICR_SEED))
+                
+            icr_output_path = path.join(icr_output_dir, plan.icr_filename)
+            with open(icr_output_path, "w") as f:
+                TracedDataCSVIO.export_traced_data_iterable_to_csv(
+                    icr_messages, f, headers=[plan.run_id_field, plan.raw_field]
+                )
+            
         return data
