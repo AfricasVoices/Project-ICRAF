@@ -181,7 +181,7 @@ if __name__ == "__main__":
      
      print("Generating Analysis CSVs...")
      data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
-
+     
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
      with open(json_output_path, "w") as f:
@@ -220,5 +220,5 @@ if __name__ == "__main__":
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                "'DriveUploadPaths')")
-
+     
      print("Python script complete")
