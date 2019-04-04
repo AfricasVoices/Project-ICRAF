@@ -93,27 +93,12 @@ class AnalysisFile(object):
                 demog_keys.append(plan.analysis_file_key)
             if plan.raw_field not in demog_keys:
                 demog_keys.append(plan.raw_field)
-        
-        follow_up_keys = []
-        for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
-            if plan.analysis_file_key is not None and plan.analysis_file_key not in follow_up_keys:
-                follow_up_keys.append(plan.analysis_file_key)
-            if plan.raw_field not in demog_keys:
-                follow_up_keys.append(plan.raw_field)
-        
+            
         # Convert demog keys to their string values
         for td in data:
             td.append_data(
                 {plan.analysis_file_key: plan.code_scheme.get_code_with_id(td[plan.coded_field]["CodeID"]).string_value
                     for plan in PipelineConfiguration.DEMOGS_CODING_PLANS 
-                    if plan.analysis_file_key is not None}, Metadata(user, Metadata.get_call_location(), time.time())
-            )
-        
-        # Convert follow up surveys keys to their string values
-        for td in data:
-            td.append_data(
-                {plan.analysis_file_key: plan.code_scheme.get_code_with_id(td[plan.coded_field]["CodeID"]).string_value
-                    for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS 
                     if plan.analysis_file_key is not None}, Metadata(user, Metadata.get_call_location(), time.time())
             )
         
@@ -129,24 +114,24 @@ class AnalysisFile(object):
         # Translate the RQA reason codes to matrix values
         matrix_keys = []
 
-        for plan in PipelineConfiguration.RQA_CODING_PLANS:
+        for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS + PipelineConfiguration.RQA_CODING_PLANS:
             show_matrix_keys = list()
             for code in plan.code_scheme.codes:
                 show_matrix_keys.append(f"{plan.analysis_file_key}{code.string_value}")
-
+        
             AnalysisKeys.set_matrix_keys(
                 user, data, show_matrix_keys, plan.code_scheme, plan.coded_field, plan.analysis_file_key)
-
             matrix_keys.extend(show_matrix_keys)
-        
+             
         binary_keys = [plan.binary_analysis_file_key
                         for plan in PipelineConfiguration.RQA_CODING_PLANS
                         if plan.binary_analysis_file_key is not None]
         
         equal_keys = ["uid"]
         equal_keys.extend(demog_keys)
-        equal_keys.extend(follow_up_keys)
         concat_keys = [plan.raw_field for plan in PipelineConfiguration.RQA_CODING_PLANS]
+        follow_concat = [plan.raw_field for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS]
+        concat_keys.extend(follow_concat)
         bool_keys = [
             consent_withdrawn_key,
             "radio_promo",
@@ -157,7 +142,7 @@ class AnalysisFile(object):
             "radio_participation_s01e03",
             "radio_participation_s01e04",
             "radio_participation_s01e05",
-            "radio_participation_s01e06",
+            "radio_participation_s01e06"
         ]
 
         # Export to CSV
@@ -167,15 +152,11 @@ class AnalysisFile(object):
         export_keys.extend(binary_keys)
         export_keys.extend(concat_keys)
         export_keys.extend(demog_keys)
-        export_keys.extend(follow_up_keys)
-
+        
         # Set consent withdrawn based on presence of data coded as "stop"
         ConsentUtils.determine_consent_withdrawn(
             user, data, PipelineConfiguration.DEMOGS_CODING_PLANS, consent_withdrawn_key)
-
-        ConsentUtils.determine_consent_withdrawn(
-            user, data, PipelineConfiguration.FOLLOW_UP_CODING_PLANS, consent_withdrawn_key)
-        
+    
         # Set consent withdrawn based on stop codes from radio question answers
         for td in data:
             for plan in PipelineConfiguration.RQA_CODING_PLANS:
@@ -189,6 +170,8 @@ class AnalysisFile(object):
                         td.append_data({consent_withdrawn_key: Codes.TRUE},
                                         Metadata(user, Metadata.get_call_location(), time.time()))
         
+        print("--Folding")
+        sys.setrecursionlimit(10000)
         # Fold data to have one respondent per row 
         to_be_folded = []
         for td in data:
@@ -199,7 +182,7 @@ class AnalysisFile(object):
             equal_keys=equal_keys, concat_keys=concat_keys, matrix_keys=matrix_keys, bool_keys=bool_keys,
             binary_keys=binary_keys
         )
-
+        print("--Folding Successfull Done")
         # Fix-up _NA and _NC keys, which are currently being set incorrectly by
         # FoldTracedData.fold_iterable_of_traced_data when there are multiple radio shows
         # TODO: Update FoldTracedData to handle NA and NC correctly under multiple radio shows
@@ -217,7 +200,7 @@ class AnalysisFile(object):
                     if not contains_non_nc_key:
                         td.append_data({f"{plan.analysis_file_key}{Codes.NOT_CODED}": Codes.MATRIX_1},
                                     Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
-
+        print("Done.")
         # Process consent
         ConsentUtils.set_stopped(user, data, consent_withdrawn_key)
         ConsentUtils.set_stopped(user, folded_data, consent_withdrawn_key)
@@ -225,8 +208,8 @@ class AnalysisFile(object):
         # Output to CSV with one message per row
         with open(csv_by_message_output_path, "w") as f:
             TracedDataCSVIO.export_traced_data_iterable_to_csv(data, f, headers=export_keys)
-
+        
         with open(csv_by_individual_output_path, "w") as f:
             TracedDataCSVIO.export_traced_data_iterable_to_csv(folded_data, f, headers=export_keys)
-
+        
         return data
