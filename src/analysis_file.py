@@ -94,12 +94,13 @@ class AnalysisFile(object):
             if plan.raw_field not in demog_keys:
                 demog_keys.append(plan.raw_field)
             
-        # Convert demog keys to their string values
+        # Convert demog codes to their string values
         for td in data:
             td.append_data(
                 {plan.analysis_file_key: plan.code_scheme.get_code_with_id(td[plan.coded_field]["CodeID"]).string_value
                     for plan in PipelineConfiguration.DEMOGS_CODING_PLANS 
-                    if plan.analysis_file_key is not None}, Metadata(user, Metadata.get_call_location(), time.time())
+                    if plan.analysis_file_key is not None}, 
+                    Metadata(user, Metadata.get_call_location(), time.time())
             )
         
         # Convert RQA binary codes to their string values
@@ -130,8 +131,8 @@ class AnalysisFile(object):
         equal_keys = ["uid"]
         equal_keys.extend(demog_keys)
         concat_keys = [plan.raw_field for plan in PipelineConfiguration.RQA_CODING_PLANS]
-        follow_concat = [plan.raw_field for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS]
-        concat_keys.extend(follow_concat)
+        follow_up_concat_keys = [plan.raw_field for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS]
+        concat_keys.extend(follow_up_concat_keys)
         bool_keys = [
             consent_withdrawn_key,
             "radio_promo",
@@ -171,7 +172,6 @@ class AnalysisFile(object):
                                         Metadata(user, Metadata.get_call_location(), time.time()))
         
         print("--Folding")
-        sys.setrecursionlimit(10000)
         # Fold data to have one respondent per row 
         to_be_folded = []
         for td in data:
@@ -182,7 +182,8 @@ class AnalysisFile(object):
             equal_keys=equal_keys, concat_keys=concat_keys, matrix_keys=matrix_keys, bool_keys=bool_keys,
             binary_keys=binary_keys
         )
-        print("--Folding Successfull Done")
+        print("--Folding Successfull")
+
         # Fix-up _NA and _NC keys, which are currently being set incorrectly by
         # FoldTracedData.fold_iterable_of_traced_data when there are multiple radio shows
         # TODO: Update FoldTracedData to handle NA and NC correctly under multiple radio shows
@@ -200,7 +201,7 @@ class AnalysisFile(object):
                     if not contains_non_nc_key:
                         td.append_data({f"{plan.analysis_file_key}{Codes.NOT_CODED}": Codes.MATRIX_1},
                                     Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
-        print("Done.")
+
         # Process consent
         ConsentUtils.set_stopped(user, data, consent_withdrawn_key)
         ConsentUtils.set_stopped(user, folded_data, consent_withdrawn_key)
