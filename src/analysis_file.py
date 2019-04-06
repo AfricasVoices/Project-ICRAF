@@ -125,7 +125,7 @@ class AnalysisFile(object):
             matrix_keys.extend(show_matrix_keys)
              
         binary_keys = [plan.binary_analysis_file_key
-                        for plan in PipelineConfiguration.RQA_CODING_PLANS
+                       for plan in PipelineConfiguration.RQA_CODING_PLANS
                         if plan.binary_analysis_file_key is not None]
         
         equal_keys = ["uid"]
