@@ -4,6 +4,188 @@
     "Version": "0.0.0.1",
     "Codes": [
       {
+        "CodeID": "code-94f7d4f7",
+        "DisplayText": "Tree planting",
+        "NumericValue": 0,
+        "StringValue": "tree_planting",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-b148c68a",
+        "DisplayText": "burying waste",
+        "NumericValue": 1,
+        "StringValue": "burying_waste",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-c711f9f7",
+        "DisplayText": "Use organic fertilizers",
+        "NumericValue": 2,
+        "StringValue": "use_organic_fertilizers",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-937e7c45",
+        "DisplayText": "Building toilets",
+        "NumericValue": 3,
+        "StringValue": "building_toilets",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-124e8a3c",
+        "DisplayText": "Crop rotation",
+        "NumericValue": 4,
+        "StringValue": "crop_rotation",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2454f473",
+        "DisplayText": "Water harvesting",
+        "NumericValue": 5,
+        "StringValue": "water_harvesting",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-d5502816",
+        "DisplayText": "Not planting eucalyptus/blue gum trees",
+        "NumericValue": 6,
+        "StringValue": "not_planting_eucalyptus/blue_gum_trees",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-121cd635",
+        "DisplayText": "Use of manure",
+        "NumericValue": 7,
+        "StringValue": "use_of_manure",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2516e994",
+        "DisplayText": "Not cultivating along rivers",
+        "NumericValue": 8,
+        "StringValue": "not_cultivating_along_rivers",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-6958c852",
+        "DisplayText": "Deforestation",
+        "NumericValue": 9,
+        "StringValue": "deforestation",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-e38aec95",
+        "DisplayText": "No tree planting",
+        "NumericValue": 10,
+        "StringValue": "no_tree_planting",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-44ab4ab8",
+        "DisplayText": "Use of chemicals",
+        "NumericValue": 11,
+        "StringValue": "use_of_chemicals",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-49bb1cc5",
+        "DisplayText": "Water pollution",
+        "NumericValue": 12,
+        "StringValue": "water_pollution",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-265198de",
+        "DisplayText": "Lack of government support",
+        "NumericValue": 13,
+        "StringValue": "lack_of_government_support",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-c4d7725a",
+        "DisplayText": "Corruption",
+        "NumericValue": 14,
+        "StringValue": "corruption",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-57903f5b",
+        "DisplayText": "Mono cropping",
+        "NumericValue": 15,
+        "StringValue": "mono_cropping",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-ba554362",
+        "DisplayText": "Legal issues",
+        "NumericValue": 16,
+        "StringValue": "legal_issues",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-bccbae7c",
+        "DisplayText": "Quarrying",
+        "NumericValue": 17,
+        "StringValue": "quarrying",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-da2b4b98",
+        "DisplayText": "Lack of trenches to prevent erosion",
+        "NumericValue": 18,
+        "StringValue": "lack_of_trenches_to_prevent_erosion",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2131f8ab",
+        "DisplayText": "Ignorance",
+        "NumericValue": 19,
+        "StringValue": "ignorance",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2edbf896",
+        "DisplayText": "Weak laws",
+        "NumericValue": 20,
+        "StringValue": "weak_laws",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-ed1b065e",
+        "DisplayText": "Lack of motivation",
+        "NumericValue": 21,
+        "StringValue": "lack_of_motivation",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-2edbf896",
+        "DisplayText": "Planting eucalyptus/blue gum trees",
+        "NumericValue": 22,
+        "StringValue": "planting_eucalyptus/blue_gum_trees",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-97b0a7c0",
+        "DisplayText": "Cultivating along rivers",
+        "NumericValue": 23,
+        "StringValue": "cultivating_along_rivers",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-7857928f",
+        "DisplayText": "Lack of toilets",
+        "NumericValue": 24,
+        "StringValue": "lack_of_toilets",
+        "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-1bde9a1c",
+        "DisplayText": "other",
+        "NumericValue": 25,
+        "StringValue": "other",
+        "VisibleInCoda": true
+      },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
@@ -68,4 +250,3 @@
       }
     ]
   }
-  
