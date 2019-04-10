@@ -175,6 +175,9 @@ if __name__ == "__main__":
 
      print("Auto Coding Surveys...")
      data = AutoCodeSurveys.auto_code_surveys(user, data, phone_number_uuid_table, coded_dir_path)
+
+     print("Applying manual codes...")
+     data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
      
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
