@@ -4,6 +4,7 @@ from src.lib import PipelineConfiguration
 
 class ProductionFile(object):
     @staticmethod
+    #TODO: Generate production file per episode
     def generate(data, production_csv_output_path):
         production_keys = ["uid"]
         for plan in PipelineConfiguration.RQA_CODING_PLANS:

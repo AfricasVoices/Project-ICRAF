@@ -17,7 +17,7 @@ class CodeSchemes(object):
     ICRAF_S01E04 = _open_scheme("icraf_s01e04.json")
     ICRAF_S01E05 = _open_scheme("icraf_s01e05.json")
     ICRAF_S01E06 = _open_scheme("icraf_s01e06.json")
-
+    
     AGE = _open_scheme("age.json")
     LIVELIHOOD = _open_scheme("livelihood.json")
     GENDER = _open_scheme("gender.json")
@@ -58,8 +58,8 @@ class CodingPlan(object):
 
 class PipelineConfiguration(object):  
     DEV_MODE = True
-    #TODO:To change start date to (2019-04-02T00:00:00+0300) before production time
-    PROJECT_START_DATE = isoparse("2019-02-02T00:00:00+0300") 
+    
+    PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300") 
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
@@ -136,7 +136,7 @@ class PipelineConfiguration(object):
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E06)
     ]
-
+    #TODO: Add an assert for binary schemes = NONE for both follow_ups and demogs coding plans
     FOLLOW_UP_CODING_PLANS = [
 
         CodingPlan(raw_field="current_practices_raw",

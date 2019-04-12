@@ -31,7 +31,7 @@ DATASETS=(
     "new_practices"
     "organizations"
     "upper_tana_practices"
-    "new_practices_reasons"
+    "new_practices_challenges"
 )
 
 cd "$CODA_V2_ROOT/data_tools"
