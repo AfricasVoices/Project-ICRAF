@@ -86,7 +86,7 @@ class AnalysisFile(object):
             td.append_data({consent_withdrawn_key: Codes.FALSE},
                             Metadata(user, Metadata.get_call_location(), time.time()))
         
-        # Set the list of raw/coded keys which
+        # Set the list of raw/coded demog keys
         demog_keys = []
         for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
             if plan.analysis_file_key is not None and plan.analysis_file_key not in demog_keys:
@@ -158,9 +158,9 @@ class AnalysisFile(object):
         ConsentUtils.determine_consent_withdrawn(
             user, data, PipelineConfiguration.DEMOGS_CODING_PLANS, consent_withdrawn_key)
     
-        # Set consent withdrawn based on stop codes from radio question answers
+        # Set consent withdrawn based on stop codes from radio question and follow up survey codes answers
         for td in data:
-            for plan in PipelineConfiguration.RQA_CODING_PLANS:
+            for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
                 if td[f"{plan.analysis_file_key}{Codes.STOP}"] == Codes.MATRIX_1:
                     td.append_data({consent_withdrawn_key: Codes.TRUE},
                                     Metadata(user, Metadata.get_call_location(), time.time()))
@@ -176,19 +176,18 @@ class AnalysisFile(object):
         to_be_folded = []
         for td in data:
             to_be_folded.append(td.copy())
-
         folded_data = FoldTracedData.fold_iterable_of_traced_data(
             user, data, fold_id_fn=lambda td: td["uid"],
             equal_keys=equal_keys, concat_keys=concat_keys, matrix_keys=matrix_keys, bool_keys=bool_keys,
             binary_keys=binary_keys
         )
-        print("--Folding Successfull")
+        print("--Folding Successful")
 
         # Fix-up _NA and _NC keys, which are currently being set incorrectly by
         # FoldTracedData.fold_iterable_of_traced_data when there are multiple radio shows
         # TODO: Update FoldTracedData to handle NA and NC correctly under multiple radio shows
         for td in folded_data:
-            for plan in PipelineConfiguration.RQA_CODING_PLANS:
+            for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
                 if td.get(plan.raw_field, "") != "":
                     td.append_data({f"{plan.analysis_file_key}{Codes.TRUE_MISSING}": Codes.MATRIX_0},
                                     Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
