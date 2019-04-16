@@ -17,7 +17,7 @@ class CodeSchemes(object):
     ICRAF_S01E04 = _open_scheme("icraf_s01e04.json")
     ICRAF_S01E05 = _open_scheme("icraf_s01e05.json")
     ICRAF_S01E06 = _open_scheme("icraf_s01e06.json")
-
+    
     AGE = _open_scheme("age.json")
     LIVELIHOOD = _open_scheme("livelihood.json")
     GENDER = _open_scheme("gender.json")
@@ -27,7 +27,7 @@ class CodeSchemes(object):
     CURRENT_PRACTICES = _open_scheme("current_practices.json")
     NEW_PRACTICES = _open_scheme("new_practices.json")
     NEW_PRACTICES_CHALLENGES = _open_scheme("new_practices_challenges.json")
-    UPPER_TANA_PRACTISES = _open_scheme("upper_tana_practices.json")
+    UPPER_TANA_PRACTICES = _open_scheme("upper_tana_practices.json")
     SO1EO1_YES_NO = _open_scheme("s01e01_yes_no.json")
     SO1EO2_YES_NO = _open_scheme("s01e02_yes_no.json")
     SO1EO3_YES_NO = _open_scheme("s01e03_yes_no.json")
@@ -58,8 +58,8 @@ class CodingPlan(object):
 
 class PipelineConfiguration(object):  
     DEV_MODE = True
-    #TODO:To change start date to (2019-04-02T00:00:00+0300) before production time
-    PROJECT_START_DATE = isoparse("2019-02-02T00:00:00+0300") 
+    
+    PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300") 
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
@@ -136,8 +136,9 @@ class PipelineConfiguration(object):
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E06)
     ]
-
+    #TODO: Add an assert for binary schemes = NONE for both follow_ups and demogs coding plans
     FOLLOW_UP_CODING_PLANS = [
+
         CodingPlan(raw_field="current_practices_raw",
                     coded_field="current_practices_coded",
                     time_field="current_practices_time",
@@ -156,7 +157,7 @@ class PipelineConfiguration(object):
                     run_id_field="upper_tana_practices_run_id",
                     analysis_file_key="upper_tana_practices_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.UPPER_TANA_PRACTISES),
+                    code_scheme=CodeSchemes.UPPER_TANA_PRACTICES),
         
         CodingPlan(raw_field="new_practices_raw",
                     coded_field="new_practices_coded",
@@ -216,7 +217,7 @@ class PipelineConfiguration(object):
                     coded_field="constituency_coded",
                     time_field="constituency_time",
                     coda_filename="constituency.json",
-                    analysis_file_key=None,
+                    analysis_file_key="constituency",
                     cleaner=None,
                     code_scheme=CodeSchemes.CONSTITUENCY),
 

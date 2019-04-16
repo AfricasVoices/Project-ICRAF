@@ -13,9 +13,9 @@ from src.lib import PipelineConfiguration, CodeSchemes
 class ApplyManualCodes(object):
     @classmethod
     def apply_manual_codes(cls, user, data, coda_input_dir):
-        # Merge manually coded radio show files into the cleaned dataset
-        for plan in PipelineConfiguration.RQA_CODING_PLANS:
-            rqa_messages = [td for td in data if plan.raw_field in td]
+        # Merge manually coded radio show and follow up surveys files into the cleaned dataset
+        for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
+            rqa_and_follow_up_messages = [td for td in data if plan.raw_field in td]
             coda_input_path = path.join(coda_input_dir, plan.coda_filename)
     
             f = None
@@ -23,34 +23,18 @@ class ApplyManualCodes(object):
                 if path.exists(coda_input_path):
                     f = open(coda_input_path, "r")
                 TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable_multi_coded(
-                    user, rqa_messages, plan.id_field, {plan.coded_field: plan.code_scheme}, f)
+                    user, rqa_and_follow_up_messages, plan.id_field, {plan.coded_field: plan.code_scheme}, f)
                 
                 if plan.binary_code_scheme is not None:
                     if f is not None:
                         f.seek(0)
                     TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable(
-                        user, rqa_messages, plan.id_field, {plan.binary_coded_field: plan.binary_code_scheme}, f)
+                        user, rqa_and_follow_up_messages, plan.id_field, {plan.binary_coded_field: plan.binary_code_scheme}, f)
             finally:
                 if f is not None:
                     f.close()
 
-        # Merge manually coded follow up surveys into the cleaned dataset
-        for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
-            follow_up_messages = [td for td in data if plan.raw_field in td]
-            coda_input_path = path.join(coda_input_dir, plan.coda_filename)
-    
-            f = None
-            try:
-                if path.exists(coda_input_path):
-                    f = open(coda_input_path, "r")
-                TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable_multi_coded(
-                    user, follow_up_messages, plan.id_field, {plan.coded_field: plan.code_scheme}, f)
-            
-            finally:
-                if f is not None:
-                    f.close()
-        
-        # Label the RQA & surveys for which there is no response yet as TRUE MISSING
+        # Label the RQA & follow up surveys for which there is no response yet as TRUE MISSING
         for td in data:
             missing_dict = dict()
             for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
