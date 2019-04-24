@@ -94,9 +94,9 @@
         {
         "CodeID": "4b8ecb93",
         "CodeType": "Normal",
-        "DisplayText": "catholic_diocese_murang'a",
+        "DisplayText": "catholic diocese murang'a",
         "NumericValue": 11,
-        "StringValue": "catholic diocese murang'a",
+        "StringValue": "catholic_diocese_murang'a",
         "VisibleInCoda": true
         },
         {
@@ -248,7 +248,7 @@
         "CodeType": "Normal",
         "DisplayText": "ldk(K)ltd athi river",
         "NumericValue": 30,
-        "StringValue": "ldk(K)ltd_athi_river",
+        "StringValue": "ldk_k_ltd_athi_river",
         "VisibleInCoda": true
         },
         {
@@ -288,7 +288,7 @@
         "CodeType": "Normal",
         "DisplayText": "complains absence of gov/extension workers",
         "NumericValue": 35,
-        "StringValue": "complains_absence_of_gov/extension_workers",
+        "StringValue": "complains_absence_of_gov_extension_workers",
         "VisibleInCoda": true
         },
         {
