@@ -3,7 +3,303 @@
     "Name": "ICRAF s01e02",
     "Version": "0.0.0.1",
     "Codes": [
-      {
+        {
+        "CodeID": "code-81777bc3",
+        "CodeType": "Normal",
+        "DisplayText": "mathioya arrow roots farmers group",
+        "NumericValue": 0,
+        "StringValue": "mathioya_arrow_roots_farmers_group",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-7ef6d529",
+        "CodeType": "Normal",
+        "DisplayText": "gacharu water project",
+        "NumericValue": 1,
+        "StringValue": "gacharu_water_project",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-8a12acc3",
+        "CodeType": "Normal",
+        "DisplayText": "green future foundation",
+        "NumericValue": 2,
+        "StringValue": "green_future_foundation",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-4d0ba654",
+        "CodeType": "Normal",
+        "DisplayText": "mt kenya ecosystem",
+        "NumericValue": 3,
+        "StringValue": "mt_kenya_ecosystem",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-3653f9db",
+        "CodeType": "Normal",
+        "DisplayText": "ktda",
+        "NumericValue": 4,
+        "StringValue": "ktda",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-5c8799d6",
+        "CodeType": "Normal",
+        "DisplayText": "rainforest alliance",
+        "NumericValue": 5,
+        "StringValue": "rainforest_alliance",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-417b830a",
+        "CodeType": "Normal",
+        "DisplayText": "fairtrade",
+        "NumericValue": 6,
+        "StringValue": "fairtrade",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-61f1e435",
+        "CodeType": "Normal",
+        "DisplayText": "kefri",
+        "NumericValue": 7,
+        "StringValue": "kefri",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-e594ac70",
+        "CodeType": "Normal",
+        "DisplayText": "gikoe primary school",
+        "NumericValue": 8,
+        "StringValue": "gikoe_primary_school",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-86ad27a7",
+        "CodeType": "Normal",
+        "DisplayText": "tist",
+        "NumericValue": 9,
+        "StringValue": "tist",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-a78372da",
+        "CodeType": "Normal",
+        "DisplayText": "eurura ecocide warriors shg",
+        "NumericValue": 10,
+        "StringValue": "eurura_ecocide_warriors_shg",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "4b8ecb93",
+        "CodeType": "Normal",
+        "DisplayText": "catholic_diocese_murang'a",
+        "NumericValue": 11,
+        "StringValue": "catholic diocese murang'a",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-a90f7583",
+        "CodeType": "Normal",
+        "DisplayText": "tree nursery growers association of kenya",
+        "NumericValue": 12,
+        "StringValue": "tree_nursery_growers_association_of_kenya",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-09220f69",
+        "CodeType": "Normal",
+        "DisplayText": "kenvo",
+        "NumericValue": 13,
+        "StringValue": "kenvo",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-d8820f2b",
+        "CodeType": "Normal",
+        "DisplayText": "teachers environmental rescue",
+        "NumericValue": 14,
+        "StringValue": "teachers_environmental_rescue",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-7a1aeb5f",
+        "CodeType": "Normal",
+        "DisplayText": "safaricom sponsorship",
+        "NumericValue": 15,
+        "StringValue": "safaricom_sponsorship",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-c13d6f7a",
+        "CodeType": "Normal",
+        "DisplayText": "kenyatta university",
+        "NumericValue": 16,
+        "StringValue": "kenyatta_university",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-564fa6aa",
+        "CodeType": "Normal",
+        "DisplayText": "warma",
+        "NumericValue": 17,
+        "StringValue": "warma",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-fdc87b80",
+        "CodeType": "Normal",
+        "DisplayText": "ubuntu power company",
+        "NumericValue": 18,
+        "StringValue": "ubuntu_power_company",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-72e7b87c",
+        "CodeType": "Normal",
+        "DisplayText": "kfs",
+        "NumericValue": 19,
+        "StringValue": "kfs",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-13b34240",
+        "CodeType": "Normal",
+        "DisplayText": "nema",
+        "NumericValue": 20,
+        "StringValue": "nema",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-9c1b004c",
+        "CodeType": "Normal",
+        "DisplayText": "kari",
+        "NumericValue": 21,
+        "StringValue": "kari",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-d2f07841",
+        "CodeType": "Normal",
+        "DisplayText": "self help groups",
+        "NumericValue": 22,
+        "StringValue": "self_help_groups",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-23290d55",
+        "CodeType": "Normal",
+        "DisplayText": "individual champions",
+        "NumericValue": 23,
+        "StringValue": "individual_champions",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-2b25f63f",
+        "CodeType": "Normal",
+        "DisplayText": "kariara water resource users association",
+        "NumericValue": 24,
+        "StringValue": "kariara_water_resource_users_association",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-c913d906",
+        "CodeType": "Normal",
+        "DisplayText": "kamae potato farmers",
+        "NumericValue": 25,
+        "StringValue": "kamae_potato_farmers",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-d4da98dc",
+        "CodeType": "Normal",
+        "DisplayText": "nana fibre and sisal baskets",
+        "NumericValue": 26,
+        "StringValue": "nana_fibre_and_sisal_baskets",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-34c64372",
+        "CodeType": "Normal",
+        "DisplayText": "national agricultural and rural inclusive program",
+        "NumericValue": 27,
+        "StringValue": "national_agricultural_and_rural_inclusive_program",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-ad9818b2",
+        "CodeType": "Normal",
+        "DisplayText": "ifad",
+        "NumericValue": 28,
+        "StringValue": "ifad",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-ff302452",
+        "CodeType": "Normal",
+        "DisplayText": "unesco",
+        "NumericValue": 29,
+        "StringValue": "unesco",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-c28fa84a",
+        "CodeType": "Normal",
+        "DisplayText": "ldk(K)ltd athi river",
+        "NumericValue": 30,
+        "StringValue": "ldk(K)ltd_athi_river",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-801aed92",
+        "CodeType": "Normal",
+        "DisplayText": "one acre fund",
+        "NumericValue": 31,
+        "StringValue": "one_acre_fund",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-9f5fbb3b",
+        "CodeType": "Normal",
+        "DisplayText": "mjengo limited",
+        "NumericValue": 32,
+        "StringValue": "mjengo_limited",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-b92543a1",
+        "CodeType": "Normal",
+        "DisplayText": "other",
+        "NumericValue": 33,
+        "StringValue": "other",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-343195f7",
+        "CodeType": "Normal",
+        "DisplayText": "asking for specific support",
+        "NumericValue": 34,
+        "StringValue": "asking_for_specific_support",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-57c1e449",
+        "CodeType": "Normal",
+        "DisplayText": "complains absence of gov/extension workers",
+        "NumericValue": 35,
+        "StringValue": "complains_absence_of_gov/extension_workers",
+        "VisibleInCoda": true
+        },
+        {
+        "CodeID": "code-74026505",
+        "CodeType": "Normal",
+        "DisplayText": "mentions environmental problem",
+        "NumericValue": 36,
+        "StringValue": "mentions_environmental_problem",
+        "VisibleInCoda": true
+        },
+        {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
@@ -11,8 +307,8 @@
         "NumericValue": -10,
         "StringValue": "NA",
         "VisibleInCoda": false
-      },
-      {
+        },
+        {
         "CodeID": "code-NS-2c11b7c9",
         "CodeType": "Control",
         "ControlCode": "NS",
@@ -20,8 +316,8 @@
         "NumericValue": -20,
         "StringValue": "NS",
         "VisibleInCoda": false
-      },
-      {
+        },
+        {
         "CodeID": "code-NC-42f1d983",
         "CodeType": "Control",
         "ControlCode": "NC",
@@ -29,8 +325,8 @@
         "NumericValue": -30,
         "StringValue": "NC",
         "VisibleInCoda": true
-      },
-      {
+        },
+        {
         "CodeID": "code-NR-5e3eee23",
         "CodeType": "Control",
         "ControlCode": "NR",
@@ -38,8 +334,8 @@
         "NumericValue": -40,
         "StringValue": "NR",
         "VisibleInCoda": false
-      },
-      {
+        },
+        {
         "CodeID": "code-NIC-99631cb8",
         "CodeType": "Control",
         "ControlCode": "NIC",
@@ -47,8 +343,17 @@
         "NumericValue": -50,
         "StringValue": "NIC",
         "VisibleInCoda": false
-      },
-      {
+        },
+        {
+        "StringValue": "Noise_Other_Project",
+        "ControlCode": "NOP",
+        "DisplayText": "Noise (Other Project)",
+        "VisibleInCoda": true,
+        "CodeID": "code-NOP-4eb70633",
+        "NumericValue": -60,
+        "CodeType": "Control"
+        },
+        {
         "CodeID": "code-STOP-08b832a8",
         "CodeType": "Control",
         "ControlCode": "STOP",
@@ -56,8 +361,8 @@
         "NumericValue": -90,
         "StringValue": "STOP",
         "VisibleInCoda": true
-      },
-      {
+        },
+        {
         "CodeID": "code-WS-adb25603b7af",
         "CodeType": "Control",
         "ControlCode": "WS",
@@ -65,7 +370,6 @@
         "NumericValue": -100,
         "StringValue": "WS",
         "VisibleInCoda": true
-      }
+        }
     ]
-  }
-  
+}
