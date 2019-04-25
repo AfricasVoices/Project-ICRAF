@@ -29,7 +29,7 @@ class CodeSchemes(object):
     NEW_PRACTICES_CHALLENGES = _open_scheme("new_practices_challenges.json")
     UPPER_TANA_PRACTICES = _open_scheme("upper_tana_practices.json")
     SO1EO1_YES_NO = _open_scheme("s01e01_yes_no.json")
-    SO1EO2_YES_NO = _open_scheme("s01e02_yes_no.json")
+    SO1EO2_YES_NO = _open_scheme("s01e02_yes_no_amb.json")
     SO1EO3_YES_NO = _open_scheme("s01e03_yes_no.json")
     SO1EO5_YES_NO = _open_scheme("s01e05_yes_no.json")
 
@@ -57,7 +57,7 @@ class CodingPlan(object):
         self.id_field = id_field
 
 class PipelineConfiguration(object):  
-    DEV_MODE = True
+    DEV_MODE = False
     
     PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300") 
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
@@ -88,7 +88,7 @@ class PipelineConfiguration(object):
                     code_scheme=CodeSchemes.ICRAF_S01E02,
                     binary_code_scheme=CodeSchemes.SO1EO2_YES_NO,
                     binary_coded_field="rqa_s01e02_yes_no_coded",
-                    binary_analysis_file_key="rqa_s01e02_yes_no"),
+                    binary_analysis_file_key="rqa_s01e02_yes_no_amb"),
 
         CodingPlan(raw_field="rqa_s01e03_raw",
                     coded_field="rqa_s01e03_coded",
