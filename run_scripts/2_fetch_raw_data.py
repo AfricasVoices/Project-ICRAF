@@ -22,8 +22,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     user = args.user
-    pipeline_configuration_file_path = args.pipeline_configuration_file_path
     google_cloud_credentials_file_path = args.google_cloud_credentials_file_path
+    pipeline_configuration_file_path = args.pipeline_configuration_file_path
     rapid_pro_tools_dir = args.rapid_pro_tools_dir
     root_data_dir = os.path.abspath(args.root_data_dir)
 
@@ -32,10 +32,10 @@ if __name__ == "__main__":
     SHOWS = [
         "icraf_s01_e01_activation",
         "icraf_s01_e02_activation",
-        "icraf_s01_e03_activation",
-        "icraf_s01_e04_activation",
-        "icraf_s01_e05_activation",
-        "icraf_s01_e06_activation"
+        #"icraf_s01_e03_activation",
+       #"icraf_s01_e04_activation",
+        #"icraf_s01_e05_activation",
+        #"icraf_s01_e06_activation"
     ]
 
     SURVEYS = [
@@ -43,12 +43,13 @@ if __name__ == "__main__":
         "icraf_s01_follow_up_survey"
     ]
 
-    TEST_CONTACTS_PATH = os.path.abspath("../configurations/test_contact_rapid_pro_ids.json")
+    TEST_CONTACTS_PATH = os.path.abspath("../configurations/test.json")
 
     # Read the settings from the configuration file
     with open(pipeline_configuration_file_path) as f:
+        print(pipeline_configuration_file_path)
         pipeline_config = json.load(f)
-
+        print(pipeline_config)
         rapid_pro_domain = pipeline_config["RapidProDomain"]
         rapid_pro_token_file_url = pipeline_config["RapidProTokenFileURL"]
 

@@ -23,12 +23,13 @@ class AdvertPhoneNumbers(object):
         '''
 
         advert_phone_numbers = set()
+      
         for td in data:
-            for plan in PipelineConfiguration.RQA_CODING_PLANS:
-                    if (plan.binary_coded_field is not None and td[plan.binary_coded_field]["CodeID"] != "code-NOP-4eb70633") \
-                        or td[plan.coded_field][0]["CodeID"] != "code-NOP-4eb70633":
-                        advert_phone_numbers.add(phone_number_uuid_table.get_phone(td['uid']))
-        
+            for plan in PipelineConfiguration.SO1EO1_PLANS:
+                print(td[plan.binary_coded_field]["CodeID"])
+                if td[plan.binary_coded_field]["CodeID"] != "code-NOP-4eb70633":
+                    advert_phone_numbers.add(phone_number_uuid_table.get_phone(td['uid']))
+
         with open(advert_phone_numbers_csv_output_path,'w') as f:
             writer = csv.writer(f)
             for phone_number in advert_phone_numbers:

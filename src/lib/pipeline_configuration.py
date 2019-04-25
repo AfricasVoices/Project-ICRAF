@@ -63,6 +63,20 @@ class PipelineConfiguration(object):
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
     # Radio and follow up questions coding plans
+    SO1EO1_PLANS = [
+        CodingPlan(raw_field="rqa_s01e01_raw",
+                    coded_field="rqa_s01e01_coded",
+                    time_field="sent_on",
+                    coda_filename="s01e01.json",
+                    icr_filename="icraf_s01e01.csv",
+                    run_id_field="rqa_s01e01_run_id",
+                    analysis_file_key="rqa_s01e01_",
+                    cleaner=None,
+                    code_scheme=CodeSchemes.ICRAF_S01E01,
+                    binary_code_scheme=CodeSchemes.SO1EO1_YES_NO,
+                    binary_coded_field="rqa_s01e01_yes_no_coded",
+                    binary_analysis_file_key="rqa_s01e01_yes_no"),
+    ]
     RQA_CODING_PLANS = [
         CodingPlan(raw_field="rqa_s01e01_raw",
                     coded_field="rqa_s01e01_coded",
@@ -88,8 +102,8 @@ class PipelineConfiguration(object):
                     code_scheme=CodeSchemes.ICRAF_S01E02,
                     binary_code_scheme=CodeSchemes.SO1EO2_YES_NO,
                     binary_coded_field="rqa_s01e02_yes_no_coded",
-                    binary_analysis_file_key="rqa_s01e02_yes_no_amb"),
-
+                    binary_analysis_file_key="rqa_s01e02_yes_no"),
+        
         CodingPlan(raw_field="rqa_s01e03_raw",
                     coded_field="rqa_s01e03_coded",
                     time_field="sent_on",
@@ -135,6 +149,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e06_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E06)
+        
     ]
     #TODO: Add an assert for binary schemes = NONE for both follow_ups and demogs coding plans
     FOLLOW_UP_CODING_PLANS = [

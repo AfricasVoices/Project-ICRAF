@@ -3,8 +3,8 @@
 set -e
 
 if [[ $# -ne 3 ]]; then
-    echo "Usage: ./4_coda_add.sh <coda-auth-file> <coda-v2-root> <data-root>"
-    echo "Uploads coded messages datasets from '<data-root>/Outputs/Coda Files' to Coda"
+    echo "Usage: ./1_coda_get.sh <coda-auth-file> <coda-v2-root> <data-root>"
+    echo "Downloads coded messages datasets from Coda to '<data-root>/Coded Coda Files'"
     exit
 fi
 
@@ -19,9 +19,10 @@ DATASETS=(
     "s01e01"
     "s01e02"
     #"s01e03"
-    #"s01e04"
+   #"s01e04"
     #"s01e05"
     #"s01e06"
+    #"s01e07"
 
     "gender"
     "constituency"
@@ -35,10 +36,11 @@ DATASETS=(
 )
 
 cd "$CODA_V2_ROOT/data_tools"
+mkdir -p "$DATA_ROOT/Coded Coda Files"
 
 for DATASET in ${DATASETS[@]}
 do
-    echo "Pushing messages data to ${PROJECT_NAME}_${DATASET}..."
+    echo "Getting messages data from ${PROJECT_NAME}_${DATASET}..."
 
-    pipenv run python add.py "$AUTH" "${PROJECT_NAME}_${DATASET}" messages "$DATA_ROOT/Outputs/Coda Files/$DATASET.json"
+    pipenv run python get.py "$AUTH" "${PROJECT_NAME}_${DATASET}" messages >"$DATA_ROOT/Coded Coda Files/$DATASET.json"
 done

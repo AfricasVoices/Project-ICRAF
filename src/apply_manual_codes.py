@@ -147,5 +147,5 @@ class ApplyManualCodes(object):
                     )
                     missing_dict[plan.coded_field] = nc_label.to_dict()
             td.append_data(missing_dict, Metadata(user, Metadata.get_call_location(), time.time()))
-        
+       
         return data

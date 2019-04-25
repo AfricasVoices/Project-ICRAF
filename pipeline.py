@@ -8,7 +8,9 @@ from core_data_modules.util import PhoneNumberUuidTable, IOUtils
 from google.cloud import storage
 from storage.google_drive import drive_client_wrapper
 
-from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile
+from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, \
+    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers
+
 from src.lib import PipelineConfiguration
 
 if __name__ == "__main__":
@@ -80,7 +82,9 @@ if __name__ == "__main__":
                              "per row, with all their messages joined into a single cell)")
      parser.add_argument("production_csv_output_path", metavar="production-csv-output-path",
                         help="Path to a CSV file to write raw message and demographic responses to, for use in "
-                             "radio show production"),
+                             "radio show production")
+     parser.add_argument("advert_phone_numbers_csv_output_path", metavar="advert_phone_numbers_csv_output_path",
+                            help="Path to a CSV file to write phone numbers to send adverts to "),
 
      args = parser.parse_args()
 
@@ -115,6 +119,7 @@ if __name__ == "__main__":
      csv_by_message_output_path = args.csv_by_message_output_path
      csv_by_individual_output_path = args.csv_by_individual_output_path
      production_csv_output_path = args.production_csv_output_path
+     advert_phone_numbers_csv_output_path = args.advert_phone_numbers_csv_output_path
 
      message_paths = [s01e01_input_path, s01e02_input_path, s01e03_input_path, s01e04_input_path, s01e05_input_path, s01e06_input_path]
      
@@ -142,7 +147,7 @@ if __name__ == "__main__":
      print("Loading Phone Number <-> UUID Table...")
      with open(phone_number_uuid_table_path, "r") as f:
           phone_number_uuid_table = PhoneNumberUuidTable.load(f)
-     
+
      # Load messages
      messages_datasets = []
      for i, path in enumerate(message_paths):
@@ -177,15 +182,18 @@ if __name__ == "__main__":
 
      print("Applying manual codes...")
      data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
+    
+     print("Exporting advert CSV...")
+     advert_phone_numbers = AdvertPhoneNumbers.generate(data, phone_number_uuid_table, advert_phone_numbers_csv_output_path)
      
-     print("Generating Analysis CSVs...")
-     data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
+     #print("Generating Analysis CSVs...")
+     #data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
 
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
      with open(json_output_path, "w") as f:
           TracedDataJsonIO.export_traced_data_iterable_to_json(data, f, pretty_print=True)
-     
+     '''
      # Upload to Google Drive, if requested.
      # Note: This should happen as late as possible in order to reduce the risk of the remainder of the pipeline failing
      # after a Drive upload has occurred. Failures could result in inconsistent outputs or outputs with no
@@ -219,5 +227,5 @@ if __name__ == "__main__":
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                "'DriveUploadPaths')")
-     
+     '''
      print("Python script complete")
