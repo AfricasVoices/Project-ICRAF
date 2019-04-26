@@ -30,9 +30,9 @@ if __name__ == "__main__":
     uuid_table_path = f"{root_data_dir}/UUIDs/phone_uuids.json"
 
     SHOWS = [
-        "icraf_s01_e01_activation",
-        "icraf_s01_e02_activation",
-        #"icraf_s01_e03_activation",
+        #"icraf_s01_e01_activation",
+        #"icraf_s01_e02_activation",
+        "icraf_s01_e03_activation",
        #"icraf_s01_e04_activation",
         #"icraf_s01_e05_activation",
         #"icraf_s01_e06_activation"
@@ -47,9 +47,7 @@ if __name__ == "__main__":
 
     # Read the settings from the configuration file
     with open(pipeline_configuration_file_path) as f:
-        print(pipeline_configuration_file_path)
         pipeline_config = json.load(f)
-        print(pipeline_config)
         rapid_pro_domain = pipeline_config["RapidProDomain"]
         rapid_pro_token_file_url = pipeline_config["RapidProTokenFileURL"]
 

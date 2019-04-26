@@ -16,7 +16,6 @@ class ProductionFile(object):
         for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
             if plan.raw_field not in production_keys:
                 production_keys.append(plan.raw_field)
-                
         with open(production_csv_output_path, "w") as f:
             TracedDataCSVIO.export_traced_data_iterable_to_csv(data, f, headers=production_keys)
         
