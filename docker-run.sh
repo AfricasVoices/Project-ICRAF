@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 18 ]]; then
+if [[ $# -ne 19 ]]; then
     echo "Usage: ./docker-run.sh
     [--profile-cpu <profile-output-path>]
     [--drive-upload <drive-auth-file> <messages-drive-path> <individuals-drive-path> <production-drive-path>]
@@ -35,7 +35,7 @@ if [[ $# -ne 18 ]]; then
     <icraf-s01e01-input-path> <icraf-s01e02-input-path> <icraf-s01e03-input-path> <icraf-s01e04-input-path>
     <icraf-s01e05-input-path> <icraf-s01e06-input-path> <icraf-demog-input-path> <icraf-follow-up-survey-input-path> 
     <prev-coded-dir> <json-output-path> <icr-output-dir> <coded-output-dir> <messages-output-csv> <individuals-output-csv>
-    <production-output-csv>"
+    <production-output-csv> <advert-phone-numbers-csv>"
     exit
 fi
 
@@ -58,6 +58,7 @@ OUTPUT_AUTO_CODED_DIR=${15}
 OUTPUT_MESSAGES_CSV=${16}
 OUTPUT_INDIVIDUALS_CSV=${17}
 OUTPUT_PRODUCTION_CSV=${18}
+OUTPUT_ADVERT_PHONE_NUMBERS_CSV=${19}
 
 # Build an image for this pipeline stage.
 docker build --build-arg INSTALL_CPU_PROFILER="$PROFILE_CPU" -t "$IMAGE_NAME" .
@@ -81,9 +82,9 @@ CMD="pipenv run $PROFILE_CPU_CMD python -u pipeline.py $DRIVE_UPLOAD_ARG \
     /data/icraf-s01e01-input.json  /data/icraf-s01e02-input.json  /data/icraf-s01e03-input.json \
     /data/icraf-s01e04-input.json  /data/icraf-s01e05-input.json  /data/icraf-s01e06-input.json \
     /data/icraf-demog-input.json /data/icraf-follow-up-survey-input.json /data/prev-coded \
-    /data/output.json /data/output-icr /data/coded \
-    /data/output-messages.csv /data/output-individuals.csv /data/output-production.csv \
-"
+    /data/output.json /data/output-icr /data/coded /data/output-messages.csv \
+    /data/output-individuals.csv /data/output-production.csv /data/advert_phone_numbers.csv" 
+
 container="$(docker container create ${SYS_PTRACE_CAPABILITY} -w /app "$IMAGE_NAME" /bin/bash -c "$CMD")"
 
 function finish {
@@ -122,6 +123,9 @@ docker cp "$container:/data/coded/." "$OUTPUT_AUTO_CODED_DIR"
 
 mkdir -p "$(dirname "$OUTPUT_PRODUCTION_CSV")"
 docker cp "$container:/data/output-production.csv" "$OUTPUT_PRODUCTION_CSV"
+
+mkdir -p "$(dirname "$OUTPUT_ADVERT_PHONE_NUMBERS_CSV")"
+docker cp "$container:/data/advert_phone_numbers.csv" "$OUTPUT_ADVERT_PHONE_NUMBERS_CSV"
 
 mkdir -p "$(dirname "$OUTPUT_INDIVIDUALS_CSV")"
 docker cp "$container:/data/output-individuals.csv" "$OUTPUT_INDIVIDUALS_CSV"
