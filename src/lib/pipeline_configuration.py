@@ -62,21 +62,10 @@ class PipelineConfiguration(object):
     PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300") 
     PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
 
+    ADVERT_PHONE_NUMBERS_CODE_FILTERS = ["code-NOP-4eb70633", "code-STOP-08b832a8", "code-NA-f93d3eb7","code-NR-5e3eee23"]
+
     # Radio and follow up questions coding plans
-    SO1EO1_PLANS = [
-        CodingPlan(raw_field="rqa_s01e01_raw",
-                    coded_field="rqa_s01e01_coded",
-                    time_field="sent_on",
-                    coda_filename="s01e01.json",
-                    icr_filename="icraf_s01e01.csv",
-                    run_id_field="rqa_s01e01_run_id",
-                    analysis_file_key="rqa_s01e01_",
-                    cleaner=None,
-                    code_scheme=CodeSchemes.ICRAF_S01E01,
-                    binary_code_scheme=CodeSchemes.SO1EO1_YES_NO,
-                    binary_coded_field="rqa_s01e01_yes_no_coded",
-                    binary_analysis_file_key="rqa_s01e01_yes_no"),
-    ]
+    
     RQA_CODING_PLANS = [
         CodingPlan(raw_field="rqa_s01e01_raw",
                     coded_field="rqa_s01e01_coded",

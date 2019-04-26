@@ -26,9 +26,9 @@ class AdvertPhoneNumbers(object):
         
         for td in data:
             for plan in PipelineConfiguration.RQA_CODING_PLANS:
-                if plan.binary_code_scheme is not None and td[plan.binary_coded_field]["CodeID"] not in ["code-NOP-4eb70633", "code-STOP-08b832a8", "code-NA-f93d3eb7","code-NR-5e3eee23"]:
+                if plan.binary_code_scheme is not None and td[plan.binary_coded_field]["CodeID"] not in PipelineConfiguration.ADVERT_PHONE_NUMBERS_CODE_FILTERS:
                     advert_phone_numbers.add(phone_number_uuid_table.get_phone(td['uid']))
-                if td[plan.coded_field][0]["CodeID"] not in ["code-NOP-4eb70633", "code-STOP-08b832a8", "code-NA-f93d3eb7","code-NR-5e3eee23"]:
+                if td[plan.coded_field][0]["CodeID"] not in PipelineConfiguration.ADVERT_PHONE_NUMBERS_CODE_FILTERS:
                     advert_phone_numbers.add(phone_number_uuid_table.get_phone(td['uid']))
 
         with open(advert_phone_numbers_csv_output_path,'w') as f:
