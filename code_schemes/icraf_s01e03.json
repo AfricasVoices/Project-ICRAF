@@ -54,9 +54,9 @@
     {
         "CodeID": "code-327f3327",
         "CodeType": "Normal",
-        "DisplayText": "washing clothes in the river",
+        "DisplayText": "washing clothes in the rivers",
         "NumericValue": 6,
-        "StringValue": "washing_clothes_in_the_river",
+        "StringValue": "washing_clothes_in_the_rivers",
         "VisibleInCoda": true
         },
     {
@@ -70,9 +70,9 @@
     {
         "CodeID": "code-6899dc79",
         "CodeType": "Normal",
-        "DisplayText": "constructing dams next to the river",
+        "DisplayText": "constructing dams next to rivers",
         "NumericValue": 8,
-        "StringValue": "constructing_dams_next_to_the_river",
+        "StringValue": "constructing_dams_next_to_rivers",
         "VisibleInCoda": true
         },
     {
@@ -94,9 +94,9 @@
     {
         "CodeID": "code-5bebfd17",
         "CodeType": "Normal",
-        "DisplayText": "planting eucalptus on river banks",
+        "DisplayText": "planting eucalyptus on river banks",
         "NumericValue": 11,
-        "StringValue": "planting_eucalptus_on_river_banks",
+        "StringValue": "planting_eucalyptus_on_river_banks",
         "VisibleInCoda": true
         },
     {
