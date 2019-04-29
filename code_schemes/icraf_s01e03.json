@@ -3,6 +3,150 @@
     "Name": "ICRAF s01e03",
     "Version": "0.0.0.1",
     "Codes": [
+    {
+        "CodeID": "code-7c77cb0c",
+        "CodeType": "Normal",
+        "DisplayText": "cutting of trees/deforestation",
+        "NumericValue": 0,
+        "StringValue": "cutting_of_trees_deforestation",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-6af3411b",
+        "CodeType": "Normal",
+        "DisplayText": "washing of cars (near rivers)",
+        "NumericValue": 1,
+        "StringValue": "washing_of_cars_near_rivers",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-ab3f3851",
+        "CodeType": "Normal",
+        "DisplayText": "chemicals/fertilisers",
+        "NumericValue": 2,
+        "StringValue": "chemicals_fertilisers",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-bcb14a03",
+        "CodeType": "Normal",
+        "DisplayText": "draining sewerage into rivers",
+        "NumericValue": 3,
+        "StringValue": "draining_sewerage_into_rivers",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-6042a0b0",
+        "CodeType": "Normal",
+        "DisplayText": "water diversion/irrigation upstream",
+        "NumericValue": 4,
+        "StringValue": "water_diversion_irrigation_upstream",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-2fc7b2b2",
+        "CodeType": "Normal",
+        "DisplayText": "livestock watering from rivers",
+        "NumericValue": 5,
+        "StringValue": "livestock_watering_from_rivers",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-327f3327",
+        "CodeType": "Normal",
+        "DisplayText": "washing clothes in the river",
+        "NumericValue": 6,
+        "StringValue": "washing_clothes_in_the_river",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-327f3327",
+        "CodeType": "Normal",
+        "DisplayText": "dumping garbage in rivers",
+        "NumericValue": 7,
+        "StringValue": "dumping_garbage_in_rivers",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-6899dc79",
+        "CodeType": "Normal",
+        "DisplayText": "constructing dams next to the river",
+        "NumericValue": 8,
+        "StringValue": "constructing_dams_next_to_the_river",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-631de80a",
+        "CodeType": "Normal",
+        "DisplayText": "disposal of construction waste",
+        "NumericValue": 9,
+        "StringValue": "disposal_of_construction_waste",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-0d2bb86f",
+        "CodeType": "Normal",
+        "DisplayText": "waste water disposal in rivers",
+        "NumericValue": 10,
+        "StringValue": "waste_water_disposal_in_rivers",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-5bebfd17",
+        "CodeType": "Normal",
+        "DisplayText": "planting eucalptus on river banks",
+        "NumericValue": 11,
+        "StringValue": "planting_eucalptus_on_river_banks",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-6c0ec94e",
+        "CodeType": "Normal",
+        "DisplayText": "bathing in the rivers",
+        "NumericValue": 12,
+        "StringValue": "bathing_in_the_rivers",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-c9097fc8",
+        "CodeType": "Normal",
+        "DisplayText": "oil drainage",
+        "NumericValue": 13,
+        "StringValue": "oil_drainage",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-13e3c2c7",
+        "CodeType": "Normal",
+        "DisplayText": "farming along the river banks",
+        "NumericValue": 14,
+        "StringValue": "farming_along_the_river_banks",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-d677bec6",
+        "CodeType": "Normal",
+        "DisplayText": "other",
+        "NumericValue": 15,
+        "StringValue": "other",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-d677bec6",
+        "CodeType": "Normal",
+        "DisplayText": "i don't know",
+        "NumericValue": 16,
+        "StringValue": "i_don_t_know",
+        "VisibleInCoda": true
+        },
+    {
+        "CodeID": "code-d677bec6",
+        "CodeType": "Normal",
+        "DisplayText": "i don't live in the area",
+        "NumericValue": 17,
+        "StringValue": "i_don_t_live_in_the_area",
+        "VisibleInCoda": true
+        },
       {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
