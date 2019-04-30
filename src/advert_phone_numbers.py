@@ -15,13 +15,12 @@ class AdvertPhoneNumbers(object):
         that were not labelled as Noise_Other_Project.
 
         :param data: TracedData objects that have been manually labelled. 
-        :type: List of TracedData
-        :param: phone_number_uuid_table
-        :type: a coredatamodules.PhoneNumberUuidTable look up table containing uuids to retrieve phone numbers from.
+        :type: list of TracedData
+        :param: phone_number_uuid_table: uuid <-> phone number look up table
+        :type phone_number_uuid_table: core_data_modules.util.PhoneNumberUuidTable.
         :return: advert_phone_numbers
-        :rtype: csv file
+        :rtype: set of str
         '''
-
         advert_phone_numbers = set()
         for td in data:
             for plan in PipelineConfiguration.RQA_CODING_PLANS:
