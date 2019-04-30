@@ -13,24 +13,21 @@ class AdvertPhoneNumbers(object):
         '''
         Generates a csv file with normalised phone numbers for respondents who sent messages 
         that were not labelled as Noise_Other_Project.
-
         :param data: TracedData objects that have been manually labelled. 
-        :type: List of TracedData
-        :param: phone_number_uuid_table
-        :type: a coredatamodules.PhoneNumberUuidTable look up table containing uuids to retrieve phone numbers from.
+        :type: list of TracedData
+        :param: phone_number_uuid_table: uuid <-> phone number look up table
+        :type phone_number_uuid_table: core_data_modules.util.PhoneNumberUuidTable.
         :return: advert_phone_numbers
-        :rtype: csv file
+        :rtype: set of str
         '''
-
         advert_phone_numbers = set()
-        
         for td in data:
             for plan in PipelineConfiguration.RQA_CODING_PLANS:
                 if plan.binary_code_scheme is not None and td[plan.binary_coded_field]["CodeID"] not in PipelineConfiguration.ADVERT_PHONE_NUMBERS_CODE_FILTERS:
                     advert_phone_numbers.add(phone_number_uuid_table.get_phone(td['uid']))
                 if td[plan.coded_field][0]["CodeID"] not in PipelineConfiguration.ADVERT_PHONE_NUMBERS_CODE_FILTERS:
                     advert_phone_numbers.add(phone_number_uuid_table.get_phone(td['uid']))
-
+        
         with open(advert_phone_numbers_csv_output_path,'w') as f:
             writer = csv.writer(f)
             for phone_number in advert_phone_numbers:
