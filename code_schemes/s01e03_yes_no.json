@@ -1,6 +1,6 @@
 {
     "Version": "0.0.0.1",
-    "Name": "S01E03 Yes_No",
+    "Name": "S01E03 Yes/No/Amb",
     "SchemeID": "Scheme-4dc7679f",
     "Codes": [{
         "DisplayText": "Yes",
@@ -23,6 +23,17 @@
         "StringValue": "no",
         "DisplayText": "No",
         "VisibleInCoda": true
+      },
+      {
+        "DisplayText": "ambivalent",
+        "VisibleInCoda": true,
+        "NumericValue": 2,
+        "CodeID": "code-9001193f",
+        "CodeType": "Normal",
+        "MatchValues": [
+          "ambivalent"
+        ],
+        "StringValue": "ambivalent"
       },
       {
         "CodeID": "code-NA-f93d3eb7",
@@ -68,6 +79,15 @@
         "NumericValue": -50,
         "StringValue": "NIC",
         "VisibleInCoda": false
+      },
+      {
+        "ControlCode": "NOP",
+        "DisplayText": "Noise (Other Project)",
+        "VisibleInCoda": true,
+        "NumericValue": -60,
+        "CodeID": "code-NOP-4eb70633",
+        "CodeType": "Control",
+        "StringValue": "Noise_Other_Project"
       },
       {
         "CodeID": "code-STOP-08b832a8",

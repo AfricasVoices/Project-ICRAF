@@ -2,251 +2,309 @@
     "SchemeID": "Scheme-be71238a",
     "Name": "ICRAF s01e01",
     "Version": "0.0.0.1",
-    "Codes": [
-      {
+    "Codes": [{
         "CodeID": "code-94f7d4f7",
-        "DisplayText": "tree planting",
         "NumericValue": 0,
+        "DisplayText": "tree planting",
+        "VisibleInCoda": true,
         "StringValue": "tree_planting",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
         "CodeID": "code-b148c68a",
-        "DisplayText": "burying waste",
         "NumericValue": 1,
+        "DisplayText": "burying waste",
+        "VisibleInCoda": true,
         "StringValue": "burying_waste",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-c711f9f7",
-        "DisplayText": "use organic fertilizers",
-        "NumericValue": 2,
+        "VisibleInCoda": true,
         "StringValue": "use_organic_fertilizers",
-        "VisibleInCoda": true
+        "CodeID": "code-c711f9f7",
+        "NumericValue": 2,
+        "DisplayText": "use organic fertilizers",
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-937e7c45",
         "DisplayText": "building toilets",
-        "NumericValue": 3,
+        "VisibleInCoda": true,
         "StringValue": "building_toilets",
-        "VisibleInCoda": true
+        "CodeID": "code-937e7c45",
+        "NumericValue": 3,
+        "CodeType": "Normal"
       },
       {
+        "NumericValue": 4,
         "CodeID": "code-124e8a3c",
         "DisplayText": "crop rotation",
-        "NumericValue": 4,
+        "VisibleInCoda": true,
         "StringValue": "crop_rotation",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
+        "NumericValue": 5,
         "CodeID": "code-2454f473",
         "DisplayText": "water harvesting",
-        "NumericValue": 5,
+        "VisibleInCoda": true,
         "StringValue": "water_harvesting",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-d5502816",
         "DisplayText": "not planting eucalyptus/blue gum trees",
-        "NumericValue": 6,
+        "VisibleInCoda": true,
         "StringValue": "not_planting_eucalyptus_blue_gum_trees",
-        "VisibleInCoda": true
+        "CodeID": "code-d5502816",
+        "NumericValue": 6,
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-121cd635",
         "DisplayText": "use of manure",
-        "NumericValue": 7,
+        "VisibleInCoda": true,
         "StringValue": "use_of_manure",
-        "VisibleInCoda": true
+        "CodeID": "code-121cd635",
+        "NumericValue": 7,
+        "CodeType": "Normal"
       },
       {
+        "NumericValue": 8,
         "CodeID": "code-2516e994",
         "DisplayText": "not cultivating along rivers",
-        "NumericValue": 8,
+        "VisibleInCoda": true,
         "StringValue": "not_cultivating_along_rivers",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-6958c852",
         "DisplayText": "deforestation",
-        "NumericValue": 9,
+        "VisibleInCoda": true,
         "StringValue": "deforestation",
-        "VisibleInCoda": true
+        "CodeID": "code-6958c852",
+        "NumericValue": 9,
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-e38aec95",
         "DisplayText": "no tree planting",
-        "NumericValue": 10,
+        "VisibleInCoda": true,
         "StringValue": "no_tree_planting",
-        "VisibleInCoda": true
+        "CodeID": "code-e38aec95",
+        "NumericValue": 10,
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-44ab4ab8",
-        "DisplayText": "use of chemicals",
-        "NumericValue": 11,
+        "VisibleInCoda": true,
         "StringValue": "use_of_chemicals",
-        "VisibleInCoda": true
+        "CodeID": "code-44ab4ab8",
+        "NumericValue": 11,
+        "DisplayText": "use of chemicals",
+        "CodeType": "Normal"
       },
       {
+        "NumericValue": 12,
         "CodeID": "code-49bb1cc5",
         "DisplayText": "water pollution",
-        "NumericValue": 12,
+        "VisibleInCoda": true,
         "StringValue": "water_pollution",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
+        "NumericValue": 13,
         "CodeID": "code-265198de",
         "DisplayText": "lack of government support",
-        "NumericValue": 13,
+        "VisibleInCoda": true,
         "StringValue": "lack_of_government_support",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
         "CodeID": "code-c4d7725a",
-        "DisplayText": "corruption",
         "NumericValue": 14,
+        "DisplayText": "corruption",
+        "VisibleInCoda": true,
         "StringValue": "corruption",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
         "CodeID": "code-57903f5b",
-        "DisplayText": "mono cropping",
         "NumericValue": 15,
+        "DisplayText": "mono cropping",
+        "VisibleInCoda": true,
         "StringValue": "mono_cropping",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-ba554362",
         "DisplayText": "legal issues",
-        "NumericValue": 16,
+        "VisibleInCoda": true,
         "StringValue": "legal_issues",
-        "VisibleInCoda": true
+        "CodeID": "code-ba554362",
+        "NumericValue": 16,
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-bccbae7c",
-        "DisplayText": "quarrying",
-        "NumericValue": 17,
+        "VisibleInCoda": true,
         "StringValue": "quarrying",
-        "VisibleInCoda": true
+        "CodeID": "code-bccbae7c",
+        "NumericValue": 17,
+        "DisplayText": "quarrying",
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-da2b4b98",
         "DisplayText": "lack of trenches to prevent erosion",
-        "NumericValue": 18,
+        "VisibleInCoda": true,
         "StringValue": "lack_of_trenches_to_prevent_erosion",
-        "VisibleInCoda": true
+        "NumericValue": 18,
+        "CodeID": "code-da2b4b98",
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-2131f8ab",
         "DisplayText": "ignorance",
-        "NumericValue": 19,
+        "VisibleInCoda": true,
         "StringValue": "ignorance",
-        "VisibleInCoda": true
+        "CodeID": "code-2131f8ab",
+        "NumericValue": 19,
+        "CodeType": "Normal"
       },
       {
         "CodeID": "code-2edbf896",
-        "DisplayText": "weak laws",
         "NumericValue": 20,
+        "DisplayText": "weak laws",
+        "VisibleInCoda": true,
         "StringValue": "weak_laws",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
+        "NumericValue": 21,
         "CodeID": "code-ed1b065e",
         "DisplayText": "lack of motivation",
-        "NumericValue": 21,
+        "VisibleInCoda": true,
         "StringValue": "lack_of_motivation",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
         "CodeID": "code-0549c4d1",
-        "DisplayText": "planting eucalyptus/blue gum trees",
         "NumericValue": 22,
+        "DisplayText": "planting eucalyptus/blue gum trees",
+        "VisibleInCoda": true,
         "StringValue": "planting_eucalyptus_blue_gum_trees",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
         "CodeID": "code-97b0a7c0",
-        "DisplayText": "cultivating along rivers",
         "NumericValue": 23,
+        "DisplayText": "cultivating along rivers",
+        "VisibleInCoda": true,
         "StringValue": "cultivating_along_rivers",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
         "CodeID": "code-7857928f",
-        "DisplayText": "lack of toilets",
         "NumericValue": 24,
+        "DisplayText": "lack of toilets",
+        "VisibleInCoda": true,
         "StringValue": "lack_of_toilets",
-        "VisibleInCoda": true
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-1bde9a1c",
         "DisplayText": "other",
-        "NumericValue": 25,
+        "VisibleInCoda": true,
         "StringValue": "other",
-        "VisibleInCoda": true
+        "NumericValue": 25,
+        "CodeID": "code-1bde9a1c",
+        "CodeType": "Normal"
       },
       {
-        "CodeID": "code-NA-f93d3eb7",
-        "CodeType": "Control",
+        "NumericValue": 26,
+        "CodeID": "code-ff5621d3",
+        "DisplayText": "mulching",
+        "VisibleInCoda": true,
+        "StringValue": "mulching",
+        "CodeType": "Normal"
+      },
+      {
+        "DisplayText": "soil erosion",
+        "VisibleInCoda": true,
+        "StringValue": "soil_erosion",
+        "NumericValue": 27,
+        "CodeID": "code-395ce98e",
+        "CodeType": "Normal"
+      },
+      {
+        "NumericValue": 28,
+        "CodeID": "code-fdd2569b",
+        "DisplayText": "lack of awareness",
+        "VisibleInCoda": true,
+        "StringValue": "lack_of_awareness",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "NA",
         "ControlCode": "NA",
         "DisplayText": "NA (missing)",
+        "VisibleInCoda": false,
         "NumericValue": -10,
-        "StringValue": "NA",
-        "VisibleInCoda": false
+        "CodeID": "code-NA-f93d3eb7",
+        "CodeType": "Control"
       },
       {
-        "CodeID": "code-NS-2c11b7c9",
-        "CodeType": "Control",
+        "StringValue": "NS",
         "ControlCode": "NS",
         "DisplayText": "NS (skip)",
+        "VisibleInCoda": false,
         "NumericValue": -20,
-        "StringValue": "NS",
-        "VisibleInCoda": false
+        "CodeID": "code-NS-2c11b7c9",
+        "CodeType": "Control"
       },
       {
-        "CodeID": "code-NC-42f1d983",
-        "CodeType": "Control",
+        "StringValue": "NC",
         "ControlCode": "NC",
         "DisplayText": "NC (not coded)",
+        "VisibleInCoda": true,
         "NumericValue": -30,
-        "StringValue": "NC",
-        "VisibleInCoda": true
+        "CodeID": "code-NC-42f1d983",
+        "CodeType": "Control"
       },
       {
+        "NumericValue": -40,
         "CodeID": "code-NR-5e3eee23",
         "CodeType": "Control",
+        "StringValue": "NR",
         "ControlCode": "NR",
         "DisplayText": "NR (not reviewed)",
-        "NumericValue": -40,
-        "StringValue": "NR",
         "VisibleInCoda": false
       },
       {
-        "CodeID": "code-NIC-99631cb8",
         "CodeType": "Control",
+        "StringValue": "NIC",
         "ControlCode": "NIC",
         "DisplayText": "NIC (not internally consistent)",
+        "VisibleInCoda": false,
         "NumericValue": -50,
-        "StringValue": "NIC",
-        "VisibleInCoda": false
+        "CodeID": "code-NIC-99631cb8"
       },
       {
-        "CodeID": "code-STOP-08b832a8",
-        "CodeType": "Control",
+        "StringValue": "Noise_Other_Project",
+        "ControlCode": "NOP",
+        "DisplayText": "Noise (Other Project)",
+        "VisibleInCoda": true,
+        "CodeID": "code-NOP-4eb70633",
+        "NumericValue": -60,
+        "CodeType": "Control"
+      },
+      {
         "ControlCode": "STOP",
         "DisplayText": "STOP",
+        "VisibleInCoda": true,
         "NumericValue": -90,
-        "StringValue": "STOP",
-        "VisibleInCoda": true
+        "CodeID": "code-STOP-08b832a8",
+        "CodeType": "Control",
+        "StringValue": "STOP"
       },
       {
-        "CodeID": "code-WS-adb25603b7af",
-        "CodeType": "Control",
         "ControlCode": "WS",
         "DisplayText": "WS (wrong scheme)",
+        "VisibleInCoda": true,
         "NumericValue": -100,
-        "StringValue": "WS",
-        "VisibleInCoda": true
+        "CodeID": "code-WS-adb25603b7af",
+        "CodeType": "Control",
+        "StringValue": "WS"
       }
-  ]
+    ]
 }

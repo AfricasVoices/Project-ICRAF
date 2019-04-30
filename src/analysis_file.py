@@ -79,7 +79,7 @@ class AnalysisFile(object):
     def generate(user, data, csv_by_message_output_path, csv_by_individual_output_path):
         # Serializer is currently overflowing
         # TODO: Investigate/address the cause of this.
-        sys.setrecursionlimit(10000)
+        sys.setrecursionlimit(20000)
 
         consent_withdrawn_key = "consent_withdrawn"
         for td in data:
@@ -208,8 +208,9 @@ class AnalysisFile(object):
         # Output to CSV with one message per row
         with open(csv_by_message_output_path, "w") as f:
             TracedDataCSVIO.export_traced_data_iterable_to_csv(data, f, headers=export_keys)
+        print(f"--Csv by Message exported at {csv_by_message_output_path}" )
         
         with open(csv_by_individual_output_path, "w") as f:
             TracedDataCSVIO.export_traced_data_iterable_to_csv(folded_data, f, headers=export_keys)
-        
+        print(f"--Csv by Individual exported at {csv_by_individual_output_path}" )
         return data

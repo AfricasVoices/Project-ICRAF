@@ -13,7 +13,6 @@ class AdvertPhoneNumbers(object):
         '''
         Generates a csv file with normalised phone numbers for respondents who sent messages 
         that were not labelled as Noise_Other_Project.
-
         :param data: TracedData objects that have been manually labelled. 
         :type: list of TracedData
         :param: phone_number_uuid_table: uuid <-> phone number look up table

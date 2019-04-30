@@ -65,6 +65,7 @@ class PipelineConfiguration(object):
     ADVERT_PHONE_NUMBERS_CODE_FILTERS = ["code-NOP-4eb70633",Codes.STOP, Codes.NOT_REVIEWED, Codes.TRUE_MISSING]
 
     # Radio and follow up questions coding plans
+   
     RQA_CODING_PLANS = [
         CodingPlan(raw_field="rqa_s01e01_raw",
                     coded_field="rqa_s01e01_coded",
