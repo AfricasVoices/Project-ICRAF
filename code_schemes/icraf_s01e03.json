@@ -3,211 +3,211 @@
     "Name": "ICRAF s01e03",
     "Version": "0.0.0.1",
     "Codes": [{
-            "CodeID": "code-7c77cb0c",
-            "CodeType": "Normal",
-            "DisplayText": "cutting of trees/deforestation",
-            "NumericValue": 0,
             "StringValue": "cutting_of_trees_deforestation",
-            "VisibleInCoda": true
+            "DisplayText": "cutting of trees/deforestation",
+            "VisibleInCoda": true,
+            "NumericValue": 0,
+            "CodeID": "code-7c77cb0c",
+            "CodeType": "Normal"
         },
         {
+            "NumericValue": 1,
             "CodeID": "code-6af3411b",
             "CodeType": "Normal",
-            "DisplayText": "washing of cars (near rivers)",
-            "NumericValue": 1,
             "StringValue": "washing_of_cars_near_rivers",
+            "DisplayText": "washing of cars (near rivers)",
             "VisibleInCoda": true
         },
         {
+            "NumericValue": 2,
             "CodeID": "code-ab3f3851",
             "CodeType": "Normal",
-            "DisplayText": "chemicals/fertilisers",
-            "NumericValue": 2,
             "StringValue": "chemicals_fertilisers",
+            "DisplayText": "chemicals/fertilisers",
             "VisibleInCoda": true
         },
         {
+            "VisibleInCoda": true,
+            "NumericValue": 3,
             "CodeID": "code-bcb14a03",
             "CodeType": "Normal",
-            "DisplayText": "draining sewerage into rivers",
-            "NumericValue": 3,
             "StringValue": "draining_sewerage_into_rivers",
-            "VisibleInCoda": true
+            "DisplayText": "draining sewerage into rivers"
         },
         {
-            "CodeID": "code-6042a0b0",
             "CodeType": "Normal",
-            "DisplayText": "water diversion/irrigation upstream",
-            "NumericValue": 4,
             "StringValue": "water_diversion_irrigation_upstream",
-            "VisibleInCoda": true
+            "DisplayText": "water diversion/irrigation upstream",
+            "VisibleInCoda": true,
+            "NumericValue": 4,
+            "CodeID": "code-6042a0b0"
         },
         {
+            "DisplayText": "livestock watering from rivers",
+            "VisibleInCoda": true,
+            "NumericValue": 5,
             "CodeID": "code-2fc7b2b2",
             "CodeType": "Normal",
-            "DisplayText": "livestock watering from rivers",
-            "NumericValue": 5,
-            "StringValue": "livestock_watering_from_rivers",
-            "VisibleInCoda": true
+            "StringValue": "livestock_watering_from_rivers"
         },
         {
+            "VisibleInCoda": true,
+            "NumericValue": 6,
             "CodeID": "code-327f3327",
             "CodeType": "Normal",
-            "DisplayText": "washing clothes in the rivers",
-            "NumericValue": 6,
             "StringValue": "washing_clothes_in_the_rivers",
-            "VisibleInCoda": true
+            "DisplayText": "washing clothes in the rivers"
         },
         {
+            "NumericValue": 7,
             "CodeID": "code-ead8ffc2",
             "CodeType": "Normal",
-            "DisplayText": "dumping garbage in rivers",
-            "NumericValue": 7,
             "StringValue": "dumping_garbage_in_rivers",
+            "DisplayText": "dumping garbage in rivers",
             "VisibleInCoda": true
         },
         {
+            "NumericValue": 8,
             "CodeID": "code-6899dc79",
             "CodeType": "Normal",
-            "DisplayText": "constructing dams next to rivers",
-            "NumericValue": 8,
             "StringValue": "constructing_dams_next_to_rivers",
+            "DisplayText": "constructing dams next to rivers",
             "VisibleInCoda": true
         },
         {
+            "DisplayText": "disposal of construction waste",
+            "VisibleInCoda": true,
+            "NumericValue": 9,
             "CodeID": "code-631de80a",
             "CodeType": "Normal",
-            "DisplayText": "disposal of construction waste",
-            "NumericValue": 9,
-            "StringValue": "disposal_of_construction_waste",
-            "VisibleInCoda": true
+            "StringValue": "disposal_of_construction_waste"
         },
         {
-            "CodeID": "code-0d2bb86f",
             "CodeType": "Normal",
-            "DisplayText": "waste water disposal in rivers",
-            "NumericValue": 10,
             "StringValue": "waste_water_disposal_in_rivers",
-            "VisibleInCoda": true
+            "DisplayText": "waste water disposal in rivers",
+            "VisibleInCoda": true,
+            "NumericValue": 10,
+            "CodeID": "code-0d2bb86f"
         },
         {
+            "NumericValue": 11,
             "CodeID": "code-5bebfd17",
             "CodeType": "Normal",
-            "DisplayText": "planting eucalyptus on river banks",
-            "NumericValue": 11,
             "StringValue": "planting_eucalyptus_on_river_banks",
+            "DisplayText": "planting eucalyptus on river banks",
             "VisibleInCoda": true
         },
         {
+            "NumericValue": 12,
             "CodeID": "code-6c0ec94e",
             "CodeType": "Normal",
-            "DisplayText": "bathing in the rivers",
-            "NumericValue": 12,
             "StringValue": "bathing_in_the_rivers",
+            "DisplayText": "bathing in the rivers",
             "VisibleInCoda": true
         },
         {
+            "DisplayText": "oil drainage",
+            "VisibleInCoda": true,
+            "NumericValue": 13,
             "CodeID": "code-c9097fc8",
             "CodeType": "Normal",
-            "DisplayText": "oil drainage",
-            "NumericValue": 13,
-            "StringValue": "oil_drainage",
-            "VisibleInCoda": true
+            "StringValue": "oil_drainage"
         },
         {
+            "DisplayText": "farming along the river banks",
+            "VisibleInCoda": true,
+            "NumericValue": 14,
             "CodeID": "code-13e3c2c7",
             "CodeType": "Normal",
-            "DisplayText": "farming along the river banks",
-            "NumericValue": 14,
-            "StringValue": "farming_along_the_river_banks",
-            "VisibleInCoda": true
+            "StringValue": "farming_along_the_river_banks"
         },
         {
+            "DisplayText": "other",
+            "VisibleInCoda": true,
+            "NumericValue": 15,
             "CodeID": "code-d677bec6",
             "CodeType": "Normal",
-            "DisplayText": "other",
-            "NumericValue": 15,
-            "StringValue": "other",
-            "VisibleInCoda": true
+            "StringValue": "other"
         },
         {
+            "DisplayText": "i don't know",
+            "VisibleInCoda": true,
+            "NumericValue": 16,
             "CodeID": "code-00d96dcb",
             "CodeType": "Normal",
-            "DisplayText": "i don't know",
-            "NumericValue": 16,
-            "StringValue": "i_don_t_know",
-            "VisibleInCoda": true
+            "StringValue": "i_don_t_know"
         },
         {
+            "NumericValue": 17,
             "CodeID": "code-146f0efa",
             "CodeType": "Normal",
-            "DisplayText": "i don't live in the area",
-            "NumericValue": 17,
             "StringValue": "i_don_t_live_in_the_area",
+            "DisplayText": "i don't live in the area",
             "VisibleInCoda": true
         },
         {
-            "CodeID": "code-NA-f93d3eb7",
-            "CodeType": "Control",
             "ControlCode": "NA",
             "DisplayText": "NA (missing)",
+            "VisibleInCoda": false,
             "NumericValue": -10,
-            "StringValue": "NA",
-            "VisibleInCoda": false
+            "CodeID": "code-NA-f93d3eb7",
+            "CodeType": "Control",
+            "StringValue": "NA"
         },
         {
+            "NumericValue": -20,
             "CodeID": "code-NS-2c11b7c9",
             "CodeType": "Control",
+            "StringValue": "NS",
             "ControlCode": "NS",
             "DisplayText": "NS (skip)",
-            "NumericValue": -20,
-            "StringValue": "NS",
             "VisibleInCoda": false
         },
         {
+            "NumericValue": -30,
             "CodeID": "code-NC-42f1d983",
             "CodeType": "Control",
+            "StringValue": "NC",
             "ControlCode": "NC",
             "DisplayText": "NC (not coded)",
-            "NumericValue": -30,
-            "StringValue": "NC",
             "VisibleInCoda": true
         },
         {
-            "CodeID": "code-NR-5e3eee23",
-            "CodeType": "Control",
             "ControlCode": "NR",
             "DisplayText": "NR (not reviewed)",
+            "VisibleInCoda": false,
+            "CodeID": "code-NR-5e3eee23",
             "NumericValue": -40,
-            "StringValue": "NR",
-            "VisibleInCoda": false
+            "CodeType": "Control",
+            "StringValue": "NR"
         },
         {
-            "CodeID": "code-NIC-99631cb8",
-            "CodeType": "Control",
+            "StringValue": "NIC",
             "ControlCode": "NIC",
             "DisplayText": "NIC (not internally consistent)",
+            "VisibleInCoda": false,
+            "CodeID": "code-NIC-99631cb8",
             "NumericValue": -50,
-            "StringValue": "NIC",
-            "VisibleInCoda": false
+            "CodeType": "Control"
         },
         {
-            "CodeID": "code-STOP-08b832a8",
-            "CodeType": "Control",
             "ControlCode": "STOP",
             "DisplayText": "STOP",
+            "VisibleInCoda": true,
             "NumericValue": -90,
-            "StringValue": "STOP",
-            "VisibleInCoda": true
+            "CodeID": "code-STOP-08b832a8",
+            "CodeType": "Control",
+            "StringValue": "STOP"
         },
         {
+            "VisibleInCoda": true,
+            "NumericValue": -100,
             "CodeID": "code-WS-adb25603b7af",
             "CodeType": "Control",
-            "ControlCode": "WS",
-            "DisplayText": "WS (wrong scheme)",
-            "NumericValue": -100,
             "StringValue": "WS",
-            "VisibleInCoda": true
+            "ControlCode": "WS",
+            "DisplayText": "WS (wrong scheme)"
         }
     ]
 }
