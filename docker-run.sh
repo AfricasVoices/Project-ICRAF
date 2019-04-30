@@ -83,7 +83,7 @@ CMD="pipenv run $PROFILE_CPU_CMD python -u pipeline.py $DRIVE_UPLOAD_ARG \
     /data/icraf-s01e04-input.json  /data/icraf-s01e05-input.json  /data/icraf-s01e06-input.json \
     /data/icraf-demog-input.json /data/icraf-follow-up-survey-input.json /data/prev-coded \
     /data/output.json /data/output-icr /data/coded /data/output-messages.csv \
-    /data/output-individuals.csv /data/output-production.csv /data/advert_phone_numbers.csv" 
+    /data/output-individuals.csv /data/output-production.csv /data/advert-phone-numbers.csv" 
 
 container="$(docker container create ${SYS_PTRACE_CAPABILITY} -w /app "$IMAGE_NAME" /bin/bash -c "$CMD")"
 
@@ -125,7 +125,7 @@ mkdir -p "$(dirname "$OUTPUT_PRODUCTION_CSV")"
 docker cp "$container:/data/output-production.csv" "$OUTPUT_PRODUCTION_CSV"
 
 mkdir -p "$(dirname "$OUTPUT_ADVERT_PHONE_NUMBERS_CSV")"
-docker cp "$container:/data/advert_phone_numbers.csv" "$OUTPUT_ADVERT_PHONE_NUMBERS_CSV"
+docker cp "$container:/data/advert-phone-numbers.csv" "$OUTPUT_ADVERT_PHONE_NUMBERS_CSV"
 
 mkdir -p "$(dirname "$OUTPUT_INDIVIDUALS_CSV")"
 docker cp "$container:/data/output-individuals.csv" "$OUTPUT_INDIVIDUALS_CSV"
