@@ -179,15 +179,15 @@ if __name__ == "__main__":
      
      print("Auto Coding Surveys...")
      data = AutoCodeSurveys.auto_code_surveys(user, data, phone_number_uuid_table, coded_dir_path)
-
+     
      print("Applying manual codes...")
      data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
     
      print("Exporting advert CSV...")
      advert_phone_numbers = AdvertPhoneNumbers.generate(data, phone_number_uuid_table, advert_phone_numbers_csv_output_path)
      
-     #print("Generating Analysis CSVs...")
-     #data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
+     print("Generating Analysis CSVs...")
+     data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
      
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
@@ -224,7 +224,6 @@ if __name__ == "__main__":
           drive_client_wrapper.update_or_create(json_output_path, traced_data_drive_dir,
                                                   target_file_name=traced_data_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
-          
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                "'DriveUploadPaths')")
