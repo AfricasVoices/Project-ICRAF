@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4eb423a0233351ee08ca877f733248470ceb4b2bcca7c3fa0ef5970bf5b1e880"
+            "sha256": "65f21bf758af942f362d2df79bcedd018d7ff203132e62de2af10ae8982c5806"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -102,11 +102,11 @@
         },
         "google-cloud-firestore": {
             "hashes": [
-                "sha256:e3d94377581c4135029b317a83588c2594a8435548b45b7f81199103d41f3cef",
-                "sha256:feb26dcf76be67b747b5d57922258b2163d68e579ed28a8d6795f22a3cdda081"
+                "sha256:b1f43c610c47437013c1db993c51b205fa5ecb14cde7b23be22ab2a889554250",
+                "sha256:fc3d3c4ec3bb012928682b239f1add0df7920d8176aa03e9b51ce1b00ab9297f"
             ],
             "markers": "platform_python_implementation != 'PyPy'",
-            "version": "==1.0.0"
+            "version": "==1.1.0"
         },
         "google-cloud-storage": {
             "hashes": [
@@ -179,6 +179,14 @@
                 "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
             ],
             "version": "==2.8"
+        },
+        "iso8601": {
+            "hashes": [
+                "sha256:210e0134677cc0d02f6028087fee1df1e1d76d372ee1db0bf30bf66c5c1c89a3",
+                "sha256:49c4b20e1f38aa5cf109ddcd39647ac419f928512c869dc01d5c7098eddede82",
+                "sha256:bbbae5fb4a7abfe71d4688fd64bff70b91bbd74ef6a99d964bab18f7fdf286dd"
+            ],
+            "version": "==0.1.12"
         },
         "jsonpickle": {
             "hashes": [
@@ -287,6 +295,18 @@
             ],
             "index": "pypi",
             "version": "==2019.1"
+        },
+        "rapidpro-python": {
+            "hashes": [
+                "sha256:19dea98782f6055a23816d727073d2024bf8f001f0208fcf7baa87aad86773b7",
+                "sha256:a1d09839051ceb23bf0251fc76b9a5ffbd2a98a59d1470968dd669180c9ff4f1"
+            ],
+            "version": "==2.5.1"
+        },
+        "rapidprotools": {
+            "editable": true,
+            "git": "https://www.github.com/AfricasVoices/RapidProTools",
+            "ref": "dfaa9c2284671e65a08662a77eb819ca5b1d7fa7"
         },
         "requests": {
             "hashes": [
