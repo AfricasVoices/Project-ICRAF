@@ -31,6 +31,7 @@ class CodeSchemes(object):
     SO1EO1_YES_NO_AMB = _open_scheme("s01e01_yes_no_amb.json")
     SO1EO2_YES_NO_AMB = _open_scheme("s01e02_yes_no_amb.json")
     SO1EO3_YES_NO_AMB = _open_scheme("s01e03_yes_no_amb.json")
+    SO1EO4_YES_NO_AMB = _open_scheme("s01e04_yes_no_amb.json")
     SO1EO5_YES_NO_AMB = _open_scheme("s01e05_yes_no_amb.json")
 
     WS_CORRECT_DATASET = _open_scheme("ws_correct_dataset.json")
@@ -113,7 +114,10 @@ class PipelineConfiguration(object):
                     run_id_field="rqa_s01e04_run_id",
                     analysis_file_key="rqa_s01e04_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.ICRAF_S01E04),
+                    code_scheme=CodeSchemes.ICRAF_S01E04
+                    binary_code_scheme=CodeSchemes.SO1EO4_YES_NO_AMB,
+                    binary_coded_field="rqa_s01e04_yes_no_amb_coded",
+                    binary_analysis_file_key="rqa_s01e04_yes_no_amb"),
                     
         CodingPlan(raw_field="rqa_s01e05_raw",
                     coded_field="rqa_s01e05_coded",
