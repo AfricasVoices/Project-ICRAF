@@ -19,9 +19,9 @@ DATASETS=(
     "s01e01"
     "s01e02"
     "s01e03"
-    #"s01e04"
-    #"s01e05"
-    #"s01e06"
+    "s01e04"
+    "s01e05"
+    "s01e06"
 
     "gender"
     "constituency"
