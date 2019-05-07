@@ -3,6 +3,110 @@
     "Name": "ICRAF s01e04",
     "Version": "0.0.0.1",
     "Codes": [{
+            "StringValue": "uproot_or_cut_the_eucalyptus_tree",
+            "DisplayText": "uproot or cut the eucalyptus tree",
+            "VisibleInCoda": true,
+            "NumericValue": 0,
+            "CodeID": "code-39805d38",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "ban_eucalyptus_planting_near_rivers",
+            "DisplayText": "ban eucalyptus planting near rivers",
+            "VisibleInCoda": true,
+            "NumericValue": 1,
+            "CodeID": "code-cc0a8324",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "plant_alternative_trees",
+            "DisplayText": "plant alternative trees",
+            "VisibleInCoda": true,
+            "NumericValue": 2,
+            "CodeID": "code-949d3bb5",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "shouldn_t_be_banned",
+            "DisplayText": "shouldn't be banned",
+            "VisibleInCoda": true,
+            "NumericValue": 3,
+            "CodeID": "code-cb0940ee",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "demonstrate_scientific_evidence",
+            "DisplayText": "demonstrate scientific evidence",
+            "VisibleInCoda": true,
+            "NumericValue": 4,
+            "CodeID": "code-eb051572",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "control_planting_of_the_eucalyptus",
+            "DisplayText": "control planting of the eucalyptus",
+            "VisibleInCoda": true,
+            "NumericValue": 5,
+            "CodeID": "code-c42b6bfb",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "religious_reasons",
+            "DisplayText": "religious reasons",
+            "VisibleInCoda": true,
+            "NumericValue": 6,
+            "CodeID": "code-1b2ed526",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "good_for_firewood",
+            "DisplayText": "good for firewood",
+            "VisibleInCoda": true,
+            "NumericValue": 7,
+            "CodeID": "code-ed6d2d32",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "fast_growth",
+            "DisplayText": "fast growth",
+            "VisibleInCoda": true,
+            "NumericValue": 8,
+            "CodeID": "code-c53d89f3",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "source_of_timber_for_construction",
+            "DisplayText": "source of timber for construction",
+            "VisibleInCoda": true,
+            "NumericValue": 9,
+            "CodeID": "code-5450eb37",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "good_in_draining_swampy_areas",
+            "DisplayText": "good in draining swampy areas",
+            "VisibleInCoda": true,
+            "NumericValue": 10,
+            "CodeID": "code-6021f21f",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "euclayptus_is_harmless",
+            "DisplayText": "euclayptus is harmless",
+            "VisibleInCoda": true,
+            "NumericValue": 11,
+            "CodeID": "code-5b1c8ec3",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "other",
+            "DisplayText": "other",
+            "VisibleInCoda": true,
+            "NumericValue": 12,
+            "CodeID": "code-62a1e842",
+            "CodeType": "Normal"
+        },
+        {
             "CodeID": "code-NA-f93d3eb7",
             "CodeType": "Control",
             "ControlCode": "NA",
@@ -46,6 +150,15 @@
             "NumericValue": -50,
             "StringValue": "NIC",
             "VisibleInCoda": false
+        },
+        {
+            "StringValue": "Noise_Other_Project",
+            "ControlCode": "NOP",
+            "DisplayText": "Noise (Other Project)",
+            "VisibleInCoda": true,
+            "NumericValue": -60,
+            "CodeID": "code-NOP-4eb70633",
+            "CodeType": "Control"
         },
         {
             "CodeID": "code-STOP-08b832a8",
