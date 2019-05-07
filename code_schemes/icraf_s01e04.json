@@ -3,8 +3,8 @@
     "Name": "ICRAF s01e04",
     "Version": "0.0.0.1",
     "Codes": [{
-            "StringValue": "uproot_cut_the_eucalyptus_tree",
-            "DisplayText": "uproot cut the eucalyptus tree",
+            "StringValue": "uproot_or_cut_the_eucalyptus_tree",
+            "DisplayText": "uproot or cut the eucalyptus tree",
             "VisibleInCoda": true,
             "NumericValue": 0,
             "CodeID": "code-39805d38",
@@ -91,16 +91,16 @@
             "CodeType": "Normal"
         },
         {
-            "StringValue": "euclayputs_is_harmless",
-            "DisplayText": "euclayputs is harmless",
+            "StringValue": "euclayptus_is_harmless",
+            "DisplayText": "euclayptus is harmless",
             "VisibleInCoda": true,
             "NumericValue": 11,
             "CodeID": "code-5b1c8ec3",
             "CodeType": "Normal"
         },
         {
-            "StringValue": "others",
-            "DisplayText": "others",
+            "StringValue": "other",
+            "DisplayText": "other",
             "VisibleInCoda": true,
             "NumericValue": 12,
             "CodeID": "code-62a1e842",
