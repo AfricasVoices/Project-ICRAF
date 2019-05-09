@@ -100,30 +100,31 @@ fi
 docker start -a -i "$container"
 
 # Copy the output data back out of the container
-#echo "Copying traced data"
-#mkdir -p "$(dirname "$OUTPUT_JSON")"
-#docker cp "$container:/data/output.json" "$OUTPUT_JSON"
+echo "Copying out traced data..."
+mkdir -p "$(dirname "$OUTPUT_JSON")"
+docker cp "$container:/data/output.json" "$OUTPUT_JSON"
 
-echo "Copying traced ICR"
+echo "Copying out ICR..."
 mkdir -p "$OUTPUT_ICR_DIR"
 docker cp "$container:/data/output-icr/." "$OUTPUT_ICR_DIR"
 
-echo "Copying traced coded"
+echo "Copying out coded datasets..."
 mkdir -p "$OUTPUT_AUTO_CODED_DIR"
 docker cp "$container:/data/coded/." "$OUTPUT_AUTO_CODED_DIR"
 
-echo "Copying traced production csv"
+echo "Copying out production csv..."
 mkdir -p "$(dirname "$OUTPUT_PRODUCTION_CSV")"
 docker cp "$container:/data/output-production.csv" "$OUTPUT_PRODUCTION_CSV"
 
-echo "Copying traced production advert csv"
+echo "Copying out advert phone number csv..."
 mkdir -p "$(dirname "$OUTPUT_ADVERT_PHONE_NUMBERS_CSV")"
 docker cp "$container:/data/advert-phone-numbers.csv" "$OUTPUT_ADVERT_PHONE_NUMBERS_CSV"
 
-echo "Copying traced production individual csv"
+echo "Copying out individual csv..."
 mkdir -p "$(dirname "$OUTPUT_INDIVIDUALS_CSV")"
 docker cp "$container:/data/output-individuals.csv" "$OUTPUT_INDIVIDUALS_CSV"
 
+echo "Copying out messages csv..."
 mkdir -p "$(dirname "$OUTPUT_MESSAGES_CSV")"
 docker cp "$container:/data/output-messages.csv" "$OUTPUT_MESSAGES_CSV"
 

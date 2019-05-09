@@ -31,4 +31,5 @@ RUN pipenv sync
 ADD code_schemes/*.json /app/code_schemes/
 ADD src /app/src
 ADD configurations/pipeline_config.json /app/configurations/pipeline_config.json
+ADD fetch_raw_data.py /app
 ADD pipeline.py /app
