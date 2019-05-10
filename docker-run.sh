@@ -104,7 +104,7 @@ echo "copying traced data from '$container:/data/output.json' to '$OUTPUT_JSON'"
 mkdir -p "$(dirname "$OUTPUT_JSON")"
 docker cp "$container:/data/output.json" "$OUTPUT_JSON"
 
-echo "copying ICR files from '$container:/data/output-icr/' to '$OUTPUT_ICR_DIR'"
+echo "Copying ICR files from '$container:/data/output-icr/' to '$OUTPUT_ICR_DIR'"
 mkdir -p "$OUTPUT_ICR_DIR"
 docker cp "$container:/data/output-icr/." "$OUTPUT_ICR_DIR"
 
