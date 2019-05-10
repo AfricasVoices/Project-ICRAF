@@ -2,7 +2,7 @@
 
 set -e
 
-IMAGE_NAME=imaqal-fetch-raw-data
+IMAGE_NAME=icraf-fetch-raw-data
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
