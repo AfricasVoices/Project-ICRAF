@@ -6,9 +6,13 @@ from core_data_modules.traced_data import Metadata
 from core_data_modules.traced_data.io import TracedDataCSVIO
 from core_data_modules.traced_data.util import FoldTracedData
 from core_data_modules.util import TimeUtils
+from core_data_modules.logging import Logger
+
 
 from src.lib import PipelineConfiguration, AnalysisKeys
 from src.lib.pipeline_configuration import CodeSchemes
+
+log = Logger(__name__)
 
 class ConsentUtils(object):
     # TODO: This used to be in Core but has been duplicated then modified here in order to test the updates
@@ -171,7 +175,7 @@ class AnalysisFile(object):
                         td.append_data({consent_withdrawn_key: Codes.TRUE},
                                         Metadata(user, Metadata.get_call_location(), time.time()))
         
-        print("--Folding")
+        log.debug("--Folding")
         # Fold data to have one respondent per row 
         to_be_folded = []
         for td in data:
@@ -181,8 +185,8 @@ class AnalysisFile(object):
             equal_keys=equal_keys, concat_keys=concat_keys, matrix_keys=matrix_keys, bool_keys=bool_keys,
             binary_keys=binary_keys
         )
-        print("--Folding Successful")
 
+        log.debug("--Fixing NAs and NC")
         # Fix-up _NA and _NC keys, which are currently being set incorrectly by
         # FoldTracedData.fold_iterable_of_traced_data when there are multiple radio shows
         # TODO: Update FoldTracedData to handle NA and NC correctly under multiple radio shows
@@ -200,17 +204,20 @@ class AnalysisFile(object):
                     if not contains_non_nc_key:
                         td.append_data({f"{plan.analysis_file_key}{Codes.NOT_CODED}": Codes.MATRIX_1},
                                     Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
-
+        
+        log.debug("--processing consent")
         # Process consent
         ConsentUtils.set_stopped(user, data, consent_withdrawn_key)
         ConsentUtils.set_stopped(user, folded_data, consent_withdrawn_key)
-
+        
+        log.debug("--Generating CSV by message")
         # Output to CSV with one message per row
         with open(csv_by_message_output_path, "w") as f:
             TracedDataCSVIO.export_traced_data_iterable_to_csv(data, f, headers=export_keys)
-        print(f"--Csv by Message exported at {csv_by_message_output_path}" )
+        log.debug(f"--Csv by Message exported at {csv_by_message_output_path}" )
         
+        log.debug("--Generating CSV by individual")
         with open(csv_by_individual_output_path, "w") as f:
             TracedDataCSVIO.export_traced_data_iterable_to_csv(folded_data, f, headers=export_keys)
-        print(f"--Csv by Individual exported at {csv_by_individual_output_path}" )
+        log.debug(f"--Csv by Individual exported at {csv_by_individual_output_path}" )
         return data
