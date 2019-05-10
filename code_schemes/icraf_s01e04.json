@@ -3,52 +3,52 @@
     "Name": "ICRAF s01e04",
     "Version": "0.0.0.1",
     "Codes": [{
-            "StringValue": "uproot_or_cut_the_eucalyptus_tree",
             "DisplayText": "uproot or cut the eucalyptus tree",
             "VisibleInCoda": true,
             "NumericValue": 0,
             "CodeID": "code-39805d38",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "uproot_or_cut_the_eucalyptus_tree"
         },
         {
-            "StringValue": "ban_eucalyptus_planting_near_rivers",
             "DisplayText": "ban eucalyptus planting near rivers",
             "VisibleInCoda": true,
             "NumericValue": 1,
             "CodeID": "code-cc0a8324",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "ban_eucalyptus_planting_near_rivers"
         },
         {
-            "StringValue": "plant_alternative_trees",
             "DisplayText": "plant alternative trees",
             "VisibleInCoda": true,
             "NumericValue": 2,
             "CodeID": "code-949d3bb5",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "plant_alternative_trees"
         },
         {
-            "StringValue": "shouldn_t_be_banned",
             "DisplayText": "shouldn't be banned",
             "VisibleInCoda": true,
             "NumericValue": 3,
             "CodeID": "code-cb0940ee",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "shouldn_t_be_banned"
         },
         {
-            "StringValue": "demonstrate_scientific_evidence",
-            "DisplayText": "demonstrate scientific evidence",
-            "VisibleInCoda": true,
             "NumericValue": 4,
             "CodeID": "code-eb051572",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "demonstrate_scientific_evidence",
+            "DisplayText": "demonstrate scientific evidence",
+            "VisibleInCoda": true
         },
         {
-            "StringValue": "control_planting_of_the_eucalyptus",
             "DisplayText": "control planting of the eucalyptus",
             "VisibleInCoda": true,
             "NumericValue": 5,
             "CodeID": "code-c42b6bfb",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "control_planting_of_the_eucalyptus"
         },
         {
             "StringValue": "religious_reasons",
@@ -59,123 +59,139 @@
             "CodeType": "Normal"
         },
         {
-            "StringValue": "good_for_firewood",
             "DisplayText": "good for firewood",
             "VisibleInCoda": true,
             "NumericValue": 7,
             "CodeID": "code-ed6d2d32",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "good_for_firewood"
         },
         {
-            "StringValue": "fast_growth",
             "DisplayText": "fast growth",
             "VisibleInCoda": true,
             "NumericValue": 8,
             "CodeID": "code-c53d89f3",
-            "CodeType": "Normal"
+            "CodeType": "Normal",
+            "StringValue": "fast_growth"
         },
         {
-            "StringValue": "source_of_timber_for_construction",
-            "DisplayText": "source of timber for construction",
-            "VisibleInCoda": true,
             "NumericValue": 9,
             "CodeID": "code-5450eb37",
-            "CodeType": "Normal"
-        },
-        {
-            "StringValue": "good_in_draining_swampy_areas",
-            "DisplayText": "good in draining swampy areas",
-            "VisibleInCoda": true,
-            "NumericValue": 10,
-            "CodeID": "code-6021f21f",
-            "CodeType": "Normal"
-        },
-        {
-            "StringValue": "euclayptus_is_harmless",
-            "DisplayText": "euclayptus is harmless",
-            "VisibleInCoda": true,
-            "NumericValue": 11,
-            "CodeID": "code-5b1c8ec3",
-            "CodeType": "Normal"
-        },
-        {
-            "StringValue": "other",
-            "DisplayText": "other",
-            "VisibleInCoda": true,
-            "NumericValue": 12,
-            "CodeID": "code-62a1e842",
-            "CodeType": "Normal"
-        },
-        {
-            "CodeID": "code-NA-f93d3eb7",
-            "CodeType": "Control",
-            "ControlCode": "NA",
-            "DisplayText": "NA (missing)",
-            "NumericValue": -10,
-            "StringValue": "NA",
-            "VisibleInCoda": false
-        },
-        {
-            "CodeID": "code-NS-2c11b7c9",
-            "CodeType": "Control",
-            "ControlCode": "NS",
-            "DisplayText": "NS (skip)",
-            "NumericValue": -20,
-            "StringValue": "NS",
-            "VisibleInCoda": false
-        },
-        {
-            "CodeID": "code-NC-42f1d983",
-            "CodeType": "Control",
-            "ControlCode": "NC",
-            "DisplayText": "NC (not coded)",
-            "NumericValue": -30,
-            "StringValue": "NC",
+            "CodeType": "Normal",
+            "StringValue": "source_of_timber_for_construction",
+            "DisplayText": "source of timber for construction",
             "VisibleInCoda": true
         },
         {
-            "CodeID": "code-NR-5e3eee23",
-            "CodeType": "Control",
-            "ControlCode": "NR",
-            "DisplayText": "NR (not reviewed)",
-            "NumericValue": -40,
-            "StringValue": "NR",
-            "VisibleInCoda": false
+            "NumericValue": 10,
+            "CodeID": "code-6021f21f",
+            "CodeType": "Normal",
+            "StringValue": "good_in_draining_swampy_areas",
+            "DisplayText": "good in draining swampy areas",
+            "VisibleInCoda": true
         },
         {
-            "CodeID": "code-NIC-99631cb8",
-            "CodeType": "Control",
-            "ControlCode": "NIC",
-            "DisplayText": "NIC (not internally consistent)",
-            "NumericValue": -50,
-            "StringValue": "NIC",
-            "VisibleInCoda": false
+            "NumericValue": 11,
+            "CodeID": "code-5b1c8ec3",
+            "CodeType": "Normal",
+            "StringValue": "euclayptus_is_harmless",
+            "DisplayText": "euclayptus is harmless",
+            "VisibleInCoda": true
         },
         {
-            "StringValue": "Noise_Other_Project",
-            "ControlCode": "NOP",
-            "DisplayText": "Noise (Other Project)",
+            "NumericValue": 12,
+            "CodeID": "code-62a1e842",
+            "CodeType": "Normal",
+            "StringValue": "other",
+            "DisplayText": "other",
+            "VisibleInCoda": true
+        },
+        {
+            "DisplayText": "drying water",
             "VisibleInCoda": true,
-            "NumericValue": -60,
-            "CodeID": "code-NOP-4eb70633",
+            "NumericValue": 13,
+            "CodeID": "code-b287444d",
+            "CodeType": "Normal",
+            "StringValue": "drying_water"
+        },
+        {
+            "StringValue": "economic_value",
+            "DisplayText": "economic value",
+            "VisibleInCoda": true,
+            "NumericValue": 14,
+            "CodeID": "code-852f1db1",
+            "CodeType": "Normal"
+        },
+        {
+            "ControlCode": "NA",
+            "DisplayText": "NA (missing)",
+            "VisibleInCoda": false,
+            "NumericValue": -10,
+            "CodeID": "code-NA-f93d3eb7",
+            "CodeType": "Control",
+            "StringValue": "NA"
+        },
+        {
+            "StringValue": "NS",
+            "ControlCode": "NS",
+            "DisplayText": "NS (skip)",
+            "VisibleInCoda": false,
+            "NumericValue": -20,
+            "CodeID": "code-NS-2c11b7c9",
             "CodeType": "Control"
         },
         {
-            "CodeID": "code-STOP-08b832a8",
+            "NumericValue": -30,
+            "CodeID": "code-NC-42f1d983",
             "CodeType": "Control",
-            "ControlCode": "STOP",
-            "DisplayText": "STOP",
-            "NumericValue": -90,
-            "StringValue": "STOP",
+            "StringValue": "NC",
+            "ControlCode": "NC",
+            "DisplayText": "NC (not coded)",
             "VisibleInCoda": true
         },
         {
+            "StringValue": "NR",
+            "ControlCode": "NR",
+            "DisplayText": "NR (not reviewed)",
+            "VisibleInCoda": false,
+            "NumericValue": -40,
+            "CodeID": "code-NR-5e3eee23",
+            "CodeType": "Control"
+        },
+        {
+            "ControlCode": "NIC",
+            "DisplayText": "NIC (not internally consistent)",
+            "VisibleInCoda": false,
+            "NumericValue": -50,
+            "CodeID": "code-NIC-99631cb8",
+            "CodeType": "Control",
+            "StringValue": "NIC"
+        },
+        {
+            "NumericValue": -60,
+            "CodeID": "code-NOP-4eb70633",
+            "CodeType": "Control",
+            "StringValue": "Noise_Other_Project",
+            "ControlCode": "NOP",
+            "DisplayText": "Noise (Other Project)",
+            "VisibleInCoda": true
+        },
+        {
+            "NumericValue": -90,
+            "CodeID": "code-STOP-08b832a8",
+            "CodeType": "Control",
+            "StringValue": "STOP",
+            "ControlCode": "STOP",
+            "DisplayText": "STOP",
+            "VisibleInCoda": true
+        },
+        {
+            "NumericValue": -100,
             "CodeID": "code-WS-adb25603b7af",
             "CodeType": "Control",
+            "StringValue": "WS",
             "ControlCode": "WS",
             "DisplayText": "WS (wrong scheme)",
-            "NumericValue": -100,
-            "StringValue": "WS",
             "VisibleInCoda": true
         }
     ]
