@@ -114,7 +114,7 @@ class PipelineConfiguration(object):
                     run_id_field="rqa_s01e04_run_id",
                     analysis_file_key="rqa_s01e04_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.ICRAF_S01E04
+                    code_scheme=CodeSchemes.ICRAF_S01E04,
                     binary_code_scheme=CodeSchemes.SO1EO4_YES_NO_AMB,
                     binary_coded_field="rqa_s01e04_yes_no_amb_coded",
                     binary_analysis_file_key="rqa_s01e04_yes_no_amb"),
