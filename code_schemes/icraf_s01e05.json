@@ -20,7 +20,7 @@
         },
         {
             "StringValue": "farmers_knowledge",
-            "DisplayText": "farmers knowledge",
+            "DisplayText": "farmers' knowledge",
             "VisibleInCoda": true,
             "NumericValue": 2,
             "CodeID": "code-076a8c1f",
@@ -75,7 +75,7 @@
             "CodeType": "Normal"
         },
         {
-            "StringValue": "certfied_seeds",
+            "StringValue": "certified_seeds",
             "DisplayText": "certified seeds",
             "VisibleInCoda": true,
             "NumericValue": 9,
