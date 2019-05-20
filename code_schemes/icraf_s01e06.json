@@ -4,6 +4,86 @@
     "Version": "0.0.0.1",
     "Codes": [
       {
+            "StringValue": "high_cost",
+            "DisplayText": "high cost",
+            "VisibleInCoda": true,
+            "NumericValue": 0,
+            "CodeID": "code-98d4c1b0",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "ignorance",
+            "DisplayText": "ignorance",
+            "VisibleInCoda": true,
+            "NumericValue": 1,
+            "CodeID": "code-608418c6",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "lack_of_knowledge",
+            "DisplayText": "lack of knowledge",
+            "VisibleInCoda": true,
+            "NumericValue": 2,
+            "CodeID": "code-d86d5cad",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "lack_of_government_support",
+            "DisplayText": "lack of government support",
+            "VisibleInCoda": true,
+            "NumericValue": 3,
+            "CodeID": "code-20c03a4a",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "lack_of_funds",
+            "DisplayText": "lack of funds",
+            "VisibleInCoda": true,
+            "NumericValue": 4,
+            "CodeID": "code-9936da91",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "poverty",
+            "DisplayText": "poverty",
+            "VisibleInCoda": true,
+            "NumericValue": 5,
+            "CodeID": "code-8dace104",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "absence_of_extension_officers",
+            "DisplayText": "absence of extension officers",
+            "VisibleInCoda": true,
+            "NumericValue": 6,
+            "CodeID": "code-ca133871",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "economics_of_agribusiness_NEM",
+            "DisplayText": "economics of agribusiness/NEM",
+            "VisibleInCoda": true,
+            "NumericValue": 7,
+            "CodeID": "code-98b31a6a",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "weather_climate_challenges",
+            "DisplayText": "weather climate challenges",
+            "VisibleInCoda": true,
+            "NumericValue": 8,
+            "CodeID": "code-95718c8c",
+            "CodeType": "Normal"
+        },
+      {
+            "StringValue": "others",
+            "DisplayText": "others",
+            "VisibleInCoda": true,
+            "NumericValue": 9,
+            "CodeID": "code-63d9841b",
+            "CodeType": "Normal"
+        },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
@@ -48,6 +128,15 @@
         "StringValue": "NIC",
         "VisibleInCoda": false
       },
+      {
+            "StringValue": "Noise_Other_Project",
+            "ControlCode": "NOP",
+            "DisplayText": "Noise (Other Project)",
+            "VisibleInCoda": true,
+            "NumericValue": -60,
+            "CodeID": "code-NOP-4eb70633",
+            "CodeType": "Control"
+        },
       {
         "CodeID": "code-STOP-08b832a8",
         "CodeType": "Control",
