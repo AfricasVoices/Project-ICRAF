@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import random
 from urllib.parse import urlparse
 
 from core_data_modules.traced_data.io import TracedDataJsonIO
@@ -158,10 +159,10 @@ if __name__ == "__main__":
 
      print("Exporting production CSV...")
      data = ProductionFile.generate(data, production_csv_output_path)
-     
+
      print("Auto Coding Surveys...")
      data = AutoCodeSurveys.auto_code_surveys(user, data, phone_number_uuid_table, coded_dir_path)
-     
+     '''
      print("Applying manual codes...")
      data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
     
@@ -171,11 +172,11 @@ if __name__ == "__main__":
      print("Generating Analysis CSVs...")
      data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
      
-     print("Writing TracedData to file...")
-     IOUtils.ensure_dirs_exist_for_file(json_output_path)
-     with open(json_output_path, "w") as f:
-          TracedDataJsonIO.export_traced_data_iterable_to_json(data, f, pretty_print=True)
-     
+     #print("Writing TracedData to file...")
+     #IOUtils.ensure_dirs_exist_for_file(json_output_path)
+     #with open(json_output_path, "w") as f:
+          #TracedDataJsonIO.export_traced_data_iterable_to_json(data, f, pretty_print=True)
+     '''
      # Upload to Google Drive, if requested.
      # Note: This should happen as late as possible in order to reduce the risk of the remainder of the pipeline failing
      # after a Drive upload has occurred. Failures could result in inconsistent outputs or outputs with no
@@ -188,7 +189,7 @@ if __name__ == "__main__":
           drive_client_wrapper.update_or_create(production_csv_output_path, production_csv_drive_dir,
                                                   target_file_name=production_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
-          
+          '''
           messages_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.messages_upload_path)
           messages_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.messages_upload_path)
           drive_client_wrapper.update_or_create(csv_by_message_output_path, messages_csv_drive_dir,
@@ -201,13 +202,13 @@ if __name__ == "__main__":
                                                   target_file_name=individuals_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
           
-          traced_data_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.traced_data_upload_path)
-          traced_data_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.traced_data_upload_path)
-          drive_client_wrapper.update_or_create(json_output_path, traced_data_drive_dir,
-                                                  target_file_name=traced_data_drive_file_name,
-                                                  target_folder_is_shared_with_me=True)
+          #traced_data_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.traced_data_upload_path)
+          #traced_data_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.traced_data_upload_path)
+          #drive_client_wrapper.update_or_create(json_output_path, traced_data_drive_dir,
+                                                  #target_file_name=traced_data_drive_file_name,
+                                                  #target_folder_is_shared_with_me=True)
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                "'DriveUploadPaths')")
-     
+     '''
      print("Python script complete")

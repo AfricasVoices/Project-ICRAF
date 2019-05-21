@@ -32,11 +32,11 @@ if __name__ == "__main__":
     raw_data_dir = args.raw_data_dir
 
     SHOWS = [
-         "icraf_s01_e01_activation",
-         "icraf_s01_e02_activation",
-         "icraf_s01_e03_activation",
-         "icraf_s01_e04_activation",
-         "icraf_s01_e05_activation",
+         #"icraf_s01_e01_activation",
+         #"icraf_s01_e02_activation",
+         #"icraf_s01_e03_activation",
+         #"icraf_s01_e04_activation",
+         #"icraf_s01_e05_activation",
          "icraf_s01_e06_activation"
     ]
 

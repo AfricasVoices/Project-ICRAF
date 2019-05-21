@@ -61,7 +61,7 @@ class PipelineConfiguration(object):
     DEV_MODE = False
     
     PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300") 
-    PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
+    PROJECT_END_DATE = isoparse("2019-05-27T00:00:00+0300")
 
     ADVERT_PHONE_NUMBERS_CODE_FILTERS = ["code-NOP-4eb70633","code-NR-5e3eee23", "code-NA-f93d3eb7","code-STOP-08b832a8"]
 

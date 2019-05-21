@@ -100,9 +100,9 @@ fi
 docker start -a -i "$container"
 
 # Copy the output data back out of the container
-echo "copying traced data from '$container:/data/output.json' to '$OUTPUT_JSON'"
-mkdir -p "$(dirname "$OUTPUT_JSON")"
-docker cp "$container:/data/output.json" "$OUTPUT_JSON"
+#echo "copying traced data from '$container:/data/output.json' to '$OUTPUT_JSON'"
+#mkdir -p "$(dirname "$OUTPUT_JSON")"
+#docker cp "$container:/data/output.json" "$OUTPUT_JSON"
 
 echo "Copying ICR files from '$container:/data/output-icr/' to '$OUTPUT_ICR_DIR'"
 mkdir -p "$OUTPUT_ICR_DIR"
