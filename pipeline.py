@@ -9,7 +9,7 @@ from google.cloud import storage
 from storage.google_drive import drive_client_wrapper
 
 from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, \
-    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers
+    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers, FilterNOP
 
 from src.lib import PipelineConfiguration
 
@@ -164,10 +164,13 @@ if __name__ == "__main__":
      
      print("Applying manual codes...")
      data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
-    
+
      print("Exporting advert CSV...")
      advert_phone_numbers = AdvertPhoneNumbers.generate(data, phone_number_uuid_table, advert_phone_numbers_csv_output_path)
-     
+
+     print("Filtering out RQA and Follow up Messages labelled as Noise_Other_Project...")
+     data = FilterNOP.filter_noise_other_project(data)
+
      print("Generating Analysis CSVs...")
      data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
      
@@ -175,7 +178,7 @@ if __name__ == "__main__":
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
      with open(json_output_path, "w") as f:
           TracedDataJsonIO.export_traced_data_iterable_to_json(data, f, pretty_print=True)
-     
+
      # Upload to Google Drive, if requested.
      # Note: This should happen as late as possible in order to reduce the risk of the remainder of the pipeline failing
      # after a Drive upload has occurred. Failures could result in inconsistent outputs or outputs with no
@@ -209,5 +212,5 @@ if __name__ == "__main__":
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                "'DriveUploadPaths')")
-     
+
      print("Python script complete")
