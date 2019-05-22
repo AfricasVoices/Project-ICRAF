@@ -1,9 +1,136 @@
 {
-    "SchemeID": "Scheme-8baa86c3",
+    "SchemeID": "Scheme-a8baa8c3",
     "Name": "Current practices",
     "Version": "0.0.0.1",
     "Codes": [
-
+        {
+            "DisplayText": "tree planting",
+            "VisibleInCoda": true,
+            "NumericValue": 0,
+            "CodeID": "code-ff778ff1",
+            "CodeType": "Normal",
+            "StringValue": "tree_planting"
+        },
+         {
+            "DisplayText": "use of manure",
+            "VisibleInCoda": true,
+            "NumericValue": 1,
+            "CodeID": "code-859793d4",
+            "CodeType": "Normal",
+            "StringValue": "use_of_manure"
+        },
+        {
+            "DisplayText": "terracing",
+            "VisibleInCoda": true,
+            "NumericValue": 2,
+            "CodeID": "code-5e22e5c0",
+            "CodeType": "Normal",
+            "StringValue": "terracing"
+        },
+        {
+            "DisplayText": "avoid using fertilizers",
+            "VisibleInCoda": true,
+            "NumericValue": 3,
+            "CodeID": "code-0989f1a5",
+            "CodeType": "Normal",
+            "StringValue": "avoid_using_fertilizers"
+        },
+        {
+            "DisplayText": "zero tillage",
+            "VisibleInCoda": true,
+            "NumericValue": 4,
+            "CodeID": "code-713b7dc2",
+            "CodeType": "Normal",
+            "StringValue": "zero_tillage"
+        },
+        {
+            "DisplayText": "plant cover crops",
+            "VisibleInCoda": true,
+            "NumericValue": 5,
+            "CodeID": "code-3dd216d7",
+            "CodeType": "Normal",
+            "StringValue": "plant_cover_crops"
+        },
+        {
+            "DisplayText": "burying waste",
+            "VisibleInCoda": true,
+            "NumericValue": 6,
+            "CodeID": "code-d91b0993",
+            "CodeType": "Normal",
+            "StringValue": "burying_waste"
+        },
+        {
+            "DisplayText": "not cultivating along rivers",
+            "VisibleInCoda": true,
+            "NumericValue": 7,
+            "CodeID": "code-9a0479b1",
+            "CodeType": "Normal",
+            "StringValue": "not_cultivating_along_rivers"
+        },
+        {
+            "DisplayText": "planting indigenous trees",
+            "VisibleInCoda": true,
+            "NumericValue": 8,
+            "CodeID": "code-ca51e5b5",
+            "CodeType": "Normal",
+            "StringValue": "planting_indigenous_trees"
+        },
+        {
+            "DisplayText": "crop rotation",
+            "VisibleInCoda": true,
+            "NumericValue": 9,
+            "CodeID": "code-d7a346b0",
+            "CodeType": "Normal",
+            "StringValue": "crop_rotation"
+        },
+        {
+            "DisplayText": "use of modern technology",
+            "VisibleInCoda": true,
+            "NumericValue": 10,
+            "CodeID": "code-a4d12112",
+            "CodeType": "Normal",
+            "StringValue": "use_of_modern_technology"
+        },
+        {
+            "DisplayText": "mulching",
+            "VisibleInCoda": true,
+            "NumericValue": 11,
+            "CodeID": "code-fab0335c",
+            "CodeType": "Normal",
+            "StringValue": "mulching"
+        },
+        {
+            "DisplayText": "intercropping",
+            "VisibleInCoda": true,
+            "NumericValue": 12,
+            "CodeID": "code-786673f7",
+            "CodeType": "Normal",
+            "StringValue": "intercropping"
+        },
+        {
+            "DisplayText": "use fertilizers",
+            "VisibleInCoda": true,
+            "NumericValue": 13,
+            "CodeID": "code-699c59e0",
+            "CodeType": "Normal",
+            "StringValue": "use_fertilizers"
+        },
+        {
+            "DisplayText": "fallowing",
+            "VisibleInCoda": true,
+            "NumericValue": 14,
+            "CodeID": "code-08cbddc6",
+            "CodeType": "Normal",
+            "StringValue": "fallowing"
+        },
+        {
+            "DisplayText": "other",
+            "VisibleInCoda": true,
+            "NumericValue": 15,
+            "CodeID": "code-8dac6190",
+            "CodeType": "Normal",
+            "StringValue": "other"
+        },
         {
             "CodeID": "code-NA-f93d3eb7",
             "CodeType": "Control",
@@ -49,6 +176,15 @@
             "StringValue": "NIC",
             "VisibleInCoda": false
         },
+        {
+        "StringValue": "Noise_Other_Project",
+        "ControlCode": "NOP",
+        "DisplayText": "Noise (Other Project)",
+        "VisibleInCoda": true,
+        "CodeID": "code-NOP-4eb70633",
+        "NumericValue": -60,
+        "CodeType": "Control"
+      },
         {
             "CodeID": "code-STOP-08b832a8",
             "CodeType": "Control",
