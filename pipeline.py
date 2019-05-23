@@ -40,12 +40,15 @@ if __name__ == "__main__":
      parser.add_argument("s01e04_input_path", metavar="s01e04-input-path",
                         help="Path to the episode 4 raw messages JSON file, containing a list of serialized TracedData "
                              "objects")
-     parser.add_argument("s01e05_input_path", metavar="s01e04-input-path",
+     parser.add_argument("s01e05_input_path", metavar="s01e05-input-path",
                         help="Path to the episode 5 raw messages JSON file, containing a list of serialized TracedData "
                              "objects")
-     parser.add_argument("s01e06_input_path", metavar="s01e04-input-path",
+     parser.add_argument("s01e06_input_path", metavar="s01e06-input-path",
                         help="Path to the episode 6 raw messages JSON file, containing a list of serialized TracedData "
                              "objects")
+     parser.add_argument("s01e07_input_path", metavar="s01e07-input-path",
+                         help="Path to the episode 7 raw messages JSON file, containing a list of serialized TracedData "
+                              "objects")
      parser.add_argument("s01_demog_input_path", metavar="s01-demog-input-path",
                         help="Path to the raw demographics JSON file for season 1, containing a list of serialized "
                              "TracedData objects")
@@ -91,6 +94,7 @@ if __name__ == "__main__":
      s01e04_input_path = args.s01e04_input_path
      s01e05_input_path = args.s01e05_input_path
      s01e06_input_path = args.s01e06_input_path
+     s01e07_input_path = args.s01e07_input_path
      s01_demog_input_path = args.s01_demog_input_path
      s01_follow_up_survey_input_path = args.s01_follow_up_survey_input_path
      prev_coded_dir_path = args.prev_coded_dir_path
@@ -103,7 +107,8 @@ if __name__ == "__main__":
      production_csv_output_path = args.production_csv_output_path
      advert_phone_numbers_csv_output_path = args.advert_phone_numbers_csv_output_path
 
-     message_paths = [s01e01_input_path, s01e02_input_path, s01e03_input_path, s01e04_input_path, s01e05_input_path, s01e06_input_path]
+     message_paths = [s01e01_input_path, s01e02_input_path, s01e03_input_path, s01e04_input_path, s01e05_input_path,
+                      s01e06_input_path, s01e07_input_path]
      
      # Load the pipeline configuration file
      print("Loading Pipeline Configuration File...")
