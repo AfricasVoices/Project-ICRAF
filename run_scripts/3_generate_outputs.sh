@@ -37,7 +37,8 @@ cd ..
     "$DATA_ROOT/Raw Data/icraf_s01_e01_activation.json" "$DATA_ROOT/Raw Data/icraf_s01_e02_activation.json" \
     "$DATA_ROOT/Raw Data/icraf_s01_e03_activation.json" "$DATA_ROOT/Raw Data/icraf_s01_e04_activation.json" \
     "$DATA_ROOT/Raw Data/icraf_s01_e05_activation.json" "$DATA_ROOT/Raw Data/icraf_s01_e06_activation.json" \
-    "$DATA_ROOT/Raw Data/icraf_s01_demogs.json" "$DATA_ROOT/Raw Data/icraf_s01_follow_up_survey.json" \
+    "$DATA_ROOT/Raw Data/icraf_s01_e07_activation.json" "$DATA_ROOT/Raw Data/icraf_s01_demogs.json" \
+     "$DATA_ROOT/Raw Data/icraf_s01_follow_up_survey.json" \
     "$DATA_ROOT/Coded Coda Files/" "$DATA_ROOT/Outputs/traced_data.json" "$DATA_ROOT/Outputs/ICR/" \
     "$DATA_ROOT/Outputs/Coda Files/" "$DATA_ROOT/Outputs/icraf_s01_messages.csv" \
     "$DATA_ROOT/Outputs/icraf_s01_individuals.csv" "$DATA_ROOT/Outputs/icraf_s01_production.csv" \

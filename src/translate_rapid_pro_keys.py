@@ -12,7 +12,9 @@ class TranslateRapidProKeys(object):
         "Rqa_S01_E03 (Value) - icraf_s01_e03_activation": 3,
         "Rqa_S01_E04 (Value) - icraf_s01_e04_activation": 4,
         "Rqa_S01_E05 (Value) - icraf_s01_e05_activation": 5,
-        "Rqa_S01_E06 (Value) - icraf_s01_e06_activation": 6
+        "Rqa_S01_E06 (Value) - icraf_s01_e06_activation": 6,
+        "Rqa_S01_E07 (Value) - icraf_s01_e07_activation": 7
+
     }
 
     RAW_ID_MAP = {
@@ -21,7 +23,9 @@ class TranslateRapidProKeys(object):
         3: "rqa_s01e03_raw",
         4: "rqa_s01e04_raw",
         5: "rqa_s01e05_raw",
-        6: "rqa_s01e06_raw"
+        6: "rqa_s01e06_raw",
+        7: "rqa_s01e07_raw"
+
     }
 
     @classmethod

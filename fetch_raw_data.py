@@ -37,7 +37,8 @@ if __name__ == "__main__":
          "icraf_s01_e03_activation",
          "icraf_s01_e04_activation",
          "icraf_s01_e05_activation",
-         "icraf_s01_e06_activation"
+         "icraf_s01_e06_activation",
+         "icraf_s01_e07_activation"
     ]
 
     SURVEYS = [

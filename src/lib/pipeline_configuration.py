@@ -17,6 +17,8 @@ class CodeSchemes(object):
     ICRAF_S01E04 = _open_scheme("icraf_s01e04.json")
     ICRAF_S01E05 = _open_scheme("icraf_s01e05.json")
     ICRAF_S01E06 = _open_scheme("icraf_s01e06.json")
+    ICRAF_S01E07 = _open_scheme("icraf_s01e07.json")
+
     
     AGE = _open_scheme("age.json")
     LIVELIHOOD = _open_scheme("livelihood.json")
@@ -61,7 +63,7 @@ class PipelineConfiguration(object):
     DEV_MODE = False
     
     PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300") 
-    PROJECT_END_DATE = isoparse("2019-05-14T00:00:00+0300")
+    PROJECT_END_DATE = isoparse("2019-05-27T00:00:00+0300")
 
     ADVERT_PHONE_NUMBERS_CODE_FILTERS = ["code-NOP-4eb70633","code-NR-5e3eee23", "code-NA-f93d3eb7","code-STOP-08b832a8"]
 
@@ -140,7 +142,17 @@ class PipelineConfiguration(object):
                     run_id_field="rqa_s01e06_run_id",
                     analysis_file_key="rqa_s01e06_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.ICRAF_S01E06)
+                    code_scheme=CodeSchemes.ICRAF_S01E06),
+
+        CodingPlan(raw_field="rqa_s01e07_raw",
+                   coded_field="rqa_s01e07_coded",
+                   time_field="sent_on",
+                   coda_filename="s01e07.json",
+                   icr_filename="icraf_s01e07.csv",
+                   run_id_field="rqa_s01e07_run_id",
+                   analysis_file_key="rqa_s01e07_",
+                   cleaner=None,
+                   code_scheme=CodeSchemes.ICRAF_S01E07)
         
     ]
     
