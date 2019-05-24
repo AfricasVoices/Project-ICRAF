@@ -19,7 +19,6 @@ class CodeSchemes(object):
     ICRAF_S01E06 = _open_scheme("icraf_s01e06.json")
     ICRAF_S01E07 = _open_scheme("icraf_s01e07.json")
 
-    
     AGE = _open_scheme("age.json")
     LIVELIHOOD = _open_scheme("livelihood.json")
     GENDER = _open_scheme("gender.json")
