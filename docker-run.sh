@@ -19,14 +19,14 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 19 ]]; then
+if [[ $# -ne 20 ]]; then
     echo "Usage: ./docker-run.sh
     [--profile-cpu <profile-output-path>]
     <user> <google-cloud-credentials-file-path> <phone-number-uuid-table-path>
     <icraf-s01e01-input-path> <icraf-s01e02-input-path> <icraf-s01e03-input-path> <icraf-s01e04-input-path>
-    <icraf-s01e05-input-path> <icraf-s01e06-input-path> <icraf-demog-input-path> <icraf-follow-up-survey-input-path> 
-    <prev-coded-dir> <json-output-path> <icr-output-dir> <coded-output-dir> <messages-output-csv> <individuals-output-csv>
-    <production-output-csv> <advert-phone-numbers-csv>"
+    <icraf-s01e05-input-path> <icraf-s01e06-input-path>  <icraf-s01e07-input-path> <icraf-demog-input-path>
+    <icraf-follow-up-survey-input-path> <prev-coded-dir> <json-output-path> <icr-output-dir>
+    <coded-output-dir> <messages-output-csv> <individuals-output-csv> <production-output-csv> <advert-phone-numbers-csv>"
     exit
 fi
 
@@ -40,16 +40,17 @@ INPUT_S01E03=$6
 INPUT_S01E04=$7
 INPUT_S01E05=$8
 INPUT_S01E06=$9
-INPUT_S01_DEMOG=${10}
-INPUT_FOLLOW_UP_SURVEY=${11}
-PREV_CODED_DIR=${12}
-OUTPUT_JSON=${13}
-OUTPUT_ICR_DIR=${14}
-OUTPUT_AUTO_CODED_DIR=${15}
-OUTPUT_MESSAGES_CSV=${16}
-OUTPUT_INDIVIDUALS_CSV=${17}
-OUTPUT_PRODUCTION_CSV=${18}
-OUTPUT_ADVERT_PHONE_NUMBERS_CSV=${19}
+INPUT_S01E07=$10
+INPUT_S01_DEMOG=${11}
+INPUT_FOLLOW_UP_SURVEY=${12}
+PREV_CODED_DIR=${13}
+OUTPUT_JSON=${14}
+OUTPUT_ICR_DIR=${15}
+OUTPUT_AUTO_CODED_DIR=${16}
+OUTPUT_MESSAGES_CSV=${17}
+OUTPUT_INDIVIDUALS_CSV=${18}
+OUTPUT_PRODUCTION_CSV=${19}
+OUTPUT_ADVERT_PHONE_NUMBERS_CSV=${20}
 
 # Build an image for this pipeline stage.
 docker build --build-arg INSTALL_CPU_PROFILER="$PROFILE_CPU" -t "$IMAGE_NAME" .
@@ -69,8 +70,8 @@ CMD="pipenv run $PROFILE_CPU_CMD python -u pipeline.py\
     \"$USER\" configurations/pipeline_config.json /credentials/google-cloud-credentials.json /data/phone-number-uuid-table-input.json \
     /data/icraf-s01e01-input.json  /data/icraf-s01e02-input.json  /data/icraf-s01e03-input.json \
     /data/icraf-s01e04-input.json  /data/icraf-s01e05-input.json  /data/icraf-s01e06-input.json \
-    /data/icraf-demog-input.json /data/icraf-follow-up-survey-input.json /data/prev-coded \
-    /data/output.json /data/output-icr /data/coded /data/output-messages.csv \
+    /data/icraf-s01e07-input.json  /data/icraf-demog-input.json /data/icraf-follow-up-survey-input.json \
+     /data/prev-coded /data/output.json /data/output-icr /data/coded /data/output-messages.csv \
     /data/output-individuals.csv /data/output-production.csv /data/advert-phone-numbers.csv" 
 
 container="$(docker container create ${SYS_PTRACE_CAPABILITY} -w /app "$IMAGE_NAME" /bin/bash -c "$CMD")"
@@ -90,6 +91,7 @@ docker cp "$INPUT_S01E03" "$container:/data/icraf-s01e03-input.json"
 docker cp "$INPUT_S01E04" "$container:/data/icraf-s01e04-input.json"
 docker cp "$INPUT_S01E05" "$container:/data/icraf-s01e05-input.json"
 docker cp "$INPUT_S01E06" "$container:/data/icraf-s01e06-input.json"
+docker cp "$INPUT_S01E07" "$container:/data/icraf-s01e07-input.json"
 docker cp "$INPUT_S01_DEMOG" "$container:/data/icraf-demog-input.json"
 docker cp "$INPUT_FOLLOW_UP_SURVEY" "$container:/data/icraf-follow-up-survey-input.json"
 if [[ -d "$PREV_CODED_DIR" ]]; then
