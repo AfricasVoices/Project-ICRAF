@@ -40,12 +40,15 @@ if __name__ == "__main__":
      parser.add_argument("s01e04_input_path", metavar="s01e04-input-path",
                         help="Path to the episode 4 raw messages JSON file, containing a list of serialized TracedData "
                              "objects")
-     parser.add_argument("s01e05_input_path", metavar="s01e04-input-path",
+     parser.add_argument("s01e05_input_path", metavar="s01e05-input-path",
                         help="Path to the episode 5 raw messages JSON file, containing a list of serialized TracedData "
                              "objects")
-     parser.add_argument("s01e06_input_path", metavar="s01e04-input-path",
+     parser.add_argument("s01e06_input_path", metavar="s01e06-input-path",
                         help="Path to the episode 6 raw messages JSON file, containing a list of serialized TracedData "
                              "objects")
+     parser.add_argument("s01e07_input_path", metavar="s01e07-input-path",
+                         help="Path to the episode 7 raw messages JSON file, containing a list of serialized TracedData "
+                              "objects")
      parser.add_argument("s01_demog_input_path", metavar="s01-demog-input-path",
                         help="Path to the raw demographics JSON file for season 1, containing a list of serialized "
                              "TracedData objects")
@@ -91,6 +94,7 @@ if __name__ == "__main__":
      s01e04_input_path = args.s01e04_input_path
      s01e05_input_path = args.s01e05_input_path
      s01e06_input_path = args.s01e06_input_path
+     s01e07_input_path = args.s01e07_input_path
      s01_demog_input_path = args.s01_demog_input_path
      s01_follow_up_survey_input_path = args.s01_follow_up_survey_input_path
      prev_coded_dir_path = args.prev_coded_dir_path
@@ -103,8 +107,9 @@ if __name__ == "__main__":
      production_csv_output_path = args.production_csv_output_path
      advert_phone_numbers_csv_output_path = args.advert_phone_numbers_csv_output_path
 
-     message_paths = [s01e01_input_path, s01e02_input_path, s01e03_input_path, s01e04_input_path, s01e05_input_path, s01e06_input_path]
-     
+     message_paths = [s01e01_input_path, s01e02_input_path, s01e03_input_path, s01e04_input_path,
+                      s01e05_input_path, s01e06_input_path, s01e07_input_path]
+
      # Load the pipeline configuration file
      print("Loading Pipeline Configuration File...")
      with open(pipeline_configuration_file_path) as f:
@@ -141,11 +146,11 @@ if __name__ == "__main__":
      print("Loading Demographics ...")
      with open(s01_demog_input_path, "r") as f:
           s01_demographics = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
-     
+
      print("Loading Follow up surveys ...")
      with open(s01_follow_up_survey_input_path, "r") as f:
           s01_follow_up_survey = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
-     
+
      # Add survey data to the messages
      print("Combining Datasets...")
      data = CombineRawDatasets.combine_raw_datasets(user, messages_datasets, [s01_demographics, s01_follow_up_survey])
@@ -158,7 +163,7 @@ if __name__ == "__main__":
 
      print("Exporting production CSV...")
      data = ProductionFile.generate(data, production_csv_output_path)
-     
+
      print("Auto Coding Surveys...")
      data = AutoCodeSurveys.auto_code_surveys(user, data, phone_number_uuid_table, coded_dir_path)
      
@@ -175,7 +180,7 @@ if __name__ == "__main__":
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
      with open(json_output_path, "w") as f:
           TracedDataJsonIO.export_traced_data_iterable_to_json(data, f, pretty_print=True)
-     
+
      # Upload to Google Drive, if requested.
      # Note: This should happen as late as possible in order to reduce the risk of the remainder of the pipeline failing
      # after a Drive upload has occurred. Failures could result in inconsistent outputs or outputs with no
@@ -188,7 +193,7 @@ if __name__ == "__main__":
           drive_client_wrapper.update_or_create(production_csv_output_path, production_csv_drive_dir,
                                                   target_file_name=production_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
-          
+
           messages_csv_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.messages_upload_path)
           messages_csv_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.messages_upload_path)
           drive_client_wrapper.update_or_create(csv_by_message_output_path, messages_csv_drive_dir,
@@ -209,5 +214,5 @@ if __name__ == "__main__":
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                "'DriveUploadPaths')")
-     
+
      print("Python script complete")

@@ -16,6 +16,7 @@ class Channels(object):
     S01E04_KEY = "radio_participation_s01e04"
     S01E05_KEY = "radio_participation_s01e05"
     S01E06_KEY = "radio_participation_s01e06"
+    S01E07_KEY = "radio_participation_s01e07"
 
     # Time ranges expressed in format (start_of_range_inclusive, end_of_range_exclusive)
     RADIO_PROMO_RANGES = [
@@ -24,7 +25,8 @@ class Channels(object):
         ("2019-04-23T00:00:00+0300", "2019-04-26T07:00:00+0300"),
         ("2019-04-30T00:00:00+0300", "2019-05-03T07:00:00+0300"),
         ("2019-05-07T00:00:00+0300", "2019-05-10T07:00:00+0300"),
-        ("2019-05-14T00:00:00+0300", "2019-05-17T07:00:00+0300")
+        ("2019-05-14T00:00:00+0300", "2019-05-17T07:00:00+0300"),
+        ("2019-05-21T00:00:00+0300", "2019-05-24T07:00:00+0300")
     ]
 
     RADIO_SHOW_RANGES = [
@@ -33,7 +35,8 @@ class Channels(object):
         ("2019-04-26T07:00:00+0300", "2019-04-29T24:00:00+0300"),
         ("2019-05-03T07:00:00+0300", "2019-05-06T24:00:00+0300"),
         ("2019-05-10T07:00:00+0300", "2019-05-13T24:00:00+0300"),
-        ("2019-05-17T07:00:00+0300", "2019-05-20T24:00:00+0300")
+        ("2019-05-17T07:00:00+0300", "2019-05-20T24:00:00+0300"),
+        ("2019-05-24T07:00:00+0300", "2019-05-27T24:00:00+0300")
     ]
 
     S01E01_RANGES = [
@@ -60,6 +63,10 @@ class Channels(object):
         ("2019-05-14T00:00:00+0300", "2019-05-20T24:00:00+0300")
     ]
 
+    S01E07_RANGES = [
+        ("2019-05-21T00:00:00+0300", "2019-05-27T24:00:00+0300")
+    ]
+
     CHANNEL_RANGES = {
         RADIO_PROMO_KEY: RADIO_PROMO_RANGES,
         RADIO_SHOW_KEY: RADIO_SHOW_RANGES
@@ -72,6 +79,7 @@ class Channels(object):
         S01E04_KEY: S01E04_RANGES,
         S01E05_KEY: S01E05_RANGES,
         S01E06_KEY: S01E06_RANGES,
+        S01E07_KEY: S01E07_RANGES
     }
 
     @staticmethod
