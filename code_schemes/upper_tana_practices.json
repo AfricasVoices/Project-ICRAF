@@ -57,8 +57,7 @@
         "DisplayText": "livestock watering from rivers",
         "NumericValue": 6,
         "StringValue": "livestock_watering_from_rivers",
-        "VisibleInCoda": true,
-
+        "VisibleInCoda": true
       },
       {
         "CodeID": "code-bb340e21",
@@ -109,7 +108,7 @@
         "VisibleInCoda": true
       },
       {
-        "CodeID": "code-c074b909",
+        "CodeID": "code-c0e5498c",
         "CodeType": "Normal",
         "DisplayText": "bathing in the rivers",
         "NumericValue": 13,
