@@ -4,6 +4,86 @@
     "Version": "0.0.0.1",
     "Codes": [
       {
+        "StringValue": "awareness_creation",
+        "DisplayText": "awareness creation",
+        "VisibleInCoda": true,
+        "NumericValue": 0,
+        "CodeID": "code-533debf6",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "past_successful_strategies",
+        "DisplayText": "past successful strategies",
+        "VisibleInCoda": true,
+        "NumericValue": 1,
+        "CodeID": "code-7354d19a",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "policy_and_regulations",
+        "DisplayText": "policy and regulations",
+        "VisibleInCoda": true,
+        "NumericValue": 2,
+        "CodeID": "code-170ef7c9",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "water_for_irrigation",
+        "DisplayText": "water for irrigation",
+        "VisibleInCoda": true,
+        "NumericValue": 3,
+        "CodeID": "code-f0552708",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "provide_extension_officers_experts",
+        "DisplayText": "provide extension officers/experts",
+        "VisibleInCoda": true,
+        "NumericValue": 4,
+        "CodeID": "code-d83f24b7",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "availability_of_funds",
+        "DisplayText": "availability of funds",
+        "VisibleInCoda": true,
+        "NumericValue": 5,
+        "CodeID": "code-be9d8856",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "market_availability",
+        "DisplayText": "market availability",
+        "VisibleInCoda": true,
+        "NumericValue": 6,
+        "CodeID": "code-b635a193",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "subsidized_free_inputs",
+        "DisplayText": "subsidized / free inputs",
+        "VisibleInCoda": true,
+        "NumericValue": 7,
+        "CodeID": "code-0069006d",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "capacity_building",
+        "DisplayText": "capacity building",
+        "VisibleInCoda": true,
+        "NumericValue": 8,
+        "CodeID": "code-55204dcd",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "other",
+        "DisplayText": "other",
+        "VisibleInCoda": true,
+        "NumericValue": 9,
+        "CodeID": "code-9bff330e",
+        "CodeType": "Normal"
+      },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
