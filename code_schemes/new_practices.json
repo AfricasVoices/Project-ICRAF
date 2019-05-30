@@ -1,71 +1,231 @@
 {
-    "SchemeID": "Scheme-048fe72c",
-    "Name": "New practices",
-    "Version": "0.0.0.1",
-    "Codes": [
-      {
-        "CodeID": "code-NA-f93d3eb7",
-        "CodeType": "Control",
-        "ControlCode": "NA",
-        "DisplayText": "NA (missing)",
-        "NumericValue": -10,
-        "StringValue": "NA",
-        "VisibleInCoda": false
-      },
-      {
-        "CodeID": "code-NS-2c11b7c9",
-        "CodeType": "Control",
-        "ControlCode": "NS",
-        "DisplayText": "NS (skip)",
-        "NumericValue": -20,
-        "StringValue": "NS",
-        "VisibleInCoda": false
-      },
-      {
-        "CodeID": "code-NC-42f1d983",
-        "CodeType": "Control",
-        "ControlCode": "NC",
-        "DisplayText": "NC (not coded)",
-        "NumericValue": -30,
-        "StringValue": "NC",
-        "VisibleInCoda": true
-      },
-      {
-        "CodeID": "code-NR-5e3eee23",
-        "CodeType": "Control",
-        "ControlCode": "NR",
-        "DisplayText": "NR (not reviewed)",
-        "NumericValue": -40,
-        "StringValue": "NR",
-        "VisibleInCoda": false
-      },
-      {
-        "CodeID": "code-NIC-99631cb8",
-        "CodeType": "Control",
-        "ControlCode": "NIC",
-        "DisplayText": "NIC (not internally consistent)",
-        "NumericValue": -50,
-        "StringValue": "NIC",
-        "VisibleInCoda": false
-      },
-      {
-        "CodeID": "code-STOP-08b832a8",
-        "CodeType": "Control",
-        "ControlCode": "STOP",
-        "DisplayText": "STOP",
-        "NumericValue": -90,
-        "StringValue": "STOP",
-        "VisibleInCoda": true
-      },
-      {
-        "CodeID": "code-WS-adb25603b7af",
-        "CodeType": "Control",
-        "ControlCode": "WS",
-        "DisplayText": "WS (wrong scheme)",
-        "NumericValue": -100,
-        "StringValue": "WS",
-        "VisibleInCoda": true
-      }
-    ]
-  }
-  
+  "SchemeID": "Scheme-048fe72c",
+  "Name": "New practices",
+  "Version": "0.0.0.1",
+  "Codes": [
+    {
+      "StringValue": "tree_planting",
+      "DisplayText": "tree planting",
+      "VisibleInCoda": true,
+      "NumericValue": 0,
+      "CodeID": "code-7e5b11ce",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "use_organic_fertilizers",
+      "DisplayText": "use organic fertilizers",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-e050e638",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "crop_rotation",
+      "DisplayText": "crop rotation",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
+      "CodeID": "code-14018ab4",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "water_harvesting",
+      "DisplayText": "water harvesting",
+      "VisibleInCoda": true,
+      "NumericValue": 3,
+      "CodeID": "code-9f954561",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "use_of_manure",
+      "DisplayText": "use of manure",
+      "VisibleInCoda": true,
+      "NumericValue": 4,
+      "CodeID": "code-3885be1c",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "mulching",
+      "DisplayText": "mulching",
+      "VisibleInCoda": true,
+      "NumericValue": 5,
+      "CodeID": "code-e01e4db9",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "planting_cover_crops",
+      "DisplayText": "planting cover crops",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-1fd83981",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "terracing_gabions",
+      "DisplayText": "terracing/gabions",
+      "VisibleInCoda": true,
+      "NumericValue": 7,
+      "CodeID": "code-cc38d263",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "irrigation",
+      "DisplayText": "irrigation",
+      "VisibleInCoda": true,
+      "NumericValue": 8,
+      "CodeID": "code-e9a57ffe",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "soil_testing",
+      "DisplayText": "soil testing",
+      "VisibleInCoda": true,
+      "NumericValue": 9,
+      "CodeID": "code-07c669cd",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "organic_biological_pest_control_methods",
+      "DisplayText": "organic/biological pest control methods",
+      "VisibleInCoda": true,
+      "NumericValue": 10,
+      "CodeID": "code-b0ad8b73",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "avoid_using_in_organic_fertilizers_products",
+      "DisplayText": "avoid using in organic fertilizers/products",
+      "VisibleInCoda": true,
+      "NumericValue": 11,
+      "CodeID": "code-b872896a",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "use_of_lime",
+      "DisplayText": "use of  lime",
+      "VisibleInCoda": true,
+      "NumericValue": 12,
+      "CodeID": "code-92c6839f",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "fallowing",
+      "DisplayText": "fallowing",
+      "VisibleInCoda": true,
+      "NumericValue": 13,
+      "CodeID": "code-d07a7669",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "digging_dams",
+      "DisplayText": "digging dams",
+      "VisibleInCoda": true,
+      "NumericValue": 14,
+      "CodeID": "code-157fa77d",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "modern_technology",
+      "DisplayText": "modern technology",
+      "VisibleInCoda": true,
+      "NumericValue": 15,
+      "CodeID": "code-8ba006db",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "intercropping",
+      "DisplayText": "intercropping",
+      "VisibleInCoda": true,
+      "NumericValue": 16,
+      "CodeID": "code-0e85b8ce",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "use_of_fertilizers",
+      "DisplayText": "use of fertilizers",
+      "VisibleInCoda": true,
+      "NumericValue": 17,
+      "CodeID": "code-a89575f3",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "other",
+      "DisplayText": "other",
+      "VisibleInCoda": true,
+      "NumericValue": 18,
+      "CodeID": "code-55ee815a",
+      "CodeType": "Normal"
+    },
+    {
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control",
+      "ControlCode": "NA",
+      "DisplayText": "NA (missing)",
+      "NumericValue": -10,
+      "StringValue": "NA",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)",
+      "NumericValue": -20,
+      "StringValue": "NS",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)",
+      "NumericValue": -30,
+      "StringValue": "NC",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "ControlCode": "NR",
+      "DisplayText": "NR (not reviewed)",
+      "NumericValue": -40,
+      "StringValue": "NR",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)",
+      "NumericValue": -50,
+      "StringValue": "NIC",
+      "VisibleInCoda": false
+    },
+    {
+      "StringValue": "Noise_Other_Project",
+      "ControlCode": "NOP",
+      "DisplayText": "Noise (Other Project)",
+      "VisibleInCoda": true,
+      "CodeID": "code-NOP-4eb70633",
+      "NumericValue": -60,
+      "CodeType": "Control"
+    },
+    {
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "NumericValue": -90,
+      "StringValue": "STOP",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)",
+      "NumericValue": -100,
+      "StringValue": "WS",
+      "VisibleInCoda": true
+    }
+  ]
+}
