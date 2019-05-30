@@ -4,6 +4,78 @@
     "Version": "0.0.0.1",
     "Codes": [
       {
+        "StringValue": "high_cost",
+        "DisplayText": "high cost",
+        "VisibleInCoda": true,
+        "NumericValue": 0,
+        "CodeID": "code-0d079c25",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "ignorance",
+        "DisplayText": "ignorance",
+        "VisibleInCoda": true,
+        "NumericValue": 1,
+        "CodeID": "code-c14b1575",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "lack_of_knowledge",
+        "DisplayText": "lack of knowledge",
+        "VisibleInCoda": true,
+        "NumericValue": 2,
+        "CodeID": "code-00985dac",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "lack_of_funds",
+        "DisplayText": "lack of funds",
+        "VisibleInCoda": true,
+        "NumericValue": 3,
+        "CodeID": "code-e3c9c74e",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "absence_of_extension_officers",
+        "DisplayText": "absence of extension officers",
+        "VisibleInCoda": true,
+        "NumericValue": 4,
+        "CodeID": "code-8902c4a9",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "weather_climate_challenges",
+        "DisplayText": "Weather/Climate challenges",
+        "VisibleInCoda": true,
+        "NumericValue": 5,
+        "CodeID": "code-0b151a05",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "don_t_know_solutions",
+        "DisplayText": "don't know solutions",
+        "VisibleInCoda": true,
+        "NumericValue": 6,
+        "CodeID": "code-248c2249",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "lack_of_support",
+        "DisplayText": "lack of support",
+        "VisibleInCoda": true,
+        "NumericValue": 7,
+        "CodeID": "code-ec000f30",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "other",
+        "DisplayText": "Other",
+        "VisibleInCoda": true,
+        "NumericValue": 8,
+        "CodeID": "code-afbfb2f1",
+        "CodeType": "Normal"
+      },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
