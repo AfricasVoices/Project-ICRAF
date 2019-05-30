@@ -104,14 +104,14 @@
            ]
        },
 	    {
-           "DisplayText": "garisa",
+           "DisplayText": "garissa",
            "VisibleInCoda": true,
            "NumericValue": 9,
            "CodeID": "code-915318fe",
            "CodeType": "Normal",
-           "StringValue": "garisa",
+           "StringValue": "garissa",
            "MatchValues": [
-               "garisa"
+               "garissa"
            ]
        },
 	   {
