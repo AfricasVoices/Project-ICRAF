@@ -45,7 +45,7 @@
       },
       {
         "StringValue": "weather_climate_challenges",
-        "DisplayText": "Weather/Climate challenges",
+        "DisplayText": "weather/climate challenges",
         "VisibleInCoda": true,
         "NumericValue": 5,
         "CodeID": "code-0b151a05",
@@ -69,10 +69,18 @@
       },
       {
         "StringValue": "other",
-        "DisplayText": "Other",
+        "DisplayText": "other",
         "VisibleInCoda": true,
         "NumericValue": 8,
         "CodeID": "code-afbfb2f1",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "have_negative_impacts",
+        "DisplayText": "have_negative_impacts",
+        "VisibleInCoda": true,
+        "NumericValue": 9,
+        "CodeID": "code-50dda632",
         "CodeType": "Normal"
       },
       {
