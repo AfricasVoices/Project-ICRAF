@@ -61,7 +61,7 @@
       },
       {
         "StringValue": "subsidized_free_inputs",
-        "DisplayText": "subsidized / free inputs",
+        "DisplayText": "subsidized/free inputs",
         "VisibleInCoda": true,
         "NumericValue": 7,
         "CodeID": "code-0069006d",
