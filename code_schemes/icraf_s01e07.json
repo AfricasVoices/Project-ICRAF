@@ -1,86 +1,86 @@
 {
-    "SchemeID": "Scheme-405967ea",
-    "Name": "New Practices Implementation Challenges",
+    "SchemeID": "Scheme-a188ce03",
+    "Name": "ICRAF s01e07",
     "Version": "0.0.0.1",
     "Codes": [
       {
-        "StringValue": "high_cost",
-        "DisplayText": "high cost",
+        "StringValue": "awareness_creation",
+        "DisplayText": "awareness creation",
         "VisibleInCoda": true,
         "NumericValue": 0,
-        "CodeID": "code-0d079c25",
+        "CodeID": "code-533debf6",
         "CodeType": "Normal"
       },
       {
-        "StringValue": "ignorance",
-        "DisplayText": "ignorance",
+        "StringValue": "past_successful_strategies",
+        "DisplayText": "past successful strategies",
         "VisibleInCoda": true,
         "NumericValue": 1,
-        "CodeID": "code-c14b1575",
+        "CodeID": "code-7354d19a",
         "CodeType": "Normal"
       },
       {
-        "StringValue": "lack_of_knowledge",
-        "DisplayText": "lack of knowledge",
+        "StringValue": "policy_and_regulations",
+        "DisplayText": "policy and regulations",
         "VisibleInCoda": true,
         "NumericValue": 2,
-        "CodeID": "code-00985dac",
+        "CodeID": "code-170ef7c9",
         "CodeType": "Normal"
       },
       {
-        "StringValue": "lack_of_funds",
-        "DisplayText": "lack of funds",
+        "StringValue": "water_for_irrigation",
+        "DisplayText": "water for irrigation",
         "VisibleInCoda": true,
         "NumericValue": 3,
-        "CodeID": "code-e3c9c74e",
+        "CodeID": "code-f0552708",
         "CodeType": "Normal"
       },
       {
-        "StringValue": "absence_of_extension_officers",
-        "DisplayText": "absence of extension officers",
+        "StringValue": "provide_extension_officers_experts",
+        "DisplayText": "provide extension officers/experts",
         "VisibleInCoda": true,
         "NumericValue": 4,
-        "CodeID": "code-8902c4a9",
+        "CodeID": "code-d83f24b7",
         "CodeType": "Normal"
       },
       {
-        "StringValue": "weather_climate_challenges",
-        "DisplayText": "weather/climate challenges",
+        "StringValue": "availability_of_funds",
+        "DisplayText": "availability of funds",
         "VisibleInCoda": true,
         "NumericValue": 5,
-        "CodeID": "code-0b151a05",
+        "CodeID": "code-be9d8856",
         "CodeType": "Normal"
       },
       {
-        "StringValue": "don_t_know_solutions",
-        "DisplayText": "don't know solutions",
+        "StringValue": "market_availability",
+        "DisplayText": "market availability",
         "VisibleInCoda": true,
         "NumericValue": 6,
-        "CodeID": "code-248c2249",
+        "CodeID": "code-b635a193",
         "CodeType": "Normal"
       },
       {
-        "StringValue": "lack_of_support",
-        "DisplayText": "lack of support",
+        "StringValue": "subsidized_free_inputs",
+        "DisplayText": "subsidized/free inputs",
         "VisibleInCoda": true,
         "NumericValue": 7,
-        "CodeID": "code-ec000f30",
+        "CodeID": "code-0069006d",
+        "CodeType": "Normal"
+      },
+      {
+        "StringValue": "capacity_building",
+        "DisplayText": "capacity building",
+        "VisibleInCoda": true,
+        "NumericValue": 8,
+        "CodeID": "code-55204dcd",
         "CodeType": "Normal"
       },
       {
         "StringValue": "other",
         "DisplayText": "other",
         "VisibleInCoda": true,
-        "NumericValue": 8,
-        "CodeID": "code-afbfb2f1",
-        "CodeType": "Normal"
-      },
-      {
-        "StringValue": "have_negative_impacts",
-        "DisplayText": "have_negative_impacts",
-        "VisibleInCoda": true,
         "NumericValue": 9,
-        "CodeID": "code-50dda632",
+        "CodeID": "code-9bff330e",
         "CodeType": "Normal"
       },
       {
@@ -127,6 +127,15 @@
         "NumericValue": -50,
         "StringValue": "NIC",
         "VisibleInCoda": false
+      },
+      {
+        "StringValue": "Noise_Other_Project",
+        "ControlCode": "NOP",
+        "DisplayText": "Noise (Other Project)",
+        "VisibleInCoda": true,
+        "NumericValue": -60,
+        "CodeID": "code-NOP-4eb70633",
+        "CodeType": "Control"
       },
       {
         "CodeID": "code-STOP-08b832a8",
