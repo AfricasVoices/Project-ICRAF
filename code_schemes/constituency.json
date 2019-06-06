@@ -300,15 +300,15 @@
             "StringValue": "mvita"
         },
         {
-            "DisplayText": "Msamweni",
+            "DisplayText": "Msambweni",
             "VisibleInCoda": true,
             "NumericValue": 27,
             "CodeID": "code-d4004fa0",
             "CodeType": "Normal",
             "MatchValues": [
-                "msamweni"
+                "msambweni"
             ],
-            "StringValue": "msamweni"
+            "StringValue": "msambweni"
         },
         {
             "DisplayText": "Lunga lunga",
@@ -1257,26 +1257,26 @@
             "StringValue": "ndaragwa"
         },
         {
-            "DisplayText": "Gatunda south",
+            "DisplayText": "Gatundu south",
             "VisibleInCoda": true,
             "NumericValue": 114,
             "CodeID": "code-598d589e",
             "CodeType": "Normal",
             "MatchValues": [
-                "gatunda south"
+                "gatundu south"
             ],
-            "StringValue": "gatunda_south"
+            "StringValue": "gatundu_south"
         },
         {
-            "DisplayText": "Gatunda north",
+            "DisplayText": "Gatundu north",
             "VisibleInCoda": true,
             "NumericValue": 115,
             "CodeID": "code-42d7a240",
             "CodeType": "Normal",
             "MatchValues": [
-                "gatunda north"
+                "gatundu north"
             ],
-            "StringValue": "gatunda_north"
+            "StringValue": "gatundu_north"
         },
         {
             "DisplayText": "Juja",
@@ -1895,7 +1895,7 @@
             "StringValue": "naivasha"
         },
         {
-            "DisplayText": "Gilgi",
+            "DisplayText": "Gilgil",
             "VisibleInCoda": true,
             "NumericValue": 174,
             "CodeID": "code-a6f085f5",
@@ -3213,6 +3213,28 @@
                 "mathare"
             ],
             "StringValue": "mathare"
+        },
+        {
+            "DisplayText": "Sotik",
+            "VisibleInCoda": true,
+            "NumericValue": 294,
+            "CodeID": "code-ac044a9a",
+            "CodeType": "Normal",
+            "MatchValues": [
+                "sotik"
+            ],
+            "StringValue": "sotik"
+        },
+        {
+            "DisplayText": "Ainabkoi",
+            "VisibleInCoda": true,
+            "NumericValue": 295,
+            "CodeID": "code-b8bbb7e8",
+            "CodeType": "Normal",
+            "MatchValues": [
+                "ainabkoi"
+            ],
+            "StringValue": "ainabkoi"
         },
         {
 
