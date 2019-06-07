@@ -24,6 +24,7 @@ class CodeSchemes(object):
     GENDER = _open_scheme("gender.json")
     CONSTITUENCY = _open_scheme("constituency.json")
     ORGANIZATIONS = _open_scheme("organizations.json")
+    COUNTY = _open_scheme("county.json")
 
     CURRENT_PRACTICES = _open_scheme("current_practices.json")
     NEW_PRACTICES = _open_scheme("new_practices.json")
@@ -207,9 +208,30 @@ class PipelineConfiguration(object):
                     run_id_field="organizations_run_id",
                     analysis_file_key="organizations_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.ORGANIZATIONS)
+                    code_scheme=CodeSchemes.ORGANIZATIONS),
     ]
-    
+
+    LOCATION_CODING_PLANS = [
+
+        CodingPlan(raw_field="constituency_raw",
+                   id_field="constituency_raw_id",
+                   coded_field="constituency_coded",
+                   time_field="constituency_time",
+                   coda_filename="constituency.json",
+                   analysis_file_key="constituency",
+                   cleaner=None,
+                   code_scheme=CodeSchemes.CONSTITUENCY),
+
+        CodingPlan(raw_field="constituency_raw",
+                   id_field="constituency_raw_id",
+                   coded_field="county_coded",
+                   time_field="constituency_time",
+                   coda_filename="constituency.json",
+                   analysis_file_key="county",
+                   cleaner=None,
+                   code_scheme=CodeSchemes.COUNTY),
+    ]
+
     @staticmethod
     def clean_age_with_range_filter(text):
         """
@@ -222,32 +244,27 @@ class PipelineConfiguration(object):
             #       NC in the case where age is an int but is out of range
         else:
             return Codes.NOT_CODED
-  
+
     DEMOGS_CODING_PLANS = [
-        CodingPlan(raw_field="age_raw",
-                    coded_field="age_coded",
-                    time_field="age_time",
-                    coda_filename="age.json",
-                    analysis_file_key="age",
-                    cleaner=lambda text: PipelineConfiguration.clean_age_with_range_filter(text),
-                    code_scheme=CodeSchemes.AGE),
-
-        CodingPlan(raw_field="constituency_raw",
-                    id_field="constituency_raw_id",
-                    coded_field="constituency_coded",
-                    time_field="constituency_time",
-                    coda_filename="constituency.json",
-                    analysis_file_key="constituency",
-                    cleaner=None,
-                    code_scheme=CodeSchemes.CONSTITUENCY),
-
         CodingPlan(raw_field="gender_raw",
-                    coded_field="gender_coded",
-                    time_field="gender_time",
-                    coda_filename="gender.json",
-                    analysis_file_key="gender",
-                    cleaner=swahili.DemographicCleaner.clean_gender,
-                    code_scheme=CodeSchemes.GENDER),
+                   coded_field="gender_coded",
+                   time_field="gender_time",
+                   coda_filename="gender.json",
+                   analysis_file_key="gender",
+                   cleaner=swahili.DemographicCleaner.clean_gender,
+                   code_scheme=CodeSchemes.GENDER),
+    ]
+
+    DEMOGS_CODING_PLANS.extend(LOCATION_CODING_PLANS)
+
+    DEMOGS_CODING_PLANS.extend([
+        CodingPlan(raw_field="age_raw",
+                   coded_field="age_coded",
+                   time_field="age_time",
+                   coda_filename="age.json",
+                   analysis_file_key="age",
+                   cleaner=lambda text: PipelineConfiguration.clean_age_with_range_filter(text),
+                   code_scheme=CodeSchemes.AGE),
 
         CodingPlan(raw_field="livelihood_raw",
                     coded_field="livelihood_coded",
@@ -255,9 +272,10 @@ class PipelineConfiguration(object):
                     coda_filename="livelihood.json",
                     analysis_file_key="livelihood",
                     cleaner=None,
-                    code_scheme=CodeSchemes.LIVELIHOOD)
-    ]
-    
+                    code_scheme=CodeSchemes.LIVELIHOOD),
+        ]
+    )
+
     def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_test_contact_uuids,
                     rapid_pro_key_remappings, drive_upload=None):
             """
