@@ -235,6 +235,14 @@
         "CodeType": "Normal"
       },
       {
+        "DisplayText": "relevant questions",
+        "VisibleInCoda": true,
+        "NumericValue": 29,
+        "CodeID": "code-cc9a4ed9",
+        "CodeType": "Normal",
+        "StringValue": "relevant_questions"
+      },
+      {
         "StringValue": "NA",
         "ControlCode": "NA",
         "DisplayText": "NA (missing)",
