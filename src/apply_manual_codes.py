@@ -11,6 +11,43 @@ from core_data_modules.util import TimeUtils
 from src.lib import PipelineConfiguration, CodeSchemes
 
 class ApplyManualCodes(object):
+    @staticmethod
+    def _impute_coding_error_codes(user, data):
+        for td in data:
+            coding_error_dict = dict()
+            for plan in PipelineConfiguration.RQA_CODING_PLANS:
+                if f"{plan.coded_field}_WS_correct_dataset" in td:
+                    if td[f"{plan.coded_field}_WS_correct_dataset"]["CodeID"] == \
+                            CodeSchemes.WS_CORRECT_DATASET.get_code_with_control_code(Codes.CODING_ERROR).code_id:
+                        coding_error_dict[plan.coded_field] = [
+                            CleaningUtils.make_label_from_cleaner_code(
+                                plan.code_scheme,
+                                plan.code_scheme.get_code_with_control_code(Codes.CODING_ERROR),
+                                Metadata.get_call_location()
+                            ).to_dict()
+                        ]
+                        if plan.binary_code_scheme is not None:
+                            coding_error_dict[plan.binary_coded_field] = \
+                                CleaningUtils.make_label_from_cleaner_code(
+                                    plan.binary_code_scheme,
+                                    plan.binary_code_scheme.get_code_with_control_code(Codes.CODING_ERROR),
+                                    Metadata.get_call_location()
+                                ).to_dict()
+
+            for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
+                if f"{plan.coded_field}_WS_correct_dataset" in td:
+                    if td[f"{plan.coded_field}_WS_correct_dataset"]["CodeID"] == \
+                            CodeSchemes.WS_CORRECT_DATASET.get_code_with_control_code(Codes.CODING_ERROR).code_id:
+                        coding_error_dict[plan.coded_field] = \
+                            CleaningUtils.make_label_from_cleaner_code(
+                                plan.code_scheme,
+                                plan.code_scheme.get_code_with_control_code(Codes.CODING_ERROR),
+                                Metadata.get_call_location()
+                            ).to_dict()
+
+            td.append_data(coding_error_dict,
+                           Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
+
     @classmethod
     def apply_manual_codes(cls, user, data, coda_input_dir):
         # Merge manually coded radio show and follow up surveys files into the cleaned dataset
