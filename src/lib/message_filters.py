@@ -1,11 +1,9 @@
 from dateutil.parser import isoparse
 
-from core_data_modules.cleaners import Codes
 from core_data_modules.logging import Logger
 
-from .pipeline_configuration import PipelineConfiguration
-
 log = Logger(__name__)
+
 
 # TODO: Move to Core once adapted for and tested on a pipeline that supports multiple radio shows
 class MessageFilters(object):
@@ -30,9 +28,9 @@ class MessageFilters(object):
         return [td for td in messages if start_time <= isoparse(td.get(time_key)) <= end_time]
 
     @staticmethod
-    def filter_noise_other_project(messages):
+    def filter_rqa_noise_other_project(messages):
         """
-        Filters a list of  RQA and followup survey messages which have been labelled as Noise_Other_Project(NOP).
+        Filters out RQA messages which have been labelled as Noise_Other_Project(NOP).
 
         :param messages: List of message objects to filter.
         :type messages: list of TracedData
@@ -40,18 +38,19 @@ class MessageFilters(object):
         :rtype: list of TracedData
         """
         not_noise = []
-        for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
-            for td in messages:
-                if plan.binary_coded_field is not None and td[plan.binary_coded_field]["CodeID"] != plan.code_scheme.get_code_with_control_code(Codes.NOISE_OTHER_PROJECT) and \
-                        td[plan.binary_coded_field]["Checked"]:
-                    not_noise.append(td)
+        for td in messages:
+            if (td["rqa_s01e01_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e01_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e02_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e03_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e04_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e05_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e06_coded"][0]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e07_coded"][0]["CodeID"] != "code-NOP-4eb70633"):
+                not_noise.append(td)
 
-                # Checking for NOP label in datasets that don't have a binary scheme therefore it was labelled in normal scheme
-                if plan.binary_coded_field is None and td[plan.coded_field][0]["CodeID"] != plan.code_scheme.get_code_with_control_code(Codes.NOISE_OTHER_PROJECT) and \
-                        td[plan.coded_field][0]["Checked"]:
-                    not_noise.append(td)
-
-        log.info(f"Filtered out noise messages. "
+        log.info(f"Filtered out rqa noise other project messages. "
                  f"Returning {len(not_noise)}/{len(messages)} messages.")
 
         return not_noise
+
