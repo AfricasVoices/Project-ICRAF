@@ -9,7 +9,7 @@ from google.cloud import storage
 from storage.google_drive import drive_client_wrapper
 
 from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, \
-    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers
+    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers, FilterNOP
 
 from src.lib import PipelineConfiguration
 
@@ -169,10 +169,13 @@ if __name__ == "__main__":
      
      print("Applying manual codes...")
      data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
-    
+
      print("Exporting advert CSV...")
      advert_phone_numbers = AdvertPhoneNumbers.generate(data, phone_number_uuid_table, advert_phone_numbers_csv_output_path)
-     
+
+     print("Filtering out RQA Messages labelled as Noise_Other_Project...")
+     data = FilterNOP.filter_rqa_noise_other_project(data)
+
      print("Generating Analysis CSVs...")
      data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
      
