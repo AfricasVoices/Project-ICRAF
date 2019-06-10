@@ -174,7 +174,6 @@ class ApplyManualCodes(object):
         # TODO: Investigate/address the cause of this.
         sys.setrecursionlimit(10000)
         for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
-            print(plan.raw_field)
             f = None
             try:
                 coda_input_path = path.join(coda_input_dir, plan.coda_filename)
