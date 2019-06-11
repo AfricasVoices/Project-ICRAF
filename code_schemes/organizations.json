@@ -103,6 +103,17 @@
         ]
       },
       {
+        "NumericValue": 9,
+        "CodeID": "code-e5b9ae34",
+        "CodeType": "Normal",
+        "MatchValues": [
+          "faith based"
+        ],
+        "StringValue": "faith_based",
+        "DisplayText": "faith based",
+        "VisibleInCoda": true
+      },
+      {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
@@ -173,6 +184,15 @@
         "NumericValue": -100,
         "StringValue": "WS",
         "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-CE-016c1e22",
+        "CodeType": "Control",
+        "ControlCode": "CE",
+        "DisplayText": "CE (coding error)",
+        "NumericValue": -110,
+        "StringValue": "CE",
+        "VisibleInCoda": false
       }
     ]
   }

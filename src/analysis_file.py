@@ -119,7 +119,7 @@ class AnalysisFile(object):
             show_matrix_keys = list()
             for code in plan.code_scheme.codes:
                 show_matrix_keys.append(f"{plan.analysis_file_key}{code.string_value}")
-        
+
             AnalysisKeys.set_matrix_keys(
                 user, data, show_matrix_keys, plan.code_scheme, plan.coded_field, plan.analysis_file_key)
             matrix_keys.extend(show_matrix_keys)

@@ -137,6 +137,15 @@
         "VisibleInCoda": false
       },
       {
+        "StringValue": "Noise_Other_Project",
+        "ControlCode": "NOP",
+        "DisplayText": "Noise (Other Project)",
+        "VisibleInCoda": true,
+        "NumericValue": -60,
+        "CodeID": "code-NOP-4eb70633",
+        "CodeType": "Control"
+        },
+      {
         "CodeID": "code-STOP-08b832a8",
         "CodeType": "Control",
         "ControlCode": "STOP",
@@ -153,6 +162,15 @@
         "NumericValue": -100,
         "StringValue": "WS",
         "VisibleInCoda": true
+      },
+      {
+        "CodeID": "code-CE-016c1e22",
+        "CodeType": "Control",
+        "ControlCode": "CE",
+        "DisplayText": "CE (coding error)",
+        "NumericValue": -110,
+        "StringValue": "CE",
+        "VisibleInCoda": false
       }
     ]
   }

@@ -20,18 +20,18 @@ CODA_TOOLS_ROOT=$6
 DATA_ROOT=$7
 DATA_BACKUPS_DIR=$8
 
-./1_coda_get.sh "$CODA_PULL_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
+#./1_coda_get.sh "$CODA_PULL_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
 
-./2_fetch_raw_data.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$DATA_ROOT"
+#./2_fetch_raw_data.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$DATA_ROOT"
 
 ./3_generate_outputs.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$DATA_ROOT"
 
-./4_coda_add.sh "$CODA_PUSH_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
+#./4_coda_add.sh "$CODA_PUSH_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
 
 # Backup the project data directory
-DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-HASH=$(git rev-parse HEAD)
-mkdir -p "$DATA_BACKUPS_DIR"
-find "$DATA_ROOT" -type f -name '.DS_Store' -delete
-cd "$DATA_ROOT"
-tar -czvf "$DATA_BACKUPS_DIR/data-$DATE-$HASH.tar.gzip" .
+#DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+#HASH=$(git rev-parse HEAD)
+#mkdir -p "$DATA_BACKUPS_DIR"
+#find "$DATA_ROOT" -type f -name '.DS_Store' -delete
+#cd "$DATA_ROOT"
+#tar -czvf "$DATA_BACKUPS_DIR/data-$DATE-$HASH.tar.gzip" .

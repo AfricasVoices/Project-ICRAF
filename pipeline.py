@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import random
 from urllib.parse import urlparse
 
 from core_data_modules.traced_data.io import TracedDataJsonIO
@@ -9,7 +10,8 @@ from google.cloud import storage
 from storage.google_drive import drive_client_wrapper
 
 from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, \
-    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers, FilterNOP
+    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers, FilterNOP, WSCorrection
+
 
 from src.lib import PipelineConfiguration
 
@@ -155,8 +157,14 @@ if __name__ == "__main__":
      print("Combining Datasets...")
      data = CombineRawDatasets.combine_raw_datasets(user, messages_datasets, [s01_demographics, s01_follow_up_survey])
 
+     random.seed(0)
+     data = random.sample(data, 100)
+
      print("Translating Rapid Pro Keys...")
      data = TranslateRapidProKeys.translate_rapid_pro_keys(user, data, pipeline_configuration, prev_coded_dir_path)
+
+     print("Redirecting WS messages...")
+     data = WSCorrection.move_wrong_scheme_messages(user, data, prev_coded_dir_path)
 
      print("Auto Coding Messages...")
      data = AutoCodeShowMessages.auto_code_show_messages(user, data, icr_output_dir, coded_dir_path)
@@ -166,7 +174,7 @@ if __name__ == "__main__":
 
      print("Auto Coding Surveys...")
      data = AutoCodeSurveys.auto_code_surveys(user, data, phone_number_uuid_table, coded_dir_path)
-     
+
      print("Applying manual codes...")
      data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
 
@@ -178,7 +186,7 @@ if __name__ == "__main__":
 
      print("Generating Analysis CSVs...")
      data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
-     
+
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
      with open(json_output_path, "w") as f:
@@ -208,12 +216,13 @@ if __name__ == "__main__":
           drive_client_wrapper.update_or_create(csv_by_individual_output_path, individuals_csv_drive_dir,
                                                   target_file_name=individuals_csv_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
-          
+
           traced_data_drive_dir = os.path.dirname(pipeline_configuration.drive_upload.traced_data_upload_path)
           traced_data_drive_file_name = os.path.basename(pipeline_configuration.drive_upload.traced_data_upload_path)
           drive_client_wrapper.update_or_create(json_output_path, traced_data_drive_dir,
                                                   target_file_name=traced_data_drive_file_name,
                                                   target_folder_is_shared_with_me=True)
+
      else:
           print("Skipping uploading to Google Drive (because the pipeline configuration json does not contain the key "
                "'DriveUploadPaths')")

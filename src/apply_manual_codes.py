@@ -33,7 +33,7 @@ class ApplyManualCodes(object):
                 if location_code is not None:
                     if not (coda_code.code_id == location_code.code_id or coda_code.control_code == Codes.NOT_REVIEWED):
                         location_code = CodeSchemes.CONSTITUENCY.get_code_with_control_code(
-                            Codes.NOT_INTERNALLY_CONSISTENT)
+                            Codes.CODING_ERROR)
                 elif coda_code.control_code != Codes.NOT_REVIEWED:
                     location_code = coda_code
 
@@ -67,6 +67,42 @@ class ApplyManualCodes(object):
                                                 KenyaLocations.constituency_for_location_code(location)),
                         Metadata.get_call_location()).to_dict()
                 }, Metadata(user, Metadata.get_call_location(), time.time()))
+
+    def _impute_coding_error_codes(user, data):
+        for td in data:
+            coding_error_dict = dict()
+            for plan in PipelineConfiguration.RQA_CODING_PLANS:
+                if f"{plan.coded_field}_WS_correct_dataset" in td:
+                    if td[f"{plan.coded_field}_WS_correct_dataset"]["CodeID"] == \
+                            CodeSchemes.WS_CORRECT_DATASET.get_code_with_control_code(Codes.CODING_ERROR).code_id:
+                        coding_error_dict[plan.coded_field] = [
+                            CleaningUtils.make_label_from_cleaner_code(
+                                plan.code_scheme,
+                                plan.code_scheme.get_code_with_control_code(Codes.CODING_ERROR),
+                                Metadata.get_call_location()
+                            ).to_dict()
+                        ]
+                        if plan.binary_code_scheme is not None:
+                            coding_error_dict[plan.binary_coded_field] = \
+                                CleaningUtils.make_label_from_cleaner_code(
+                                    plan.binary_code_scheme,
+                                    plan.binary_code_scheme.get_code_with_control_code(Codes.CODING_ERROR),
+                                    Metadata.get_call_location()
+                                ).to_dict()
+
+            for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
+                if f"{plan.coded_field}_WS_correct_dataset" in td:
+                    if td[f"{plan.coded_field}_WS_correct_dataset"]["CodeID"] == \
+                            CodeSchemes.WS_CORRECT_DATASET.get_code_with_control_code(Codes.CODING_ERROR).code_id:
+                        coding_error_dict[plan.coded_field] = \
+                            CleaningUtils.make_label_from_cleaner_code(
+                                plan.code_scheme,
+                                plan.code_scheme.get_code_with_control_code(Codes.CODING_ERROR),
+                                Metadata.get_call_location()
+                            ).to_dict()
+
+            td.append_data(coding_error_dict,
+                           Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
 
     @classmethod
     def apply_manual_codes(cls, user, data, coda_input_dir):
@@ -177,7 +213,6 @@ class ApplyManualCodes(object):
             f = None
             try:
                 coda_input_path = path.join(coda_input_dir, plan.coda_filename)
-                print(plan.coda_filename)
                 if path.exists(coda_input_path):
                     f = open(coda_input_path, "r")
                 TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable(
@@ -208,5 +243,8 @@ class ApplyManualCodes(object):
 
         # Set county/constituency/from the coded constituency field.
         cls._impute_location_codes(user, data)
-       
+
+        # Set coding error codes using the coding error field
+        cls._impute_coding_error_codes(user, data)
+
         return data

@@ -44,7 +44,7 @@ class MessageFilters(object):
                     (td["rqa_s01e02_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
                     (td["rqa_s01e03_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
                     (td["rqa_s01e04_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
-                    (td["rqa_s01e05_yes_no_amb_coded"]["CodeID"] != "code-NOP-4eb70633") and \
+                    (td["rqa_s01e05_coded"][0]["CodeID"] != "code-NOP-4eb70633") and \
                     (td["rqa_s01e06_coded"][0]["CodeID"] != "code-NOP-4eb70633") and \
                     (td["rqa_s01e07_coded"][0]["CodeID"] != "code-NOP-4eb70633"):
                 not_noise.append(td)
