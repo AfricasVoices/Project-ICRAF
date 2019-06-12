@@ -33,7 +33,7 @@ class ApplyManualCodes(object):
                 if location_code is not None:
                     if not (coda_code.code_id == location_code.code_id or coda_code.control_code == Codes.NOT_REVIEWED):
                         location_code = CodeSchemes.CONSTITUENCY.get_code_with_control_code(
-                            Codes.NOT_INTERNALLY_CONSISTENT)
+                            Codes.CODING_ERROR)
                 elif coda_code.control_code != Codes.NOT_REVIEWED:
                     location_code = coda_code
 
@@ -70,9 +70,9 @@ class ApplyManualCodes(object):
 
     @classmethod
     def apply_manual_codes(cls, user, data, coda_input_dir):
-        # Merge manually coded radio show and follow up survey files into the cleaned dataset
-        for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
-            rqa_and_follow_up_messages = [td for td in data if plan.raw_field in td]
+        # Merge manually coded radio show files into the cleaned dataset
+        for plan in PipelineConfiguration.RQA_CODING_PLANS:
+            rqa_messages = [td for td in data if plan.raw_field in td]
             coda_input_path = path.join(coda_input_dir, plan.coda_filename)
     
             f = None
@@ -80,21 +80,21 @@ class ApplyManualCodes(object):
                 if path.exists(coda_input_path):
                     f = open(coda_input_path, "r")
                 TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable_multi_coded(
-                    user, rqa_and_follow_up_messages, plan.id_field, {plan.coded_field: plan.code_scheme}, f)
+                    user, rqa_messages, plan.id_field, {plan.coded_field: plan.code_scheme}, f)
                 
                 if plan.binary_code_scheme is not None:
                     if f is not None:
                         f.seek(0)
                     TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable(
-                        user, rqa_and_follow_up_messages, plan.id_field, {plan.binary_coded_field: plan.binary_code_scheme}, f)
+                        user, rqa_messages, plan.id_field, {plan.binary_coded_field: plan.binary_code_scheme}, f)
             finally:
                 if f is not None:
                     f.close()
 
-        # Label the RQA & follow up surveys for which there is no response yet as TRUE MISSING
+        # Label the RQA for which there is no response yet as TRUE MISSING
         for td in data:
             missing_dict = dict()
-            for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
+            for plan in PipelineConfiguration.RQA_CODING_PLANS:
                 if plan.raw_field not in td:
                     na_label = CleaningUtils.make_label_from_cleaner_code(
                         plan.code_scheme, plan.code_scheme.get_code_with_control_code(Codes.TRUE_MISSING),
@@ -169,15 +169,14 @@ class ApplyManualCodes(object):
                                 Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string())
                             )
           
-        # Merge manually coded demog files into the cleaned dataset
+        # Merge manually coded demog and follow-up survey files into the cleaned dataset
         # Recursion depth currently exceeding
         # TODO: Investigate/address the cause of this.
         sys.setrecursionlimit(10000)
-        for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
+        for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
             f = None
             try:
                 coda_input_path = path.join(coda_input_dir, plan.coda_filename)
-                print(plan.coda_filename)
                 if path.exists(coda_input_path):
                     f = open(coda_input_path, "r")
                 TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable(
@@ -186,12 +185,12 @@ class ApplyManualCodes(object):
                 if f is not None:
                     f.close()
         
-        # Not everyone will have answered all of the demographic flows.
-        # Label demographic questions which had no responses as TRUE_MISSING.
+        # Not everyone will have answered all of the demographic and follow-up survey flows flows.
+        # Label demographic and follow-up survey questions which had no responses as TRUE_MISSING.
         # Label data which is just the empty string as NOT_CODED.
         for td in data:
             missing_dict = dict()
-            for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
+            for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
                 if plan.raw_field not in td:
                     na_label = CleaningUtils.make_label_from_cleaner_code(
                         plan.code_scheme, plan.code_scheme.get_code_with_control_code(Codes.TRUE_MISSING),
