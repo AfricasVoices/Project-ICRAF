@@ -94,7 +94,7 @@
             "NumericValue": 8,
             "CodeID": "code-211b8756",
             "MatchValues": [
-                "nyeri"
+                "nyeri town"
             ],
             "CodeType": "Normal",
             "StringValue": "nyeri_town",
@@ -163,9 +163,9 @@
             "CodeID": "code-85b8dad4",
             "CodeType": "Normal",
             "MatchValues": [
-                "Gatanga"
+                "gatanga"
             ],
-            "StringValue": "Gatanga"
+            "StringValue": "gatanga"
         },
         {
             "DisplayText": "kirinyaga central",
@@ -3045,7 +3045,7 @@
             "CodeID": "code-deb1348d",
             "CodeType": "Normal",
             "MatchValues": [
-                "Dagoretti north"
+                "dagoretti north"
             ],
             "StringValue": "dagoretti_north"
         },
@@ -3056,7 +3056,7 @@
             "CodeID": "code-8719fc72",
             "CodeType": "Normal",
             "MatchValues": [
-                "Dagoretti south"
+                "dagoretti south"
             ],
             "StringValue": "dagoretti_south"
         },

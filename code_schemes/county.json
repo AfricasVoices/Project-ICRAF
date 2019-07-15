@@ -33,7 +33,7 @@
             "CodeType": "Normal",
             "StringValue": "muranga",
             "MatchValues": [
-                "murang'a"
+                "muranga"
             ]
         },
 
@@ -89,7 +89,7 @@
            "CodeType": "Normal",
            "StringValue": "elgeyo_marakwet",
            "MatchValues": [
-               "elgeyo marakwet"
+               "elgeyo_marakwet"
            ]
        },
 	   {
@@ -122,7 +122,7 @@
            "CodeType": "Normal",
            "StringValue": "homa_bay",
            "MatchValues": [
-               "homa bay"
+               "homa_bay"
            ]
        },
 	   {
@@ -408,7 +408,7 @@
            "CodeType": "Normal",
            "StringValue": "taita_taveta",
            "MatchValues": [
-               "taita taveta"
+               "taita_taveta"
            ]
        },
 	     {
@@ -419,7 +419,7 @@
            "CodeType": "Normal",
            "StringValue": "tharaka_nithi",
            "MatchValues": [
-               "tharaka nithi"
+               "tharaka_nithi"
            ]
        },
 	    {
@@ -430,7 +430,7 @@
            "CodeType": "Normal",
            "StringValue": "trans_nzoia",
            "MatchValues": [
-               "trans nzoia"
+               "trans_nzoia"
            ]
        },
 	    {
@@ -452,7 +452,7 @@
            "CodeType": "Normal",
            "StringValue": "uasin_gishu",
            "MatchValues": [
-               "uasin gishu"
+               "uasin_gishu"
            ]
        },
 	   {
@@ -485,7 +485,7 @@
            "CodeType": "Normal",
            "StringValue": "west_pokot",
            "MatchValues": [
-               "west pokot"
+               "west_pokot"
            ]
        },
 	    {
@@ -507,7 +507,7 @@
            "CodeType": "Normal",
            "StringValue": "tana_river",
            "MatchValues": [
-               "tana river"
+               "tana_river"
            ]
        },
       {
