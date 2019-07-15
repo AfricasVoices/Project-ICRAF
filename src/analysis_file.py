@@ -87,18 +87,18 @@ class AnalysisFile(object):
                             Metadata(user, Metadata.get_call_location(), time.time()))
         
         # Set the list of raw/coded demog keys
-        demog_keys = []
-        for plan in PipelineConfiguration.DEMOGS_CODING_PLANS:
-            if plan.analysis_file_key is not None and plan.analysis_file_key not in demog_keys:
-                demog_keys.append(plan.analysis_file_key)
-            if plan.raw_field not in demog_keys:
-                demog_keys.append(plan.raw_field)
+        demog_and_follow_up_keys = []
+        for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
+            if plan.analysis_file_key is not None and plan.analysis_file_key not in demog_and_follow_up_keys:
+                demog_and_follow_up_keys.append(plan.analysis_file_key)
+            if plan.raw_field not in demog_and_follow_up_keys:
+                demog_and_follow_up_keys.append(plan.raw_field)
             
-        # Convert demog codes to their string values
+        # Convert demog and follow-up codes to their string values
         for td in data:
             td.append_data(
                 {plan.analysis_file_key: plan.code_scheme.get_code_with_id(td[plan.coded_field]["CodeID"]).string_value
-                    for plan in PipelineConfiguration.DEMOGS_CODING_PLANS 
+                    for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS
                     if plan.analysis_file_key is not None}, 
                     Metadata(user, Metadata.get_call_location(), time.time())
             )
@@ -115,7 +115,7 @@ class AnalysisFile(object):
         # Translate the RQA reason codes to matrix values
         matrix_keys = []
 
-        for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS + PipelineConfiguration.RQA_CODING_PLANS:
+        for plan in PipelineConfiguration.RQA_CODING_PLANS:
             show_matrix_keys = list()
             for code in plan.code_scheme.codes:
                 show_matrix_keys.append(f"{plan.analysis_file_key}{code.string_value}")
@@ -129,10 +129,8 @@ class AnalysisFile(object):
                         if plan.binary_analysis_file_key is not None]
         
         equal_keys = ["uid"]
-        equal_keys.extend(demog_keys)
+        equal_keys.extend(demog_and_follow_up_keys)
         concat_keys = [plan.raw_field for plan in PipelineConfiguration.RQA_CODING_PLANS]
-        follow_up_concat_keys = [plan.raw_field for plan in PipelineConfiguration.FOLLOW_UP_CODING_PLANS]
-        concat_keys.extend(follow_up_concat_keys)
         bool_keys = [
             consent_withdrawn_key,
             "radio_promo",
@@ -143,7 +141,8 @@ class AnalysisFile(object):
             "radio_participation_s01e03",
             "radio_participation_s01e04",
             "radio_participation_s01e05",
-            "radio_participation_s01e06"
+            "radio_participation_s01e06",
+            "radio_participation_s01e07"
         ]
 
         # Export to CSV
@@ -152,15 +151,19 @@ class AnalysisFile(object):
         export_keys.extend(matrix_keys)
         export_keys.extend(binary_keys)
         export_keys.extend(concat_keys)
-        export_keys.extend(demog_keys)
+        export_keys.extend(demog_and_follow_up_keys)
         
-        # Set consent withdrawn based on presence of data coded as "stop"
+        # Set consent withdrawn based on presence of demog data coded as "stop"
         ConsentUtils.determine_consent_withdrawn(
-            user, data, PipelineConfiguration.DEMOGS_CODING_PLANS, consent_withdrawn_key)
+            user, data, PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS, consent_withdrawn_key)
+
+        # Set consent withdrawn based on presence of follow-up survey data coded as "stop"
+        ConsentUtils.determine_consent_withdrawn(
+            user, data, PipelineConfiguration.FOLLOW_UP_CODING_PLANS, consent_withdrawn_key)
     
-        # Set consent withdrawn based on stop codes from radio question and follow up survey codes answers
+        # Set consent withdrawn based on stop codes from radio question codes answers
         for td in data:
-            for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
+            for plan in PipelineConfiguration.RQA_CODING_PLANS:
                 if td[f"{plan.analysis_file_key}{Codes.STOP}"] == Codes.MATRIX_1:
                     td.append_data({consent_withdrawn_key: Codes.TRUE},
                                     Metadata(user, Metadata.get_call_location(), time.time()))
@@ -187,7 +190,7 @@ class AnalysisFile(object):
         # FoldTracedData.fold_iterable_of_traced_data when there are multiple radio shows
         # TODO: Update FoldTracedData to handle NA and NC correctly under multiple radio shows
         for td in folded_data:
-            for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
+            for plan in PipelineConfiguration.RQA_CODING_PLANS:
                 if td.get(plan.raw_field, "") != "":
                     td.append_data({f"{plan.analysis_file_key}{Codes.TRUE_MISSING}": Codes.MATRIX_0},
                                     Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
@@ -197,9 +200,9 @@ class AnalysisFile(object):
                     if key.startswith(plan.analysis_file_key) and not key.endswith(Codes.NOT_CODED) \
                             and td.get(key) == Codes.MATRIX_1:
                         contains_non_nc_key = True
-                    if not contains_non_nc_key:
-                        td.append_data({f"{plan.analysis_file_key}{Codes.NOT_CODED}": Codes.MATRIX_1},
-                                    Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
+                if not contains_non_nc_key:
+                    td.append_data({f"{plan.analysis_file_key}{Codes.NOT_CODED}": Codes.MATRIX_1},
+                                   Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
 
         # Process consent
         ConsentUtils.set_stopped(user, data, consent_withdrawn_key)
