@@ -155,7 +155,7 @@ class AnalysisFile(object):
         
         # Set consent withdrawn based on presence of demog data coded as "stop"
         ConsentUtils.determine_consent_withdrawn(
-            user, data, PipelineConfiguration.DEMOGS_CODING_PLANS, consent_withdrawn_key)
+            user, data, PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS, consent_withdrawn_key)
 
         # Set consent withdrawn based on presence of follow-up survey data coded as "stop"
         ConsentUtils.determine_consent_withdrawn(
