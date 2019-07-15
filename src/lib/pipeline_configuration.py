@@ -40,7 +40,7 @@ class CodeSchemes(object):
 
 class CodingPlan(object):
     def __init__(self, raw_field, coded_field, coda_filename, cleaner=None, code_scheme=None, time_field=None,
-                run_id_field=None, icr_filename=None, analysis_file_key=None, id_field=None,
+                run_id_field=None, icr_filename=None, analysis_file_key=None, id_field=None, ws_code=None,
                 binary_code_scheme=None, binary_coded_field=None, binary_analysis_file_key=None):
         self.raw_field = raw_field
         self.coded_field = coded_field
@@ -51,6 +51,7 @@ class CodingPlan(object):
         self.time_field = time_field
         self.run_id_field = run_id_field
         self.analysis_file_key = analysis_file_key
+        self.ws_code = ws_code
         self.binary_code_scheme = binary_code_scheme
         self.binary_coded_field = binary_coded_field
         self.binary_analysis_file_key = binary_analysis_file_key
@@ -63,7 +64,7 @@ class PipelineConfiguration(object):
     DEV_MODE = False
     
     PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300") 
-    PROJECT_END_DATE = isoparse("2019-05-27T00:00:00+0300")
+    PROJECT_END_DATE = isoparse("2019-06-03T00:00:00+0300")
 
     ADVERT_PHONE_NUMBERS_CODE_FILTERS = ["code-NOP-4eb70633","code-NR-5e3eee23", "code-NA-f93d3eb7","code-STOP-08b832a8"]
 
@@ -78,6 +79,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e01_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E01,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e01"),
                     binary_code_scheme=CodeSchemes.SO1EO1_YES_NO_AMB,
                     binary_coded_field="rqa_s01e01_yes_no_amb_coded",
                     binary_analysis_file_key="rqa_s01e01_yes_no_amb"),
@@ -91,6 +93,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e02_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E02,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e02"),
                     binary_code_scheme=CodeSchemes.SO1EO2_YES_NO_AMB,
                     binary_coded_field="rqa_s01e02_yes_no_amb_coded",
                     binary_analysis_file_key="rqa_s01e02_yes_no_amb"),
@@ -104,6 +107,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e03_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E03,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e03"),
                     binary_code_scheme=CodeSchemes.SO1EO3_YES_NO_AMB,
                     binary_coded_field="rqa_s01e03_yes_no_amb_coded",
                     binary_analysis_file_key="rqa_s01e03_yes_no_amb"),
@@ -117,6 +121,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e04_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E04,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e04"),
                     binary_code_scheme=CodeSchemes.SO1EO4_YES_NO_AMB,
                     binary_coded_field="rqa_s01e04_yes_no_amb_coded",
                     binary_analysis_file_key="rqa_s01e04_yes_no_amb"),
@@ -130,6 +135,7 @@ class PipelineConfiguration(object):
                     analysis_file_key="rqa_s01e05_",
                     cleaner=None,
                     code_scheme=CodeSchemes.ICRAF_S01E05,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e05"),
                     binary_code_scheme=CodeSchemes.SO1EO5_YES_NO_AMB,
                     binary_coded_field="rqa_s01e05_yes_no_amb_coded",
                     binary_analysis_file_key="rqa_s01e05_yes_no_amb"),
@@ -142,6 +148,7 @@ class PipelineConfiguration(object):
                     run_id_field="rqa_s01e06_run_id",
                     analysis_file_key="rqa_s01e06_",
                     cleaner=None,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e06"),
                     code_scheme=CodeSchemes.ICRAF_S01E06),
 
         CodingPlan(raw_field="rqa_s01e07_raw",
@@ -152,6 +159,7 @@ class PipelineConfiguration(object):
                    run_id_field="rqa_s01e07_run_id",
                    analysis_file_key="rqa_s01e07_",
                    cleaner=None,
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e07"),
                    code_scheme=CodeSchemes.ICRAF_S01E07)
         
     ]
@@ -168,6 +176,7 @@ class PipelineConfiguration(object):
                     run_id_field="current_practices_run_id",
                     analysis_file_key="current_practices_",
                     cleaner=None,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("current_practices"),
                     code_scheme=CodeSchemes.CURRENT_PRACTICES),
         
         CodingPlan(raw_field="upper_tana_practices_raw",
@@ -178,6 +187,7 @@ class PipelineConfiguration(object):
                     run_id_field="upper_tana_practices_run_id",
                     analysis_file_key="upper_tana_practices_",
                     cleaner=None,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("upper_tana_practices"),
                     code_scheme=CodeSchemes.UPPER_TANA_PRACTICES),
         
         CodingPlan(raw_field="new_practices_raw",
@@ -188,6 +198,7 @@ class PipelineConfiguration(object):
                     run_id_field="new_practices_run_id",
                     analysis_file_key="new_practices_",
                     cleaner=None,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("new_practices"),
                     code_scheme=CodeSchemes.NEW_PRACTICES),
         
         CodingPlan(raw_field="new_practices_challenges_raw",
@@ -198,6 +209,7 @@ class PipelineConfiguration(object):
                     run_id_field="new_practices_challenges_run_id",
                     analysis_file_key="new_practices_challenges_",
                     cleaner=None,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("new_practices_reasons"),
                     code_scheme=CodeSchemes.NEW_PRACTICES_CHALLENGES),
 
         CodingPlan(raw_field="organizations_raw",
@@ -208,7 +220,8 @@ class PipelineConfiguration(object):
                     run_id_field="organizations_run_id",
                     analysis_file_key="organizations_",
                     cleaner=None,
-                    code_scheme=CodeSchemes.ORGANIZATIONS),
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("organizations"),
+                    code_scheme=CodeSchemes.ORGANIZATIONS)
     ]
 
     LOCATION_CODING_PLANS = [
@@ -246,25 +259,33 @@ class PipelineConfiguration(object):
             return Codes.NOT_CODED
 
     DEMOGS_CODING_PLANS = [
-        CodingPlan(raw_field="gender_raw",
-                   coded_field="gender_coded",
-                   time_field="gender_time",
-                   coda_filename="gender.json",
-                   analysis_file_key="gender",
-                   cleaner=swahili.DemographicCleaner.clean_gender,
-                   code_scheme=CodeSchemes.GENDER),
-    ]
-
-    DEMOGS_CODING_PLANS.extend(LOCATION_CODING_PLANS)
-
-    DEMOGS_CODING_PLANS.extend([
         CodingPlan(raw_field="age_raw",
-                   coded_field="age_coded",
-                   time_field="age_time",
-                   coda_filename="age.json",
-                   analysis_file_key="age",
-                   cleaner=lambda text: PipelineConfiguration.clean_age_with_range_filter(text),
-                   code_scheme=CodeSchemes.AGE),
+                    coded_field="age_coded",
+                    time_field="age_time",
+                    coda_filename="age.json",
+                    analysis_file_key="age",
+                    cleaner=lambda text: PipelineConfiguration.clean_age_with_range_filter(text),
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("age"),
+                    code_scheme=CodeSchemes.AGE),
+
+        CodingPlan(raw_field="constituency_raw",
+                    id_field="constituency_raw_id",
+                    coded_field="constituency_coded",
+                    time_field="constituency_time",
+                    coda_filename="constituency.json",
+                    analysis_file_key="constituency",
+                    cleaner=None,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("constituency"),
+                    code_scheme=CodeSchemes.CONSTITUENCY),
+
+        CodingPlan(raw_field="gender_raw",
+                    coded_field="gender_coded",
+                    time_field="gender_time",
+                    coda_filename="gender.json",
+                    analysis_file_key="gender",
+                    cleaner=swahili.DemographicCleaner.clean_gender,
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("gender"),
+                    code_scheme=CodeSchemes.GENDER),
 
         CodingPlan(raw_field="livelihood_raw",
                     coded_field="livelihood_coded",
@@ -272,10 +293,10 @@ class PipelineConfiguration(object):
                     coda_filename="livelihood.json",
                     analysis_file_key="livelihood",
                     cleaner=None,
-                    code_scheme=CodeSchemes.LIVELIHOOD),
-        ]
-    )
-
+                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("livelihood"),
+                    code_scheme=CodeSchemes.LIVELIHOOD)
+    ]
+    
     def __init__(self, rapid_pro_domain, rapid_pro_token_file_url, rapid_pro_test_contact_uuids,
                     rapid_pro_key_remappings, drive_upload=None):
             """

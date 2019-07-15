@@ -8,7 +8,10 @@
             "DisplayText": "age",
             "StringValue": "age",
             "NumericValue": 1,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "age"
+                ]
         },
         {
             "CodeID": "code-154b6cb7",
@@ -16,7 +19,10 @@
             "DisplayText": "gender",
             "StringValue": "gender",
             "NumericValue": 2,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "gender"
+                ]
         },
         {
             "CodeID": "code-7614a4d3",
@@ -24,7 +30,10 @@
             "DisplayText": "constituency",
             "StringValue": "constituency",
             "NumericValue": 3,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "constituency"
+                ]
         },
         {
             "CodeID": "code-5c2c99ab",
@@ -32,7 +41,10 @@
             "DisplayText": "livelihood",
             "StringValue": "livelihood",
             "NumericValue": 4,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+             "MatchValues": [
+                 "livelihood"
+                ]
         },
         {
             "CodeID": "code-79fb47c6",
@@ -40,7 +52,10 @@
             "DisplayText": "icraf_s01e01",
             "StringValue": "icraf_s01e01",
             "NumericValue": 5,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "s01e01"
+                ]
         },
         {
             "CodeID": "code-9b2fe543",
@@ -48,7 +63,10 @@
             "DisplayText": "icraf_s01e02",
             "StringValue": "icraf_s01e02",
             "NumericValue": 6,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "s01e02"
+                ]
         },
         {
             "CodeID": "code-05d416dc",
@@ -56,7 +74,10 @@
             "DisplayText": "icraf_s01e03",
             "StringValue": "icraf_s01e03",
             "NumericValue": 7,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "s01e03"
+                ]
         },
         {
             "CodeID": "code-9a37d9d9",
@@ -64,7 +85,10 @@
             "DisplayText": "icraf_s01e04",
             "StringValue": "icraf_s01e04",
             "NumericValue": 8,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "s01e04"
+                ]
         },
         {
             "CodeID": "code-95badec6",
@@ -72,7 +96,10 @@
             "DisplayText": "icraf_s01e05",
             "StringValue": "icraf_s01e05",
             "NumericValue": 9,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "s01e05"
+                ]
         },
         {
             "CodeID": "code-a7c5ab1e",
@@ -80,7 +107,21 @@
             "DisplayText": "icraf_s01e06",
             "StringValue": "icraf_s01e06",
             "NumericValue": 10,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "s01e06"
+                ]
+        },
+        {
+            "CodeID": "code-a7c5ab1e",
+            "CodeType": "Normal",
+            "DisplayText": "icraf_s01e07",
+            "StringValue": "icraf_s01e07",
+            "NumericValue": 10,
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "s01e07"
+                ]
         },
         {
             "CodeID": "code-edf427c8",
@@ -88,7 +129,10 @@
             "DisplayText": "current_practices",
             "StringValue": "current_practices",
             "NumericValue": 11,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "current_practices"
+                ]
         },
         {
             "CodeID": "code-a6126141",
@@ -96,7 +140,10 @@
             "DisplayText": "new_practices",
             "StringValue": "new_practices",
             "NumericValue": 12,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "new_practices"
+                ]
         },
         {
             "CodeID": "code-bc791fa7",
@@ -104,7 +151,10 @@
             "DisplayText": "new practices reasons",
             "StringValue": "new_practices_reasons",
             "NumericValue": 13,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "new_practices_reasons"
+                ]
         },
         {
             "CodeID": "code-e301dd0f",
@@ -112,7 +162,10 @@
             "DisplayText": "upper tana practices",
             "StringValue": "upper_tana_practices",
             "NumericValue": 14,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "upper_tana_practices"
+                ]
         },
         {
             "CodeID": "code-699a3616",
@@ -120,7 +173,10 @@
             "DisplayText": "organizations",
             "StringValue": "organizations",
             "NumericValue": 15,
-            "VisibleInCoda": true
+            "VisibleInCoda": true,
+            "MatchValues": [
+                "organizations"
+                ]
         },
         {
             "CodeID": "code-NR-5e3eee23",
