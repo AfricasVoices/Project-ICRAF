@@ -10,7 +10,7 @@ from storage.google_drive import drive_client_wrapper
 
 from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, \
     ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers, WSCorrection
-  
+
 from src.lib import PipelineConfiguration
 
 if __name__ == "__main__":

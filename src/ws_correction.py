@@ -220,7 +220,8 @@ class WSCorrection(object):
                                                      PipelineConfiguration.FOLLOW_UP_CODING_PLANS}
             raw_rqa_fields = {plan.raw_field for plan in PipelineConfiguration.RQA_CODING_PLANS}
 
-            # Add data moving from demogs and follow-up survey fields to the relevant demog_/follow_up/rqa_updates
+
+            # Add data moving from demogs and follow-up survey fields to the relevant demog/follow_up/rqa_updates
             for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.RQA_CODING_PLANS + \
                         PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
                 if plan.raw_field not in demogs_and_follow_up_survey_moves:
@@ -233,9 +234,10 @@ class WSCorrection(object):
                     assert target_field in raw_rqa_fields, f"Raw field '{target_field}' not in any coding plan"
                     rqa_updates.append((target_field, update))
 
-            # Add data moving from demog and follow up survey fields to the relevant demogs_/follow_up_/rqa_updates
+
             for (i, source_field), target_field in rqa_moves.items():
-                for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.RQA_CODING_PLANS:
+                for plan in PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.RQA_CODING_PLANS + \
+                            PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
                     if plan.raw_field == source_field:
                         _td = group[i]
                         update = _WSUpdate(_td[plan.raw_field], _td[plan.time_field], plan.raw_field)
