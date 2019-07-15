@@ -307,6 +307,14 @@
             "StringValue": "there_aren_t_any"
         },
         {
+            "DisplayText": "relevant questions",
+            "VisibleInCoda": true,
+            "NumericValue": 38,
+            "CodeID": "code-25e71de6",
+            "CodeType": "Normal",
+            "StringValue": "relevant_questions"
+        },
+        {
             "ControlCode": "NA",
             "DisplayText": "NA (missing)",
             "VisibleInCoda": false,

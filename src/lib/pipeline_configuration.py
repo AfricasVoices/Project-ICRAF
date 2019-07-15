@@ -24,6 +24,7 @@ class CodeSchemes(object):
     GENDER = _open_scheme("gender.json")
     CONSTITUENCY = _open_scheme("constituency.json")
     ORGANIZATIONS = _open_scheme("organizations.json")
+    COUNTY = _open_scheme("county.json")
 
     CURRENT_PRACTICES = _open_scheme("current_practices.json")
     NEW_PRACTICES = _open_scheme("new_practices.json")
@@ -222,7 +223,28 @@ class PipelineConfiguration(object):
                     ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("organizations"),
                     code_scheme=CodeSchemes.ORGANIZATIONS)
     ]
-    
+
+    LOCATION_CODING_PLANS = [
+
+        CodingPlan(raw_field="constituency_raw",
+                   id_field="constituency_raw_id",
+                   coded_field="constituency_coded",
+                   time_field="constituency_time",
+                   coda_filename="constituency.json",
+                   analysis_file_key="constituency",
+                   cleaner=None,
+                   code_scheme=CodeSchemes.CONSTITUENCY),
+
+        CodingPlan(raw_field="constituency_raw",
+                   id_field="constituency_raw_id",
+                   coded_field="county_coded",
+                   time_field="constituency_time",
+                   coda_filename="constituency.json",
+                   analysis_file_key="county",
+                   cleaner=None,
+                   code_scheme=CodeSchemes.COUNTY),
+    ]
+
     @staticmethod
     def clean_age_with_range_filter(text):
         """
@@ -235,7 +257,7 @@ class PipelineConfiguration(object):
             #       NC in the case where age is an int but is out of range
         else:
             return Codes.NOT_CODED
-  
+
     DEMOGS_CODING_PLANS = [
         CodingPlan(raw_field="age_raw",
                     coded_field="age_coded",
@@ -264,7 +286,7 @@ class PipelineConfiguration(object):
                     cleaner=swahili.DemographicCleaner.clean_gender,
                     ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("gender"),
                     code_scheme=CodeSchemes.GENDER),
-
+      
         CodingPlan(raw_field="livelihood_raw",
                     coded_field="livelihood_coded",
                     time_field="livelihood_time",

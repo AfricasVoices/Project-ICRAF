@@ -4,11 +4,13 @@ import sys
 
 from core_data_modules.cleaners import Codes
 from core_data_modules.cleaners.cleaning_utils import CleaningUtils
+from core_data_modules.cleaners.location_tools import KenyaLocations
 from core_data_modules.traced_data import Metadata
 from core_data_modules.traced_data.io import TracedDataCodaV2IO
 from core_data_modules.util import TimeUtils
 
 from src.lib import PipelineConfiguration, CodeSchemes
+
 
 class ApplyManualCodes(object):
     @staticmethod
@@ -50,7 +52,7 @@ class ApplyManualCodes(object):
 
     @classmethod
     def apply_manual_codes(cls, user, data, coda_input_dir):
-        # Merge manually coded radio show and follow up surveys files into the cleaned dataset
+        # Merge manually coded radio show and follow up survey files into the cleaned dataset
         for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS:
             rqa_and_follow_up_messages = [td for td in data if plan.raw_field in td]
             coda_input_path = path.join(coda_input_dir, plan.coda_filename)
@@ -117,7 +119,7 @@ class ApplyManualCodes(object):
 
                     binary_label_present = binary_label["CodeID"] != \
                                             plan.binary_code_scheme.get_code_with_control_code(
-                                                Codes.NOT_REVIEWED).code_id 
+                                                Codes.NOT_REVIEWED).code_id
 
                     reasons_label_present = len(td[plan.coded_field]) > 1 or td[plan.coded_field][0][
                         "CodeID"] != \
@@ -157,6 +159,7 @@ class ApplyManualCodes(object):
             f = None
             try:
                 coda_input_path = path.join(coda_input_dir, plan.coda_filename)
+                print(plan.coda_filename)
                 if path.exists(coda_input_path):
                     f = open(coda_input_path, "r")
                 TracedDataCodaV2IO.import_coda_2_to_traced_data_iterable(
@@ -166,7 +169,7 @@ class ApplyManualCodes(object):
                     f.close()
         
         # Not everyone will have answered all of the demographic flows.
-        # Label questions which had no responses as TRUE_MISSING.
+        # Label demographic questions which had no responses as TRUE_MISSING.
         # Label data which is just the empty string as NOT_CODED.
         for td in data:
             missing_dict = dict()
@@ -184,5 +187,8 @@ class ApplyManualCodes(object):
                     )
                     missing_dict[plan.coded_field] = nc_label.to_dict()
             td.append_data(missing_dict, Metadata(user, Metadata.get_call_location(), time.time()))
+
+        # Set county/constituency/from the coded constituency field.
+        cls._impute_location_codes(user, data)
        
         return data

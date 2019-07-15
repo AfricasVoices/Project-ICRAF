@@ -147,6 +147,14 @@
             "VisibleInCoda": true
         },
         {
+            "DisplayText": "relevant questions",
+            "VisibleInCoda": true,
+            "NumericValue": 18,
+            "CodeID": "code-ca81bbbf",
+            "CodeType": "Normal",
+            "StringValue": "relevant_questions"
+        },
+        {
             "ControlCode": "NA",
             "DisplayText": "NA (missing)",
             "VisibleInCoda": false,
