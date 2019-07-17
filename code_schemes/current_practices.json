@@ -132,9 +132,33 @@
             "StringValue": "other"
         },
         {
+            "NumericValue": 16,
+            "CodeID": "code-45a19ecb",
+            "CodeType": "Normal",
+            "StringValue": "irrigation",
+            "DisplayText": "irrigation",
+            "VisibleInCoda": true
+        },
+        {
+            "StringValue": "nothing",
+            "DisplayText": "nothing",
+            "VisibleInCoda": true,
+            "NumericValue": 17,
+            "CodeID": "code-cb6e3de9",
+            "CodeType": "Normal"
+        },
+        {
+            "NumericValue": 18,
+            "CodeID": "code-dd7e5963",
+            "CodeType": "Normal",
+            "StringValue": "i_don_t_know",
+            "DisplayText": "i don't know",
+            "VisibleInCoda": true
+        },
+        {
             "DisplayText": "relevant questions",
             "VisibleInCoda": true,
-            "NumericValue": 16,
+            "NumericValue": 19,
             "CodeID": "code-a67283fd",
             "CodeType": "Normal",
             "StringValue": "relevant_questions"
