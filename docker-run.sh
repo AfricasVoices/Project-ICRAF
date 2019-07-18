@@ -68,9 +68,9 @@ if [[ "$PROFILE_CPU" = true ]]; then
 fi
 CMD="pipenv run $PROFILE_CPU_CMD python -u pipeline.py\
     \"$USER\" configurations/pipeline_config.json /credentials/google-cloud-credentials.json /data/phone-number-uuid-table-input.json \
-    /data/icraf-s01e01-input.json  /data/icraf-s01e02-input.json  /data/icraf-s01e03-input.json \
-    /data/icraf-s01e04-input.json  /data/icraf-s01e05-input.json  /data/icraf-s01e06-input.json \
-    //data/icraf-s01e07-input.json /data/icraf-demog-input.json /data/icraf-follow-up-survey-input.json /data/prev-coded \
+    /data/icraf-s01e01-input.jsonl  /data/icraf-s01e02-input.jsonl  /data/icraf-s01e03-input.jsonl \
+    /data/icraf-s01e04-input.jsonl  /data/icraf-s01e05-input.jsonl  /data/icraf-s01e06-input.jsonl \
+    //data/icraf-s01e07-input.jsonl /data/icraf-demog-input.jsonl /data/icraf-follow-up-survey-input.jsonl /data/prev-coded \
     /data/output.json /data/output-icr /data/coded /data/output-messages.csv \
     /data/output-individuals.csv /data/output-production.csv /data/advert-phone-numbers.csv" 
 
@@ -85,15 +85,15 @@ trap finish EXIT
 # Copy input data into the container
 docker cp "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$container:/credentials/google-cloud-credentials.json"
 docker cp "$INPUT_PHONE_UUID_TABLE" "$container:/data/phone-number-uuid-table-input.json"
-docker cp "$INPUT_S01E01" "$container:/data/icraf-s01e01-input.json"
-docker cp "$INPUT_S01E02" "$container:/data/icraf-s01e02-input.json"
-docker cp "$INPUT_S01E03" "$container:/data/icraf-s01e03-input.json"
-docker cp "$INPUT_S01E04" "$container:/data/icraf-s01e04-input.json"
-docker cp "$INPUT_S01E05" "$container:/data/icraf-s01e05-input.json"
-docker cp "$INPUT_S01E06" "$container:/data/icraf-s01e06-input.json"
-docker cp "$INPUT_S01E07" "$container:/data/icraf-s01e07-input.json"
-docker cp "$INPUT_S01_DEMOG" "$container:/data/icraf-demog-input.json"
-docker cp "$INPUT_FOLLOW_UP_SURVEY" "$container:/data/icraf-follow-up-survey-input.json"
+docker cp "$INPUT_S01E01" "$container:/data/icraf-s01e01-input.jsonl"
+docker cp "$INPUT_S01E02" "$container:/data/icraf-s01e02-input.jsonl"
+docker cp "$INPUT_S01E03" "$container:/data/icraf-s01e03-input.jsonl"
+docker cp "$INPUT_S01E04" "$container:/data/icraf-s01e04-input.jsonl"
+docker cp "$INPUT_S01E05" "$container:/data/icraf-s01e05-input.jsonl"
+docker cp "$INPUT_S01E06" "$container:/data/icraf-s01e06-input.jsonl"
+docker cp "$INPUT_S01E07" "$container:/data/icraf-s01e07-input.jsonl"
+docker cp "$INPUT_S01_DEMOG" "$container:/data/icraf-demog-input.jsonl"
+docker cp "$INPUT_FOLLOW_UP_SURVEY" "$container:/data/icraf-follow-up-survey-input.jsonl"
 if [[ -d "$PREV_CODED_DIR" ]]; then
     docker cp "$PREV_CODED_DIR" "$container:/data/prev-coded"
 fi
