@@ -83,9 +83,10 @@ class Channels(object):
     }
 
     @staticmethod
-    def timestamp_is_in_ranges(timestamp, ranges):
+    def timestamp_is_in_ranges(timestamp, ranges, matching_ranges):
         for range in ranges:
             if isoparse(range[0]) <= timestamp < isoparse(range[1]):
+                matching_ranges.append(range)
                 return True
         return False
 
@@ -98,26 +99,30 @@ class Channels(object):
 
             # Set channel ranges
             time_range_matches = 0
+            matching_ranges = []
             for key, ranges in cls.CHANNEL_RANGES.items():
-                if cls.timestamp_is_in_ranges(timestamp, ranges):
+                if cls.timestamp_is_in_ranges(timestamp, ranges, matching_ranges):
                     time_range_matches += 1
-                    channel_dict[key] = Codes.TRUE 
+                    channel_dict[key] = Codes.TRUE
                 else:
-                    channel_dict[key] = Codes.FALSE 
-            
-            # Set time as NON_LOGICAL if it doesn't fall in range of the  **sms ad/radio promo/radio-show**
+                    channel_dict[key] = Codes.FALSE
+
+            # Set time as NON_LOGICAL if it doesn't fall in range of the **sms ad/radio promo/radio_show**
             if time_range_matches == 0:
                 # Assert in range of project
                 assert PipelineConfiguration.PROJECT_START_DATE <= timestamp < PipelineConfiguration.PROJECT_END_DATE, \
                     f"Timestamp {td[time_key]} out of range of project"
                 channel_dict[cls.NON_LOGICAL_KEY] = Codes.TRUE
             else:
-                assert time_range_matches == 1, f"Time '{td[time_key]}' matches multiple time ranges"
+                assert time_range_matches == 1, f"Time '{td[time_key]}' matches multiple time ranges{matching_ranges}"
                 channel_dict[cls.NON_LOGICAL_KEY] = Codes.FALSE
 
             # Set show ranges
             for key, ranges in cls.SHOW_RANGES.items():
-                if cls.timestamp_is_in_ranges(timestamp, ranges):
+                if cls.timestamp_is_in_ranges(timestamp, ranges, matching_ranges):
+                    channel_dict[key] = Codes.TRUE
+                else:
                     channel_dict[key] = Codes.FALSE
 
             td.append_data(channel_dict, Metadata(user, Metadata.get_call_location(), time.time()))
+
