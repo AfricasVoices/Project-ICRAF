@@ -114,7 +114,7 @@ class Channels(object):
                     f"Timestamp {td[time_key]} out of range of project"
                 channel_dict[cls.NON_LOGICAL_KEY] = Codes.TRUE
             else:
-                assert time_range_matches == 1, f"Time '{td[time_key]}' matches multiple time ranges{matching_ranges}"
+                assert time_range_matches == 1, f"Time '{td[time_key]}' matches multiple time ranges {matching_ranges}"
                 channel_dict[cls.NON_LOGICAL_KEY] = Codes.FALSE
 
             # Set show ranges
