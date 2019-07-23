@@ -158,7 +158,7 @@ class AnalysisFile(object):
         export_keys.extend(concat_keys)
         export_keys.extend(demog_and_follow_up_keys)
         
-        # Set consent withdrawn based on presence of demog data coded as "stop"
+        # Set consent withdrawn based on presence of demog and follow up data coded as "stop"
         ConsentUtils.determine_consent_withdrawn(
             user, data, PipelineConfiguration.DEMOGS_CODING_PLANS + PipelineConfiguration.FOLLOW_UP_CODING_PLANS, consent_withdrawn_key)
 

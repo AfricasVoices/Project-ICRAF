@@ -9,7 +9,8 @@ from google.cloud import storage
 from storage.google_drive import drive_client_wrapper
 
 from src import CombineRawDatasets, TranslateRapidProKeys, AutoCodeShowMessages, \
-    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers, WSCorrection
+    ProductionFile, AutoCodeSurveys, ApplyManualCodes, AnalysisFile, AdvertPhoneNumbers, WSCorrection, \
+    FilterNOP
 
 from src.lib import PipelineConfiguration
 
@@ -140,16 +141,16 @@ if __name__ == "__main__":
      for i, path in enumerate(message_paths):
           print("Loading Episode {}/{}...".format(i + 1, len(message_paths)))
           with open(path, "r") as f:
-               messages_datasets.append(TracedDataJsonIO.import_json_to_traced_data_iterable(f))
+               messages_datasets.append(TracedDataJsonIO.import_jsonl_to_traced_data_iterable(f))
 
      # Load surveys
      print("Loading Demographics ...")
      with open(s01_demog_input_path, "r") as f:
-          s01_demographics = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+          s01_demographics = TracedDataJsonIO.import_jsonl_to_traced_data_iterable(f)
 
      print("Loading Follow up surveys ...")
      with open(s01_follow_up_survey_input_path, "r") as f:
-          s01_follow_up_survey = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+          s01_follow_up_survey = TracedDataJsonIO.import_jsonl_to_traced_data_iterable(f)
 
      # Add survey data to the messages
      print("Combining Datasets...")
@@ -181,11 +182,11 @@ if __name__ == "__main__":
 
      print("Generating Analysis CSVs...")
      data = AnalysisFile.generate(user, data, csv_by_message_output_path, csv_by_individual_output_path)
-     
+
      print("Writing TracedData to file...")
      IOUtils.ensure_dirs_exist_for_file(json_output_path)
      with open(json_output_path, "w") as f:
-          TracedDataJsonIO.export_traced_data_iterable_to_json(data, f, pretty_print=True)
+          TracedDataJsonIO.export_traced_data_iterable_to_jsonl(data, f)
 
      # Upload to Google Drive, if requested.
      # Note: This should happen as late as possible in order to reduce the risk of the remainder of the pipeline failing

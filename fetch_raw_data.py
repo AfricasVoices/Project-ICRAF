@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     # Download all the runs for each of the radio shows
     for show in SHOWS:
-        output_file_path = f"{raw_data_dir}/{show}.json"
+        output_file_path = f"{raw_data_dir}/{show}.jsonl"
         print(f"Exporting show '{show}' to '{output_file_path}'...")
 
         flow_id = rapid_pro.get_flow_id(show)
@@ -90,11 +90,11 @@ if __name__ == "__main__":
 
         IOUtils.ensure_dirs_exist_for_file(output_file_path)
         with open(output_file_path, "w") as f:
-            TracedDataJsonIO.export_traced_data_iterable_to_json(traced_runs, f, pretty_print=True)
+            TracedDataJsonIO.export_traced_data_iterable_to_jsonl(traced_runs, f)
 
     # Download all the runs for each of the surveys
     for survey in SURVEYS:
-        output_file_path = f"{raw_data_dir}/{survey}.json"
+        output_file_path = f"{raw_data_dir}/{survey}.jsonl"
         print(f"Exporting survey '{survey}' to '{output_file_path}'...")
 
         flow_id = rapid_pro.get_flow_id(survey)
@@ -109,4 +109,4 @@ if __name__ == "__main__":
 
         IOUtils.ensure_dirs_exist_for_file(output_file_path)
         with open(output_file_path, "w") as f:
-            TracedDataJsonIO.export_traced_data_iterable_to_json(traced_runs, f, pretty_print=True)
+            TracedDataJsonIO.export_traced_data_iterable_to_jsonl(traced_runs, f)
