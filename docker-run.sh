@@ -19,14 +19,12 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 20 ]]; then
+if [[ $# -ne 12 ]]; then
     echo "Usage: ./docker-run.sh
     [--profile-cpu <profile-output-path>]
-    <user> <google-cloud-credentials-file-path> <phone-number-uuid-table-path>
-    <icraf-s01e01-input-path> <icraf-s01e02-input-path> <icraf-s01e03-input-path> <icraf-s01e04-input-path>
-    <icraf-s01e05-input-path> <icraf-s01e06-input-path> <icraf-s01e07-input-path> <icraf-demog-input-path> <icraf-follow-up-survey-input-path>
-    <prev-coded-dir> <json-output-path> <icr-output-dir> <coded-output-dir> <messages-output-csv> <individuals-output-csv>
-    <production-output-csv> <advert-phone-numbers-csv>"
+    <user> <pipeline-configuration-file-path> <google-cloud-credentials-file-path> <phone-number-uuid-table-path>
+    <raw-data-dir> <prev-coded-dir> <json-output-path> <icr-output-dir> <coded-output-dir> <messages-output-csv>
+    <individuals-output-csv> <production-output-csv> <advert-phone-numbers-csv>"
     exit
 fi
 
@@ -34,23 +32,15 @@ fi
 USER=$1
 GOOGLE_CLOUD_CREDENTIALS_FILE_PATH=$2
 INPUT_PHONE_UUID_TABLE=$3
-INPUT_S01E01=$4
-INPUT_S01E02=$5
-INPUT_S01E03=$6
-INPUT_S01E04=$7
-INPUT_S01E05=$8
-INPUT_S01E06=$9
-INPUT_S01E07=${10}
-INPUT_S01_DEMOG=${11}
-INPUT_FOLLOW_UP_SURVEY=${12}
-PREV_CODED_DIR=${13}
-OUTPUT_JSON=${14}
-OUTPUT_ICR_DIR=${15}
-OUTPUT_AUTO_CODED_DIR=${16}
-OUTPUT_MESSAGES_CSV=${17}
-OUTPUT_INDIVIDUALS_CSV=${18}
-OUTPUT_PRODUCTION_CSV=${19}
-OUTPUT_ADVERT_PHONE_NUMBERS_CSV=${20}
+INPUT_RAW_DATA_DIR=$4
+PREV_CODED_DIR=$5
+OUTPUT_JSON=$6
+OUTPUT_ICR_DIR=$7
+OUTPUT_AUTO_CODED_DIR=$8
+OUTPUT_MESSAGES_CSV=$9
+OUTPUT_INDIVIDUALS_CSV=${10}
+OUTPUT_PRODUCTION_CSV=${11}
+OUTPUT_ADVERT_PHONE_NUMBERS_CSV=${12}
 
 # Build an image for this pipeline stage.
 docker build --build-arg INSTALL_CPU_PROFILER="$PROFILE_CPU" -t "$IMAGE_NAME" .
@@ -66,13 +56,11 @@ if [[ "$PROFILE_CPU" = true ]]; then
     PROFILE_CPU_CMD="pyflame -o /data/cpu.prof -t"
     SYS_PTRACE_CAPABILITY="--cap-add SYS_PTRACE"
 fi
-CMD="pipenv run $PROFILE_CPU_CMD python -u pipeline.py\
-    \"$USER\" configurations/pipeline_config.json /credentials/google-cloud-credentials.json /data/phone-number-uuid-table-input.json \
-    /data/icraf-s01e01-input.jsonl  /data/icraf-s01e02-input.jsonl  /data/icraf-s01e03-input.jsonl \
-    /data/icraf-s01e04-input.jsonl  /data/icraf-s01e05-input.jsonl  /data/icraf-s01e06-input.jsonl \
-    //data/icraf-s01e07-input.jsonl /data/icraf-demog-input.jsonl /data/icraf-follow-up-survey-input.jsonl /data/prev-coded \
+CMD="pipenv run $PROFILE_CPU_CMD python -u pipeline.py \
+    \"$USER\" configurations/pipeline_config.json /credentials/google-cloud-credentials.json \
+    /data/phone-number-uuid-table-input.json /data/raw-data /data/prev-coded \
     /data/output.json /data/output-icr /data/coded /data/output-messages.csv \
-    /data/output-individuals.csv /data/output-production.csv /data/advert-phone-numbers.csv" 
+    /data/output-individuals.csv /data/output-production.csv /data/advert-phone-numbers.csv"
 
 container="$(docker container create ${SYS_PTRACE_CAPABILITY} -w /app "$IMAGE_NAME" /bin/bash -c "$CMD")"
 
@@ -85,15 +73,7 @@ trap finish EXIT
 # Copy input data into the container
 docker cp "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$container:/credentials/google-cloud-credentials.json"
 docker cp "$INPUT_PHONE_UUID_TABLE" "$container:/data/phone-number-uuid-table-input.json"
-docker cp "$INPUT_S01E01" "$container:/data/icraf-s01e01-input.jsonl"
-docker cp "$INPUT_S01E02" "$container:/data/icraf-s01e02-input.jsonl"
-docker cp "$INPUT_S01E03" "$container:/data/icraf-s01e03-input.jsonl"
-docker cp "$INPUT_S01E04" "$container:/data/icraf-s01e04-input.jsonl"
-docker cp "$INPUT_S01E05" "$container:/data/icraf-s01e05-input.jsonl"
-docker cp "$INPUT_S01E06" "$container:/data/icraf-s01e06-input.jsonl"
-docker cp "$INPUT_S01E07" "$container:/data/icraf-s01e07-input.jsonl"
-docker cp "$INPUT_S01_DEMOG" "$container:/data/icraf-demog-input.jsonl"
-docker cp "$INPUT_FOLLOW_UP_SURVEY" "$container:/data/icraf-follow-up-survey-input.jsonl"
+docker cp "$INPUT_RAW_DATA_DIR" "$container:/data/raw-data"
 if [[ -d "$PREV_CODED_DIR" ]]; then
     docker cp "$PREV_CODED_DIR" "$container:/data/prev-coded"
 fi
