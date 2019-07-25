@@ -15,7 +15,6 @@
     "ac214095-0b42-43d1-9e80-fddf85f4d3c5",
     "1519d5c9-741f-4533-b374-c1cc8d1aa931"
     ],
-
     "ActivationFlowNames" : [
          "icraf_s01_e01_activation",
          "icraf_s01_e02_activation",
@@ -25,7 +24,6 @@
          "icraf_s01_e06_activation",
          "icraf_s01_e07_activation"
     ],
-
     "SurveyFlowNames" : [
         "icraf_s01_demogs",
         "icraf_s01_follow_up_survey"
