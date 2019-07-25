@@ -20,6 +20,8 @@ class CodeSchemes(object):
     ICRAF_S01E05 = _open_scheme("icraf_s01e05.json")
     ICRAF_S01E06 = _open_scheme("icraf_s01e06.json")
     ICRAF_S01E07 = _open_scheme("icraf_s01e07.json")
+    ICRAF_S01E08 = _open_scheme("icraf_s01e08.json")
+
 
     AGE = _open_scheme("age.json")
     LIVELIHOOD = _open_scheme("livelihood.json")
@@ -161,7 +163,18 @@ class PipelineConfiguration(object):
                    analysis_file_key="rqa_s01e07_",
                    cleaner=None,
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e07"),
-                   code_scheme=CodeSchemes.ICRAF_S01E07)
+                   code_scheme=CodeSchemes.ICRAF_S01E07),
+
+        CodingPlan(raw_field="rqa_s01e08_raw",
+                   coded_field="rqa_s01e08_coded",
+                   time_field="sent_on",
+                   coda_filename="s01e08.json",
+                   icr_filename="icraf_s01e08.csv",
+                   run_id_field="rqa_s01e08_run_id",
+                   analysis_file_key="rqa_s01e08_",
+                   cleaner=None,
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("s01e08"),
+                   code_scheme=CodeSchemes.ICRAF_S01E08)
 
     ]
 

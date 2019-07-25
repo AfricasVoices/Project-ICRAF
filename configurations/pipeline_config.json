@@ -23,7 +23,8 @@
          "icraf_s01_e04_activation",
          "icraf_s01_e05_activation",
          "icraf_s01_e06_activation",
-         "icraf_s01_e07_activation"
+         "icraf_s01_e07_activation",
+         "icraf_s01_e08_activation"
     ],
 
     "SurveyFlowNames" : [
@@ -40,7 +41,8 @@
     {"RapidProKey": "Rqa_S01_E05 (Run ID) - icraf_s01_e05_activation", "PipelineKey": "rqa_s01e05_run_id"},
     {"RapidProKey": "Rqa_S01_E06 (Run ID) - icraf_s01_e06_activation", "PipelineKey": "rqa_s01e06_run_id"},
     {"RapidProKey": "Rqa_S01_E07 (Run ID) - icraf_s01_e07_activation", "PipelineKey": "rqa_s01e07_run_id"},
-
+    {"RapidProKey": "Rqa_S01_E08 (Run ID) - icraf_s01_e08_activation", "PipelineKey": "rqa_s01e08_run_id"},
+    
     {"RapidProKey": "Current_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "current_practices_run_id"},
     {"RapidProKey": "New_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_run_id"},
     {"RapidProKey": "Organizations (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_run_id"},
@@ -54,6 +56,7 @@
     {"RapidProKey": "Rqa_S01_E05 (Time) - icraf_s01_e05_activation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Rqa_S01_E06 (Time) - icraf_s01_e06_activation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Rqa_S01_E07 (Time) - icraf_s01_e07_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01_E08 (Time) - icraf_s01_e08_activation", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Gender (Time) - icraf_s01_demogs", "PipelineKey": "gender_time"},
     {"RapidProKey": "Age (Time) - icraf_s01_demogs", "PipelineKey": "age_time"},
