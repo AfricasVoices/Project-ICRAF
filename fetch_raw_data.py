@@ -8,6 +8,8 @@ from core_data_modules.util import PhoneNumberUuidTable, IOUtils
 from google.cloud import storage
 from rapid_pro_tools.rapid_pro_client import RapidProClient
 
+from src.lib import PipelineConfiguration
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetches all the raw data for this project from Rapid Pro. "
                                                  "This script must be run from its parent directory.")
@@ -17,7 +19,7 @@ if __name__ == "__main__":
                         help="Path to a Google Cloud service account credentials file to use to access the "
                              "credentials bucket")
     parser.add_argument("pipeline_configuration_file_path", metavar="pipeline-configuration-file",
-                        help="Path to the pipeline configuration json file"),
+                        help="Path to the pipeline configuration json file")
     parser.add_argument("phone_number_uuid_table_path", metavar="phone-number-uuid-table-path",
                         help="Path to a ")
     parser.add_argument("raw_data_dir", metavar="raw-data-dir",
@@ -31,31 +33,12 @@ if __name__ == "__main__":
     phone_number_uuid_table_path = args.phone_number_uuid_table_path
     raw_data_dir = args.raw_data_dir
 
-    SHOWS = [
-         "icraf_s01_e01_activation",
-         "icraf_s01_e02_activation",
-         "icraf_s01_e03_activation",
-         "icraf_s01_e04_activation",
-         "icraf_s01_e05_activation",
-         "icraf_s01_e06_activation",
-         "icraf_s01_e07_activation"
-    ]
-
-    SURVEYS = [
-        "icraf_s01_demogs",
-        "icraf_s01_follow_up_survey"
-    ]
-
     # Read the settings from the configuration file
     with open(pipeline_configuration_file_path) as f:
-        pipeline_config = json.load(f)
-
-        rapid_pro_domain = pipeline_config["RapidProDomain"]
-        rapid_pro_token_file_url = pipeline_config["RapidProTokenFileURL"]
-        rapid_pro_test_contact_uuids = pipeline_config["RapidProTestContactUUIDs"]
+        pipeline_configuration = PipelineConfiguration.from_configuration_file(f)
 
     # Fetch the Rapid Pro Token from the Google Cloud Storage URL
-    parsed_rapid_pro_token_file_url = urlparse(rapid_pro_token_file_url)
+    parsed_rapid_pro_token_file_url = urlparse(pipeline_configuration.rapid_pro_token_file_url)
     assert parsed_rapid_pro_token_file_url.scheme == "gs", "RapidProTokenFileURL needs to be a gs URL " \
                                                            "(i.e. of the form gs://bucket-name/file)"
     bucket_name = parsed_rapid_pro_token_file_url.netloc
@@ -71,11 +54,11 @@ if __name__ == "__main__":
     with open(phone_number_uuid_table_path) as f:
         phone_number_uuid_table = PhoneNumberUuidTable.load(f)
 
-    rapid_pro = RapidProClient(rapid_pro_domain, rapid_pro_token)
+    rapid_pro = RapidProClient(pipeline_configuration.rapid_pro_domain, rapid_pro_token)
     raw_contacts = rapid_pro.get_raw_contacts()
 
     # Download all the runs for each of the radio shows
-    for show in SHOWS:
+    for show in pipeline_configuration.activation_flow_names:
         output_file_path = f"{raw_data_dir}/{show}.jsonl"
         print(f"Exporting show '{show}' to '{output_file_path}'...")
 
@@ -83,7 +66,7 @@ if __name__ == "__main__":
         raw_runs = rapid_pro.get_raw_runs_for_flow_id(flow_id)
         raw_contacts = rapid_pro.update_raw_contacts_with_latest_modified(raw_contacts)
         traced_runs = rapid_pro.convert_runs_to_traced_data(
-            user, raw_runs, raw_contacts, phone_number_uuid_table, rapid_pro_test_contact_uuids)
+            user, raw_runs, raw_contacts, phone_number_uuid_table, pipeline_configuration.rapid_pro_test_contact_uuids)
 
         with open(phone_number_uuid_table_path, "w") as f:
             phone_number_uuid_table.dump(f)
@@ -92,8 +75,9 @@ if __name__ == "__main__":
         with open(output_file_path, "w") as f:
             TracedDataJsonIO.export_traced_data_iterable_to_jsonl(traced_runs, f)
 
-    # Download all the runs for each of the surveys
-    for survey in SURVEYS:
+
+    # Download all the runs for each of the follow-up and demog surveys
+    for survey in pipeline_configuration.survey_flow_names:
         output_file_path = f"{raw_data_dir}/{survey}.jsonl"
         print(f"Exporting survey '{survey}' to '{output_file_path}'...")
 
@@ -101,7 +85,7 @@ if __name__ == "__main__":
         raw_runs = rapid_pro.get_raw_runs_for_flow_id(flow_id)
         raw_contacts = rapid_pro.update_raw_contacts_with_latest_modified(raw_contacts)
         traced_runs = rapid_pro.convert_runs_to_traced_data(
-            user, raw_runs, raw_contacts, phone_number_uuid_table, rapid_pro_test_contact_uuids)
+            user, raw_runs, raw_contacts, phone_number_uuid_table, pipeline_configuration.rapid_pro_test_contact_uuids)
         traced_runs = rapid_pro.coalesce_traced_runs_by_key(user, traced_runs, "avf_phone_id")
 
         with open(phone_number_uuid_table_path, "w") as f:
