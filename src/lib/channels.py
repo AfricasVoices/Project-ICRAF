@@ -19,7 +19,6 @@ class Channels(object):
     S01E07_KEY = "radio_participation_s01e07"
     S01E08_KEY = "radio_participation_s01e08"
 
-
     # Time ranges expressed in format (start_of_range_inclusive, end_of_range_exclusive)
     RADIO_PROMO_RANGES = [
         ("2019-04-03T00:00:00+0300", "2019-04-05T07:00:00+0300"),
