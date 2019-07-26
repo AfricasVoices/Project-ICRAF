@@ -29,7 +29,6 @@ class ApplyManualCodes(object):
             location_code = None
 
             for plan in PipelineConfiguration.LOCATION_CODING_PLANS:
-                print(plan.coded_field)
                 coda_code = plan.code_scheme.get_code_with_id(td[plan.coded_field]["CodeID"])
                 if location_code is not None:
                     if not (coda_code.code_id == location_code.code_id or coda_code.control_code == Codes.NOT_REVIEWED):
