@@ -27,7 +27,9 @@
     ],
     "SurveyFlowNames" : [
         "icraf_s01_demogs",
-        "icraf_s01_follow_up_survey"
+        "icraf_s01_follow_up_survey",
+        "icraf_s01_follow_up_2_survey",
+        "icraf_s01_evaluation_survey"
     ],
   "RapidProKeyRemappings": [
     {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
@@ -46,6 +48,8 @@
     {"RapidProKey": "Organizations (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_run_id"},
     {"RapidProKey": "Reasons_For_New_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_challenges_run_id"},
     {"RapidProKey": "Upper_Tana_Practices (Run ID) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_run_id"},
+    {"RapidProKey": "Personal_Motivation (Run ID) - icraf_s01_follow_up_2_survey", "PipelineKey": "personal_motivation_run_id"},
+    {"RapidProKey":  "Icraf_S01_Evaluation_Survey (Run ID) - icraf_s01_evaluation_survey", "PipelineKey": "evaluation_run_id"},
 
     {"RapidProKey": "Rqa_S01_E01 (Time) - icraf_s01_e01_activation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Rqa_S01_E02 (Time) - icraf_s01_e02_activation", "PipelineKey": "sent_on"},
@@ -66,6 +70,8 @@
     {"RapidProKey": "Organizations (Time) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_time"},
     {"RapidProKey": "Reasons_For_New_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_challenges_time"},
     {"RapidProKey": "Upper_Tana_Practices (Time) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_time"},
+    {"RapidProKey": "Personal_Motivation (Time) - icraf_s01_follow_up_2_survey", "PipelineKey": "personal_motivation_time"},
+    {"RapidProKey":  "Icraf_S01_Evaluation_Survey (Time) - icraf_s01_evaluation_survey", "PipelineKey": "evaluation_time"},
 
     {"RapidProKey": "Gender (Value) - icraf_s01_demogs", "PipelineKey": "gender_raw"},
     {"RapidProKey": "Age (Value) - icraf_s01_demogs", "PipelineKey": "age_raw"},
@@ -76,7 +82,9 @@
     {"RapidProKey": "New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_raw"},
     {"RapidProKey": "Organizations (Value) - icraf_s01_follow_up_survey", "PipelineKey": "organizations_raw"},
     {"RapidProKey": "Reasons_For_New_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "new_practices_challenges_raw"},
-    {"RapidProKey": "Upper_Tana_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_raw"}   
+    {"RapidProKey": "Upper_Tana_Practices (Value) - icraf_s01_follow_up_survey", "PipelineKey": "upper_tana_practices_raw"},
+    {"RapidProKey": "Personal_Motivation (Value) - icraf_s01_follow_up_2_survey", "PipelineKey": "personal_motivation_raw"},
+    {"RapidProKey":  "Icraf_S01_Evaluation_Survey (Value) - icraf_s01_evaluation_survey", "PipelineKey": "evaluation_raw"}
   ],
   "DriveUpload": {
   "DriveCredentialsFileURL": "gs://avf-credentials/pipeline-runner-service-acct-avf-data-core-64cc71459fe7.json",

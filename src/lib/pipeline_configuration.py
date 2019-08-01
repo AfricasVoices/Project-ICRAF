@@ -34,6 +34,8 @@ class CodeSchemes(object):
     NEW_PRACTICES = _open_scheme("new_practices.json")
     NEW_PRACTICES_CHALLENGES = _open_scheme("new_practices_challenges.json")
     UPPER_TANA_PRACTICES = _open_scheme("upper_tana_practices.json")
+    PERSONAL_MOTIVATION = _open_scheme("personal_motivation.json")
+    EVALUATION = _open_scheme("evaluation.json")
     SO1EO1_YES_NO_AMB = _open_scheme("s01e01_yes_no_amb.json")
     SO1EO2_YES_NO_AMB = _open_scheme("s01e02_yes_no_amb.json")
     SO1EO3_YES_NO_AMB = _open_scheme("s01e03_yes_no_amb.json")
@@ -69,7 +71,7 @@ class PipelineConfiguration(object):
     DEV_MODE = False
 
     PROJECT_START_DATE = isoparse("2019-04-02T00:00:00+0300")
-    PROJECT_END_DATE = isoparse("2019-06-03T00:00:00+0300")
+    PROJECT_END_DATE = isoparse("2019-08-03T00:00:00+0300")
 
     ADVERT_PHONE_NUMBERS_CODE_FILTERS = ["code-NOP-4eb70633", "code-NR-5e3eee23", "code-NA-f93d3eb7",
                                          "code-STOP-08b832a8"]
@@ -235,7 +237,29 @@ class PipelineConfiguration(object):
                    analysis_file_key="organizations",
                    cleaner=None,
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("organizations"),
-                   code_scheme=CodeSchemes.ORGANIZATIONS)
+                   code_scheme=CodeSchemes.ORGANIZATIONS),
+
+        CodingPlan(raw_field="personal_motivation_raw",
+                   coded_field="personal_motivation_coded",
+                   time_field="personal_motivation_time",
+                   coda_filename="personal_motivation.json",
+                   icr_filename="personal_motivation_icr.csv",
+                   run_id_field="personal_motivation_run_id",
+                   analysis_file_key="personal_motivation",
+                   cleaner=None,
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("personal_motivation"),
+                   code_scheme=CodeSchemes.PERSONAL_MOTIVATION),
+
+        CodingPlan(raw_field="evaluation_raw",
+                   coded_field="evaluation_coded",
+                   time_field="evaluation_time",
+                   coda_filename="evaluation.json",
+                   icr_filename="evaluation_icr.csv",
+                   run_id_field="evaluation_run_id",
+                   analysis_file_key="evaluation",
+                   cleaner=None,
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("evaluation"),
+                   code_scheme=CodeSchemes.EVALUATION)
     ]
 
     LOCATION_CODING_PLANS = [
