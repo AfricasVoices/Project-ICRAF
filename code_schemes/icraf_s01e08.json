@@ -4,6 +4,78 @@
   "Version": "0.0.0.1",
   "Codes": [
     {
+      "StringValue": "terracing_and_gabions",
+      "DisplayText": "terracing and gabions",
+      "VisibleInCoda": true,
+      "NumericValue": 0,
+      "CodeID": "code-ff756322",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "planting_cover_crops",
+      "DisplayText": "planting cover crops",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-6d96c1de",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "collective_tree_planting",
+      "DisplayText": "collective tree planting",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
+      "CodeID": "code-533debf6",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "awareness_creation",
+      "DisplayText": "awareness creation",
+      "VisibleInCoda": true,
+      "NumericValue": 3,
+      "CodeID": "code-4851d39d",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "government_initiative",
+      "DisplayText": "government initiative",
+      "VisibleInCoda": true,
+      "NumericValue": 4,
+      "CodeID": "code-09a993c4",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "not_farming_along_the_river",
+      "DisplayText": "not farming along the river",
+      "VisibleInCoda": true,
+      "NumericValue": 5,
+      "CodeID": "code-f986f6b3",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "relevant_questions",
+      "DisplayText": "relevant questions",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-ae6c46c6",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "tree_planting",
+      "DisplayText": "tree planting",
+      "VisibleInCoda": true,
+      "NumericValue": 7,
+      "CodeID": "code-19c1249f",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "other",
+      "DisplayText": "other",
+      "VisibleInCoda": true,
+      "NumericValue": 8,
+      "CodeID": "code-1e090df1",
+      "CodeType": "Normal"
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",
