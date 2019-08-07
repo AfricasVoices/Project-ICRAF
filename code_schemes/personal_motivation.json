@@ -1,8 +1,64 @@
 {
-    "SchemeID": "Scheme-16cec4b6",
+    "SchemeID": "Scheme-16cec4b6-2",
     "Name": "Personal Motivation",
     "Version": "0.0.0.1",
     "Codes": [
+        {
+            "StringValue": "past_successful_strategies",
+            "DisplayText": "past successful strategies",
+            "VisibleInCoda": true,
+            "NumericValue": 0,
+            "CodeID": "code-d0bbe02e",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "awareness_creation",
+            "DisplayText": "awareness creation",
+            "VisibleInCoda": true,
+            "NumericValue": 1,
+            "CodeID": "code-faecbe00",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "provision_of_extension_officers_experts",
+            "DisplayText": "provision of extension officers experts",
+            "VisibleInCoda": true,
+            "NumericValue": 2,
+            "CodeID": "code-89d0c95a",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "subsidized_free_inputs",
+            "DisplayText": "subsidized/free inputs",
+            "VisibleInCoda": true,
+            "NumericValue": 3,
+            "CodeID": "code-93d93c25",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "government_and_other_stakeholders_support",
+            "DisplayText": "government and other stakeholders support",
+            "VisibleInCoda": true,
+            "NumericValue": 4,
+            "CodeID": "code-8dac9bf1",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "availability_of_resources",
+            "DisplayText": "availability of resources",
+            "VisibleInCoda": true,
+            "NumericValue": 5,
+            "CodeID": "code-22462b5e",
+            "CodeType": "Normal"
+        },
+        {
+            "StringValue": "other",
+            "DisplayText": "other",
+            "VisibleInCoda": true,
+            "NumericValue": 6,
+            "CodeID": "code-5d545845",
+            "CodeType": "Normal"
+        },
         {
             "CodeID": "code-NA-f93d3eb7",
             "CodeType": "Control",
@@ -49,14 +105,14 @@
             "VisibleInCoda": false
         },
         {
-        "StringValue": "Noise_Other_Project",
-        "ControlCode": "NOP",
-        "DisplayText": "Noise (Other Project)",
-        "VisibleInCoda": true,
-        "CodeID": "code-NOP-4eb70633",
-        "NumericValue": -60,
-        "CodeType": "Control"
-      },
+            "StringValue": "Noise_Other_Project",
+            "ControlCode": "NOP",
+            "DisplayText": "Noise (Other Project)",
+            "VisibleInCoda": true,
+            "CodeID": "code-NOP-4eb70633",
+            "NumericValue": -60,
+            "CodeType": "Control"
+        },
         {
             "CodeID": "code-STOP-08b832a8",
             "CodeType": "Control",
