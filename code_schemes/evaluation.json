@@ -4,6 +4,134 @@
     "Version": "0.0.0.1",
     "Codes": [
         {
+            "DisplayText": "organize seminars/outreach",
+            "VisibleInCoda": true,
+            "NumericValue": 0,
+            "CodeID": "code-40f15958",
+            "CodeType": "Normal",
+            "StringValue": "organize_seminars_outreach"
+        },
+        {
+            "DisplayText": "pick calls",
+            "VisibleInCoda": true,
+            "NumericValue": 1,
+            "CodeID": "code-756c1fd5",
+            "CodeType": "Normal",
+            "StringValue": "pick_calls"
+        },
+        {
+            "DisplayText": "practical farm demonstration",
+            "VisibleInCoda": true,
+            "NumericValue": 2,
+            "CodeID": "code-e353b08e",
+            "CodeType": "Normal",
+            "StringValue": "practical_farm_demonstration"
+        },
+        {
+            "DisplayText": "increase time for the show",
+            "VisibleInCoda": true,
+            "NumericValue": 3,
+            "CodeID": "code-41cc8ad7",
+            "CodeType": "Normal",
+            "StringValue": "increase_time_for_the_show"
+        },
+        {
+            "DisplayText": "change the time of the show",
+            "VisibleInCoda": true,
+            "NumericValue": 4,
+            "CodeID": "code-7a1b1bd1",
+            "CodeType": "Normal",
+            "StringValue": "change_the_time_of_the_show"
+        },
+        {
+            "DisplayText": "more radio shows",
+            "VisibleInCoda": true,
+            "NumericValue": 5,
+            "CodeID": "code-7a23908d",
+            "CodeType": "Normal",
+            "StringValue": "more_radio_shows"
+        },
+        {
+            "DisplayText": "read more messages on air",
+            "VisibleInCoda": true,
+            "NumericValue": 6,
+            "CodeID": "code-ea298611",
+            "CodeType": "Normal",
+            "StringValue": "read_more_messages_on_air"
+        },
+        {
+            "DisplayText": "increase listener participation",
+            "VisibleInCoda": true,
+            "NumericValue": 7,
+            "CodeID": "code-c22595ad",
+            "CodeType": "Normal",
+            "StringValue": "increase_listener_participation"
+        },
+        {
+            "DisplayText": "invite experts",
+            "VisibleInCoda": true,
+            "NumericValue": 8,
+            "CodeID": "code-46659e0a",
+            "CodeType": "Normal",
+            "StringValue": "invite_experts"
+        },
+        {
+            "DisplayText": "use different stations",
+            "VisibleInCoda": true,
+            "NumericValue": 9,
+            "CodeID": "code-bce153e9",
+            "CodeType": "Normal",
+            "StringValue": "use_different_stations"
+        },
+        {
+            "DisplayText": "invite champion farmers",
+            "VisibleInCoda": true,
+            "NumericValue": 10,
+            "CodeID": "code-5c49d4b2",
+            "CodeType": "Normal",
+            "StringValue": "invite_champion_farmers"
+        },
+        {
+            "DisplayText": "broad coverage of topics",
+            "VisibleInCoda": true,
+            "NumericValue": 11,
+            "CodeID": "code-7a6eac28",
+            "CodeType": "Normal",
+            "StringValue": "broad_coverage_of_topics"
+        },
+        {
+            "DisplayText": "use tv station for visualization",
+            "VisibleInCoda": true,
+            "NumericValue": 12,
+            "CodeID": "code-07fd1807",
+            "CodeType": "Normal",
+            "StringValue": "use_tv_station_for_visualization"
+        },
+        {
+            "DisplayText": "advertise the show more",
+            "VisibleInCoda": true,
+            "NumericValue": 13,
+            "CodeID": "code-e5837d4c",
+            "CodeType": "Normal",
+            "StringValue": "advertise_the_show_more"
+        },
+        {
+            "DisplayText": "compulsory radio shows on farming",
+            "VisibleInCoda": true,
+            "NumericValue": 14,
+            "CodeID": "code-1ca9649f",
+            "CodeType": "Normal",
+            "StringValue": "compulsory_radio_shows_on_farming"
+        },
+        {
+            "DisplayText": "language of broadcast",
+            "VisibleInCoda": true,
+            "NumericValue": 15,
+            "CodeID": "code-bcceb1d1",
+            "CodeType": "Normal",
+            "StringValue": "language_of_broadcast"
+        },
+        {
             "CodeID": "code-NA-f93d3eb7",
             "CodeType": "Control",
             "ControlCode": "NA",
@@ -49,14 +177,14 @@
             "VisibleInCoda": false
         },
         {
-        "StringValue": "Noise_Other_Project",
-        "ControlCode": "NOP",
-        "DisplayText": "Noise (Other Project)",
-        "VisibleInCoda": true,
-        "CodeID": "code-NOP-4eb70633",
-        "NumericValue": -60,
-        "CodeType": "Control"
-      },
+            "StringValue": "Noise_Other_Project",
+            "ControlCode": "NOP",
+            "DisplayText": "Noise (Other Project)",
+            "VisibleInCoda": true,
+            "CodeID": "code-NOP-4eb70633",
+            "NumericValue": -60,
+            "CodeType": "Control"
+        },
         {
             "CodeID": "code-STOP-08b832a8",
             "CodeType": "Control",
