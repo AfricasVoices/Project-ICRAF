@@ -132,6 +132,14 @@
             "StringValue": "language_of_broadcast"
         },
         {
+            "StringValue": "other",
+            "DisplayText": "other",
+            "VisibleInCoda": true,
+            "NumericValue": 16,
+            "CodeID": "code-dcdd940f",
+            "CodeType": "Normal"
+        },
+        {
             "CodeID": "code-NA-f93d3eb7",
             "CodeType": "Control",
             "ControlCode": "NA",
