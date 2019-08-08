@@ -36,12 +36,12 @@
             "StringValue": "increase_time_for_the_show"
         },
         {
-            "DisplayText": "change the time for the show",
+            "DisplayText": "change the time of the show",
             "VisibleInCoda": true,
             "NumericValue": 4,
             "CodeID": "code-7a1b1bd1",
             "CodeType": "Normal",
-            "StringValue": "change_the_time_for_the_show"
+            "StringValue": "change_the_time_of_the_show"
         },
         {
             "DisplayText": "more radio shows",
@@ -60,12 +60,12 @@
             "StringValue": "read_more_messages_on_air"
         },
         {
-            "DisplayText": "increase listeners participation",
+            "DisplayText": "increase listener participation",
             "VisibleInCoda": true,
             "NumericValue": 7,
             "CodeID": "code-c22595ad",
             "CodeType": "Normal",
-            "StringValue": "increase_listeners_participation"
+            "StringValue": "increase_listener_participation"
         },
         {
             "DisplayText": "invite experts",
